@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/DrivingBehaviourMetamodel/src-gen" creationIcons="false"
+    editDirectory="/DrivingBehaviourMetamodel.edit/src-gen" editorDirectory="/DrivingBehaviourMetamodel.editor/src-gen"
+    modelPluginID="DrivingBehaviourMetamodel" modelName="DrivingBehaviourMetamodel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>drivingBehaviourMetamodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="DrivingBehaviourMetamodel" disposableProviderFactory="true"
+      ecorePackage="drivingBehaviourMetamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//DriverType">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//DriverType/Human"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//DriverType/Selfdriving"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//Lanes">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/NormalLane"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/Entry"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/Exit"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/ExitSection"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/EmergencyLane"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/RushHourLane"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Lanes/SecondaryRoad"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Direction/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//Direction/Right"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//CarType">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//CarType/NormalCar"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//CarType/Truck"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//RoadShape">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//RoadShape/Round"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//RoadShape/Straight"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//RoadType">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//RoadType/Highway"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//RoadType/UrbanRoad"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//RoadType/MountainRoad"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="drivingBehaviourMetamodel.ecore#//TrafficType">
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//TrafficType/Congestion"/>
+      <genEnumLiterals ecoreEnumLiteral="drivingBehaviourMetamodel.ecore#//TrafficType/RushHours"/>
+    </genEnums>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Model/driver_profile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Model/vehicle_configuration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Model/environment_background"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Driver_Profile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Driver_Profile/driver_preference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/driverName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/driverType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/patienceValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/lanePreference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/energySpeedRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/riskLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/reactionTime_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/reactionTime_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Profile/reactionTime_precision"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Vehicle_Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/brandName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/colorR_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/colorR_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/colorG_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/colorG_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/colorB_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/colorB_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Vehicle_Configuration/vehicle_type"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Environment_Background">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/roadLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/roadShape"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/totalVehiclePerFrame"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/trafficDensity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/simulationFrameTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/simulationSleepTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Background/possiblevehicles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Background/environment_condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Background/roadIncline"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Driver_Preference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Driver_Preference/driver_emotions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Driver_Preference/knowledge_and_skills"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Preference/name_PreferenceSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Driver_Preference/driving_behaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Driver_Preference/environment_condition"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Knowledge_and_Skill">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Knowledge_and_Skill/drivingSkill"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Knowledge_and_Skill/trafficSignAwareness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Knowledge_and_Skill/regulationAwareness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Knowledge_and_Skill/laneSwitchPreferenceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Knowledge_and_Skill/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Driver_Emotion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Emotion/drowsinessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Emotion/impulseControlLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Emotion/metanlCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driver_Emotion/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Driving_Behaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/prepDistanceForDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/prepDistanceForTurn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/initialSpeed_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/initialSpeed_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/initialSpeed_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/desiredSpeed_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/desiredSpeed_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Driving_Behaviour/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Driving_Behaviour/normal_behaviour"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Normal_Behaviour">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Normal_Behaviour/following"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Normal_Behaviour/lanechanging"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Following">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Following/followingGap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Following/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Following/minGap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Following/forward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Following/backward"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//LaneChanging">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//LaneChanging/laneSwitchSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//LaneChanging/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//LaneChanging/turn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//LaneChanging/gapacceptance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//LaneChanging/environment_condition"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Abnormal_Behaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Abnormal_Behaviour/zigzag_Driving"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Abnormal_Behaviour/risky_Acceleration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Abnormal_Behaviour/risky_Lanechanging"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Abnormal_Behaviour/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Abnormal_Behaviour/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Forward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Forward/acceleration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Forward/deceleration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Forward/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Backward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Backward/backwardSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Backward/backDistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Backward/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Turn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Turn/turnSide"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//GapAcceptance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//GapAcceptance/lagGap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//GapAcceptance/leadGap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//GapAcceptance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Action"/>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Vehicle_Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/maxSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleWidth_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleWidth_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleWidth_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleLength_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleLength_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleLength_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleHeight_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleHeight_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Vehicle_Type/vehicleHeight_precision"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Platoon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/v2vTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/followerCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/resetColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/colorR_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/colorR_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/colorG_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/colorG_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/colorB_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Platoon/colorB_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Platoon/leading_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Platoon/following_vehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Normal_Vehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/resetColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/colorR_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/colorR_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/colorG_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/colorG_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/colorB_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Normal_Vehicle/colorB_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Normal_Vehicle/safety_requirements"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Leading_Vehicle"/>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Following_Vehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Following_Vehicle/headwayMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Following_Vehicle/headwayMax"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Following_Vehicle/frontvehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//PlatoonMember"/>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//PossibleVehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//PossibleVehicle/vehicleType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//PossibleVehicle/amountPercentage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//PossibleVehicle/simulationOrderIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Environment_Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Condition/roadType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Condition/laneAmount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Environment_Condition/name_EnvironmentCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Condition/lane_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Condition/regulations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Condition/weather"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Condition/traffic_condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Environment_Condition/special_condition"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Lane_Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Lane_Type/laneType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Lane_Type/laneCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Lane_Type/laneWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Lane_Type/laneLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Lane_Type/maxSpeedLimitation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Lane_Type/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Lane_Type/regulations"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Regulation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Regulation/legislation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Regulation/courtesy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Regulation/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Safety_Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Safety_Requirement/safeSecond"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Safety_Requirement/safezoneLength_default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Safety_Requirement/safeFrontMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Safety_Requirement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Safety_Requirement/regulations"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Weather">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Weather/slipperiness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Weather/weatherType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Weather/name"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Traffic_Situation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Traffic_Situation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Traffic_Situation/trafficType"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Special_Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Special_Condition/conditionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Special_Condition/collision"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Special_Condition/intersection"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Collision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Collision/recoveryTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Collision/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Collision/obstructions"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Intersection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Intersection/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference drivingBehaviourMetamodel.ecore#//Intersection/traffic_lights"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Obstruction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Obstruction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Obstruction/obstacleLocationX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute drivingBehaviourMetamodel.ecore#//Obstruction/obstacleLocationY"/>
+    </genClasses>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//Traffic_Light"/>
+    <genClasses ecoreClass="drivingBehaviourMetamodel.ecore#//ExceoptionCondition"/>
+  </genPackages>
+</genmodel:GenModel>

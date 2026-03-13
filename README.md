@@ -35,13 +35,14 @@ At the current stage, the repository includes an application to **Intelligent Mo
 TWIMO/
 ├── twimo-core/
 │   └── metamodel/
-│
 ├── twimo.domains/
 │   └── intelligent-mobility/
 │       ├── metamodel/
 │       ├── gui/
-│       └── hdd-instance/
+│       ├── hdd-instance/
+│       │   ├── model/
+│       │   └── code/
+│       └── rde-instance/
 │           ├── model/
 │           └── code/
-│
 └── README.md

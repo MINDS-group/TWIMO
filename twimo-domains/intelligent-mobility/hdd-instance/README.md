@@ -1,4 +1,4 @@
-# HDD Instance
+# TWIMO Intelligent Mobility - HDD Instance
 
 This folder contains a concrete **Intelligent Mobility application scenario** based on the Honda/HDD context.
 

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="drivingBehaviourMetamodel" nsURI="http://www.example.org/drivingBehaviourMetamodel"
+    nsPrefix="drivingBehaviourMetamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver_profile" lowerBound="1"
+        upperBound="-1" eType="#//Driver_Profile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicle_configuration"
+        lowerBound="1" upperBound="-1" eType="#//Vehicle_Configuration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment_background"
+        lowerBound="1" upperBound="-1" eType="#//Environment_Background" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Driver_Profile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver_preference" lowerBound="1"
+        upperBound="-1" eType="#//Driver_Preference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverType" eType="#//DriverType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patienceValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lanePreference" eType="#//Lanes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energySpeedRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="riskLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reactionTime_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reactionTime_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reactionTime_precision"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vehicle_Configuration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="brandName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorR_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorR_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorG_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorG_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicle_type" lowerBound="1"
+        upperBound="-1" eType="#//Vehicle_Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment_Background">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadShape" eType="#//RoadShape"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalVehiclePerFrame" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trafficDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationFrameTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.5"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationSleepTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="possiblevehicles" lowerBound="1"
+        upperBound="-1" eType="#//PossibleVehicle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment_condition"
+        lowerBound="1" upperBound="-1" eType="#//Environment_Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadIncline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Driver_Preference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver_emotions" upperBound="-1"
+        eType="#//Driver_Emotion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knowledge_and_skills" eType="#//Knowledge_and_Skill"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_PreferenceSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driving_behaviour" lowerBound="1"
+        eType="#//Driving_Behaviour" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment_condition"
+        lowerBound="1" eType="#//Environment_Condition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Knowledge_and_Skill">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="drivingSkill" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trafficSignAwareness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regulationAwareness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneSwitchPreferenceLevel"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Driver_Emotion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="drowsinessLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="impulseControlLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metanlCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DriverType">
+    <eLiterals name="Human"/>
+    <eLiterals name="Selfdriving" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Lanes">
+    <eLiterals name="NormalLane"/>
+    <eLiterals name="Entry" value="1"/>
+    <eLiterals name="Exit" value="2"/>
+    <eLiterals name="ExitSection" value="3"/>
+    <eLiterals name="EmergencyLane" value="4"/>
+    <eLiterals name="RushHourLane" value="5"/>
+    <eLiterals name="SecondaryRoad" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Driving_Behaviour">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prepDistanceForDestination"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prepDistanceForTurn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialSpeed_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialSpeed_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialSpeed_precision"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desiredSpeed_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desiredSpeed_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normal_behaviour" lowerBound="1"
+        eType="#//Normal_Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Normal_Behaviour">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="following" lowerBound="1"
+        eType="#//Following" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lanechanging" lowerBound="1"
+        eType="#//LaneChanging" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Following">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="followingGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minGap" eType="#//LaneChanging"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forward" lowerBound="1"
+        eType="#//Forward" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backward" eType="#//Backward"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LaneChanging">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneSwitchSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="turn" lowerBound="1" upperBound="2"
+        eType="#//Turn" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gapacceptance" lowerBound="1"
+        eType="#//GapAcceptance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment_condition"
+        eType="#//Environment_Condition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Abnormal_Behaviour" eSuperTypes="#//Normal_Behaviour">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zigzag_Driving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="risky_Acceleration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="risky_Lanechanging" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Forward" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceleration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deceleration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Backward" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backwardSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backDistance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="turnSide" eType="#//Direction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Direction">
+    <eLiterals name="Left"/>
+    <eLiterals name="Right" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GapAcceptance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lagGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="leadGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Vehicle_Type" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CarType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleWidth_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleWidth_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleWidth_precision"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleLength_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleLength_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleLength_precision"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleHeight_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleHeight_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleHeight_precision"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CarType">
+    <eLiterals name="NormalCar"/>
+    <eLiterals name="Truck" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Platoon" eSuperTypes="#//Vehicle_Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="v2vTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="followerCount" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resetColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorR_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorR_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorG_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorG_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leading_vehicle" lowerBound="1"
+        eType="#//Leading_Vehicle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="following_vehicle" lowerBound="1"
+        upperBound="-1" eType="#//Following_Vehicle" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Normal_Vehicle" eSuperTypes="#//Vehicle_Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resetColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorR_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorR_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorG_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorG_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB_min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB_max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="safety_requirements" lowerBound="1"
+        eType="#//Safety_Requirement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Leading_Vehicle" eSuperTypes="#//PlatoonMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Following_Vehicle" eSuperTypes="#//PlatoonMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="headwayMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="headwayMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="frontvehicle" lowerBound="1"
+        eType="#//PlatoonMember"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlatoonMember" abstract="true" eSuperTypes="#//Normal_Vehicle"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RoadShape">
+    <eLiterals name="Round"/>
+    <eLiterals name="Straight" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PossibleVehicle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleType" eType="#//CarType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amountPercentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationOrderIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment_Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roadType" eType="#//RoadType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_EnvironmentCondition"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lane_type" lowerBound="1"
+        upperBound="-1" eType="#//Lane_Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regulations" upperBound="-1"
+        eType="#//Regulation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="weather" upperBound="-1"
+        eType="#//Weather" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traffic_condition" upperBound="-1"
+        eType="#//Traffic_Situation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="special_condition" upperBound="-1"
+        eType="#//Special_Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RoadType">
+    <eLiterals name="Highway"/>
+    <eLiterals name="UrbanRoad" value="1"/>
+    <eLiterals name="MountainRoad" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lane_Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneType" eType="#//Lanes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="laneLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpeedLimitation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regulations" eType="#//Regulation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regulation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legislation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="courtesy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Safety_Requirement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="safeSecond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="safezoneLength_default"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="safeFrontMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regulations" eType="#//Regulation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Weather">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slipperiness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weatherType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Traffic_Situation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trafficType" eType="#//TrafficType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Special_Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditionName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collision" eType="#//Collision"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intersection" upperBound="-1"
+        eType="#//Intersection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TrafficType">
+    <eLiterals name="Congestion"/>
+    <eLiterals name="RushHours" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Collision" eSuperTypes="#//ExceoptionCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recoveryTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obstructions" upperBound="-1"
+        eType="#//Obstruction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//ExceoptionCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traffic_lights" upperBound="-1"
+        eType="#//Traffic_Light" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Obstruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obstacleLocationX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obstacleLocationY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Traffic_Light"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExceoptionCondition"/>
+</ecore:EPackage>

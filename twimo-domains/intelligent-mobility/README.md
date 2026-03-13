@@ -33,6 +33,9 @@ This folder currently includes:
 
 - `hdd-instance/`  
   a concrete scenario implementation related to the Honda/HDD use case
+  
+- `rde-instance/`  
+  a concrete scenario implementation related to the Real Driver Emission/RDE use case
 
 ---
 

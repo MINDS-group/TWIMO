@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="new_Framework" nsURI="http://www.example.org/new_Framework"
+    nsPrefix="new_Framework">
+  <eClassifiers xsi:type="ecore:EDataType" name="" instanceTypeName="newDataType1"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Phase"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Phase" instanceClassName="java.lang.Object"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Type" instanceTypeName="newDataType3"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Trajectory" instanceTypeName="newDataType4"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BehaviourForecast" instanceTypeName="newDataType5"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="RiskAssessment" instanceTypeName="newDataType6"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ObjectList" instanceTypeName="newDataType7"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="SceneContext" instanceTypeName="newDataType8"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TrackingData" instanceTypeName="newDataType9"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="PathPlan" instanceTypeName="newDataType10"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Decision" instanceTypeName="newDataType11"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Maneuver" instanceTypeName="newDataType12"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="PerformanceMetrics" instanceTypeName="newDataType13"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="SafetyReport" instanceTypeName="newDataType14"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BenchmarkResults" instanceTypeName="newDataType15"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ServiceType" instanceTypeName="newDataType16"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Result" instanceTypeName="newDataType17"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValidationReport" instanceTypeName="newDataType18"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass2"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="DatasetCategory" instanceTypeName="newDataType19"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Data" instanceTypeName="newDataType20"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Connection" instanceTypeName="newDataType21"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="DataStream" instanceTypeName="newDataType22"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValidationResult" instanceTypeName="newDataType23"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Label" instanceTypeName="newDataType24"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Response" instanceTypeName="newDataType25"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Advisory" instanceTypeName="newDataType26"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Explanation" instanceTypeName="newDataType27"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="AttentionMap" instanceTypeName="newDataType28"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Scenario" instanceTypeName="newDataType29"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="List&lt;Evidence>" instanceTypeName="newDataType30"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="NetworkLayer" instanceTypeName="newDataType31"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Action" instanceTypeName="newDataType32"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Goal" instanceTypeName="newDataType33"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Map" instanceTypeName="newDataType34"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Cause" instanceTypeName="newDataType35"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Position" instanceTypeName="newDataType36"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Analysis" instanceTypeName="newDataType37"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="CategoryType">
+    <eLiterals name="LEARNING_WITH_LABELS"/>
+    <eLiterals name="LEARNING_WITHOUT_LABELS" value="1"/>
+    <eLiterals name="LIMITED_LABELS" value="2"/>
+    <eLiterals name="DECISION_MAKING" value="3"/>
+    <eLiterals name="DATA_GENERATION" value="4"/>
+    <eLiterals name="REASONING_LANGUAGE" value="5"/>
+    <eLiterals name="LOGIC_BASED" value="6"/>
+    <eLiterals name="INTEGRATED" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParadigmType">
+    <eLiterals name="SUPERVISED"/>
+    <eLiterals name="UNSUPERVISED" value="1"/>
+    <eLiterals name="SEMI_SELF_SUPERVISED" value="2"/>
+    <eLiterals name="REINFORCEMENT" value="3"/>
+    <eLiterals name="IMITATION" value="4"/>
+    <eLiterals name="GENERATIVE" value="5"/>
+    <eLiterals name="LLM" value="6"/>
+    <eLiterals name="SYMBOLIC" value="7"/>
+    <eLiterals name="HYBRID" value="8"/>
+  </eClassifiers>
+  <eSubpackages name="Digital Twin Engineering Framework">
+    <eClassifiers xsi:type="ecore:EClass" name="DTEMetamodel">
+      <eOperations name="defineEntities"/>
+      <eOperations name="defineGranularity"/>
+      <eOperations name="defineRelationships"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="designPhase" eType="#//Phase.1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildPhase" eType="#//Phase.1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="validatePhase" eType="#//Phase.1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="evolvePhase" eType="#//Phase.1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="governs" eType="#//DigitalTwin/DigitalTwin"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="DigitalTwin">
+    <eClassifiers xsi:type="ecore:EClass" name="DigitalTwin">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeperiod" lowerBound="1"
+          eType="#//DigitalTwin/TimePeriod" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="digitalshadow" eType="#//AIEnanchedDTModel/DigitalShadow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
+          upperBound="-1" eType="#//Model/Model" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimePeriod">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="AIEnanchedDTModel">
+    <eClassifiers xsi:type="ecore:EClass" name="DigitalShadow">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataAndEvidence/DataSource"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Run">
+    <eClassifiers xsi:type="ecore:EClass" name="PredictedRun" eSuperTypes="#//Run/Run">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field_predictedRun" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Run">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="AIBasedServices">
+    <eClassifiers xsi:type="ecore:EClass" name="AIService">
+      <eOperations name="execute" eType="#//Result"/>
+      <eOperations name="validate" eType="#//ValidationReport"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceType" eType="#//ServiceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="uses" eType="#//DataAndEvidence/Dataset"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AIModel">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//DataAndEvidence/Feature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metric" eType="#//DataAndEvidence/Metric"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aiservice" upperBound="-1"
+          eType="#//AIBasedServices/AIService" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aiparadigms" lowerBound="1"
+          upperBound="-1" eType="#//AIBasedServices/AIParadigms"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AICategory">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CategoryType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AIParadigms">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ParadigmType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aicategory" lowerBound="1"
+          upperBound="-1" eType="#//AIBasedServices/AICategory"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Prediction">
+    <eClassifiers xsi:type="ecore:EClass" name="..."/>
+    <eClassifiers xsi:type="ecore:EClass" name="Predictor" eSuperTypes="#//Prediction/PredictionService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="run" eType="#//Run/Run"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PredictionService" eSuperTypes="#//AIBasedServices/AIService">
+      <eOperations name="predictTrajectory" eType="#//Trajectory"/>
+      <eOperations name="predictBehaviour" eType="#//BehaviourForecast"/>
+      <eOperations name="predictRisk" eType="#//RiskAssessment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SupervisedLearning" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eOperations name="train"/>
+      <eOperations name="predict"/>
+      <eOperations name="evaluate"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnsupervisedLearning" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eOperations name="train"/>
+      <eOperations name="cluster"/>
+      <eOperations name="anomalyDetection"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReinforcementLearning" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eOperations name="train"/>
+      <eOperations name="reward"/>
+      <eOperations name="policyUpdate"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Perception">
+    <eClassifiers xsi:type="ecore:EClass" name="SceneUnderstanding" eSuperTypes="#//Perception/PerceptionService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectDetector" eSuperTypes="#//Perception/PerceptionService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PerceptionService" eSuperTypes="#//AIBasedServices/AIService">
+      <eOperations name="detectObject" eType="#//ObjectList"/>
+      <eOperations name="recognizeScenes" eType="#//SceneContext"/>
+      <eOperations name="trackEntities" eType="#//TrackingData"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataset" eType="#//DataAndEvidence/Dataset"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Planning">
+    <eClassifiers xsi:type="ecore:EClass" name="DecisionMaker" eSuperTypes="#//Planning/PlanningService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PathPlanner" eSuperTypes="#//Planning/PlanningService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlanningService" eSuperTypes="#//AIBasedServices/AIService">
+      <eOperations name="generatePath" eType="#//PathPlan"/>
+      <eOperations name="makeDecision" eType="#//Decision"/>
+      <eOperations name="optimizeManeuver" eType="#//Maneuver"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataset" eType="#//DataAndEvidence/Dataset"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Evaluation">
+    <eClassifiers xsi:type="ecore:EClass" name="PerformanceAnalyzer" eSuperTypes="#//Evaluation/EvaluationService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SafetyValidator" eSuperTypes="#//Evaluation/EvaluationService">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EvaluationService" eSuperTypes="#//AIBasedServices/AIService">
+      <eOperations name="assessPerformance" eType="#//PerformanceMetrics"/>
+      <eOperations name="validateSafety" eType="#//SafetyReport"/>
+      <eOperations name="benchmark" eType="#//BenchmarkResults"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataset" eType="#//DataAndEvidence/Dataset"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="validates" eType="#//DataAndEvidence/EvidenceArtifact"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metric" eType="#//DataAndEvidence/Metric"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ApplicationContext">
+    <eClassifiers xsi:type="ecore:EClass" name="DrivingBehaviour">
+      <eOperations name="deploy"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectives" eType="#//ObjectList"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deploys" eType="#//DigitalTwin/DigitalTwin"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="applies" eType="#//SimplifiedIntelligentMobility/MobilitySystem"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Model">
+    <eClassifiers xsi:type="ecore:EClass" name="Model">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="DataAndEvidence">
+    <eClassifiers xsi:type="ecore:EClass" name="Feature">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Metric">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Dataset">
+      <eOperations name="load" eType="#//Data"/>
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//DatasetCategory"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" lowerBound="1"
+          upperBound="-1" eType="#//DataAndEvidence/DataSource" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" lowerBound="1"
+          upperBound="-1" eType="#//DataAndEvidence/Annotation" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataSource">
+      <eOperations name="connect" eType="#//Connection"/>
+      <eOperations name="stream" eType="#//DataStream"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+      <eOperations name="getLabels" eType="#//Label"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotationType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotator" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="label" lowerBound="1"
+          upperBound="-1" eType="#//DataAndEvidence/Label" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EvidenceArtifact">
+      <eOperations name="verify" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataset" lowerBound="1"
+          upperBound="-1" eType="#//DataAndEvidence/Dataset"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationResult" eType="#//ValidationResult"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="provenance" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Label">
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="taxonomy" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Explainability">
+    <eClassifiers xsi:type="ecore:EClass" name="NLInterface">
+      <eOperations name="generateExplanation" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eOperations name="processQuery" eType="#//Response"/>
+      <eOperations name="provideAdvisory" eType="#//Advisory"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xaiengine" lowerBound="1"
+          eType="#//Explainability/XAIEngine"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="explanation" lowerBound="1"
+          upperBound="-1" eType="#//Explainability/Explanation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="advisory" lowerBound="1"
+          upperBound="-1" eType="#//Explainability/Advisory"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queries" eType="#//Evaluation/EvaluationService"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XAIEngine">
+      <eOperations name="explainPrediction" eType="#//Explanation"/>
+      <eOperations name="visualizeAttention" eType="#//AttentionMap"/>
+      <eOperations name="generateCounterfactual" eType="#//Scenario"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="explains" eType="#//Planning/PlanningService"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="explain" eType="#//Prediction/PredictionService"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Explanation">
+      <eOperations name="render" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="explanationType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="references" eType="#//List%3CEvidence%3E"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Advisory">
+      <eOperations name="deliver"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="advisoryType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isGoalDriven" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStimulusDriven" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="reccomendation" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="SimplifiedIntelligentMobility">
+    <eClassifiers xsi:type="ecore:EClass" name="MobilitySystem" eSuperTypes="#//Model/Model">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field_drivingModel" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="environment" lowerBound="1"
+          upperBound="-1" eType="#//SimplifiedIntelligentMobility/Environment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vehicle" lowerBound="1"
+          upperBound="-1" eType="#//SimplifiedIntelligentMobility/Vehicle" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="driver" lowerBound="1"
+          upperBound="-1" eType="#//SimplifiedIntelligentMobility/Driver" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Environment">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Vehicle">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Driver">
+      <eOperations name="method" eType="#//Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//Type"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Federation">
+    <eClassifiers xsi:type="ecore:EClass" name="FederatedDT">
+      <eOperations name="synchronize"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="federationProtocol" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectivityLayer" eType="#//NetworkLayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="integratedsystem" lowerBound="1"
+          upperBound="-1" eType="#//Federation/IntegratedSystem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="federates" eType="#//DigitalTwin/DigitalTwin"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegratedSystem">
+      <eOperations name="integrate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="interoperabilityStandard"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

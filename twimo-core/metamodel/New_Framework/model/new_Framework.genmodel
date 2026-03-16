@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/New_Framework/src-gen" creationIcons="false" editDirectory="/New_Framework.edit/src-gen"
+    editorDirectory="/New_Framework.editor/src-gen" modelPluginID="New_Framework"
+    modelName="New_Framework" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0"
+    copyrightFields="false" usedGenPackages="#//new_Framework/Digital%20Twin%20Engineering%20Framework"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>new_Framework.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="New_Framework" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="new_Framework.ecore#//CategoryType">
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/LEARNING_WITH_LABELS"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/LEARNING_WITHOUT_LABELS"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/LIMITED_LABELS"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/DECISION_MAKING"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/DATA_GENERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/REASONING_LANGUAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/LOGIC_BASED"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//CategoryType/INTEGRATED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="new_Framework.ecore#//ParadigmType">
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/SUPERVISED"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/UNSUPERVISED"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/SEMI_SELF_SUPERVISED"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/REINFORCEMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/IMITATION"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/GENERATIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/LLM"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/SYMBOLIC"/>
+      <genEnumLiterals ecoreEnumLiteral="new_Framework.ecore#//ParadigmType/HYBRID"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Phase.1"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Type"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Trajectory"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//BehaviourForecast"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//RiskAssessment"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//ObjectList"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//SceneContext"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//TrackingData"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//PathPlan"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Decision"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Maneuver"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//PerformanceMetrics"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//SafetyReport"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//BenchmarkResults"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//ServiceType"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Result"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//ValidationReport"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//DatasetCategory"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Data"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Connection"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//DataStream"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//ValidationResult"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Label"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Response"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Advisory"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Explanation"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//AttentionMap"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Scenario"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//List%3CEvidence%3E"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//NetworkLayer"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Action"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Goal"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Map"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Cause"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Position"/>
+    <genDataTypes ecoreDataType="new_Framework.ecore#//Analysis"/>
+    <genClasses ecoreClass="new_Framework.ecore#//Phase"/>
+    <genClasses ecoreClass="new_Framework.ecore#//NewEClass2"/>
+    <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework">
+      <genClasses ecoreClass="new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/designPhase"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/buildPhase"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/validatePhase"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/evolvePhase"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/governs"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/defineEntities"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/defineGranularity"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Digital%20Twin%20Engineering%20Framework/DTEMetamodel/defineRelationships"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage2" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//DigitalTwin">
+      <genClasses ecoreClass="new_Framework.ecore#//DigitalTwin/DigitalTwin">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DigitalTwin/DigitalTwin/field"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//DigitalTwin/DigitalTwin/timeperiod"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//DigitalTwin/DigitalTwin/digitalshadow"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//DigitalTwin/DigitalTwin/model"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DigitalTwin/DigitalTwin/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DigitalTwin/TimePeriod">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DigitalTwin/TimePeriod/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DigitalTwin/TimePeriod/method"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage3" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//AIEnanchedDTModel">
+      <genClasses ecoreClass="new_Framework.ecore#//AIEnanchedDTModel/DigitalShadow">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//AIEnanchedDTModel/DigitalShadow/field"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//AIEnanchedDTModel/DigitalShadow/datasource"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//AIEnanchedDTModel/DigitalShadow/method"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage4" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Run">
+      <genClasses ecoreClass="new_Framework.ecore#//Run/PredictedRun">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Run/PredictedRun/field_predictedRun"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Run/PredictedRun/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Run/Run">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Run/Run/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Run/Run/method"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage5" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//AIBasedServices">
+      <genClasses ecoreClass="new_Framework.ecore#//AIBasedServices/AIService">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//AIBasedServices/AIService/serviceType"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//AIBasedServices/AIService/uses"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//AIBasedServices/AIService/execute"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//AIBasedServices/AIService/validate"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//AIBasedServices/AIModel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//AIBasedServices/AIModel/field"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//AIBasedServices/AIModel/feature"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//AIBasedServices/AIModel/metric"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//AIBasedServices/AIModel/aiservice"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//AIBasedServices/AIModel/aiparadigms"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//AIBasedServices/AIModel/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//AIBasedServices/AICategory">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//AIBasedServices/AICategory/type"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//AIBasedServices/AIParadigms">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//AIBasedServices/AIParadigms/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//AIBasedServices/AIParadigms/aicategory"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage6" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Prediction">
+      <genClasses ecoreClass="new_Framework.ecore#//Prediction/..."/>
+      <genClasses ecoreClass="new_Framework.ecore#//Prediction/Predictor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Prediction/Predictor/field"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Prediction/Predictor/run"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/Predictor/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Prediction/PredictionService">
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/PredictionService/predictTrajectory"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/PredictionService/predictBehaviour"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/PredictionService/predictRisk"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Prediction/SupervisedLearning">
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/SupervisedLearning/train"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/SupervisedLearning/predict"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/SupervisedLearning/evaluate"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Prediction/UnsupervisedLearning">
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/UnsupervisedLearning/train"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/UnsupervisedLearning/cluster"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/UnsupervisedLearning/anomalyDetection"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Prediction/ReinforcementLearning">
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/ReinforcementLearning/train"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/ReinforcementLearning/reward"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Prediction/ReinforcementLearning/policyUpdate"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage7" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Perception">
+      <genClasses ecoreClass="new_Framework.ecore#//Perception/SceneUnderstanding">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Perception/SceneUnderstanding/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Perception/SceneUnderstanding/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Perception/ObjectDetector">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Perception/ObjectDetector/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Perception/ObjectDetector/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Perception/PerceptionService">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Perception/PerceptionService/dataset"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Perception/PerceptionService/detectObject"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Perception/PerceptionService/recognizeScenes"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Perception/PerceptionService/trackEntities"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage8" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Planning">
+      <genClasses ecoreClass="new_Framework.ecore#//Planning/DecisionMaker">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Planning/DecisionMaker/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Planning/DecisionMaker/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Planning/PathPlanner">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Planning/PathPlanner/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Planning/PathPlanner/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Planning/PlanningService">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Planning/PlanningService/dataset"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Planning/PlanningService/generatePath"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Planning/PlanningService/makeDecision"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Planning/PlanningService/optimizeManeuver"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage9" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Evaluation">
+      <genClasses ecoreClass="new_Framework.ecore#//Evaluation/PerformanceAnalyzer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Evaluation/PerformanceAnalyzer/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Evaluation/PerformanceAnalyzer/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Evaluation/SafetyValidator">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Evaluation/SafetyValidator/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Evaluation/SafetyValidator/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Evaluation/EvaluationService">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Evaluation/EvaluationService/dataset"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Evaluation/EvaluationService/validates"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Evaluation/EvaluationService/metric"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Evaluation/EvaluationService/assessPerformance"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Evaluation/EvaluationService/validateSafety"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Evaluation/EvaluationService/benchmark"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage10" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//ApplicationContext">
+      <genClasses ecoreClass="new_Framework.ecore#//ApplicationContext/DrivingBehaviour">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//ApplicationContext/DrivingBehaviour/domain"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//ApplicationContext/DrivingBehaviour/scope"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//ApplicationContext/DrivingBehaviour/objectives"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//ApplicationContext/DrivingBehaviour/deploys"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//ApplicationContext/DrivingBehaviour/applies"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//ApplicationContext/DrivingBehaviour/deploy"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage11" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Model">
+      <genClasses ecoreClass="new_Framework.ecore#//Model/Model">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Model/Model/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Model/Model/method"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage12" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//DataAndEvidence">
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/Feature">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Feature/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/Feature/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/Metric">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Metric/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/Metric/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/Dataset">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Dataset/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Dataset/category"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Dataset/size"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Dataset/description"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//DataAndEvidence/Dataset/datasource"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//DataAndEvidence/Dataset/annotation"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/Dataset/load"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/Dataset/validate"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/DataSource">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/DataSource/sourceType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/DataSource/location"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/DataSource/frequency"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/DataSource/connect"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/DataSource/stream"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/Annotation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Annotation/annotationType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Annotation/annotator"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Annotation/timestamp"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Annotation/confidence"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//DataAndEvidence/Annotation/label"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/Annotation/getLabels"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/EvidenceArtifact">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//DataAndEvidence/EvidenceArtifact/dataset"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/EvidenceArtifact/artifactType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/EvidenceArtifact/validationResult"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/EvidenceArtifact/provenance"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/EvidenceArtifact/timestamp"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/EvidenceArtifact/verify"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//DataAndEvidence/Label">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Label/labelValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//DataAndEvidence/Label/taxonomy"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//DataAndEvidence/Label/validate"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage13" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Explainability">
+      <genClasses ecoreClass="new_Framework.ecore#//Explainability/NLInterface">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Explainability/NLInterface/xaiengine"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Explainability/NLInterface/explanation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Explainability/NLInterface/advisory"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Explainability/NLInterface/queries"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/NLInterface/generateExplanation"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/NLInterface/processQuery"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/NLInterface/provideAdvisory"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Explainability/XAIEngine">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Explainability/XAIEngine/explains"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Explainability/XAIEngine/explain"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/XAIEngine/explainPrediction"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/XAIEngine/visualizeAttention"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/XAIEngine/generateCounterfactual"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Explainability/Explanation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Explanation/explanationType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Explanation/content"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Explanation/confidence"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Explanation/references"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/Explanation/render"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Explainability/Advisory">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Advisory/advisoryType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Advisory/isGoalDriven"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Advisory/isStimulusDriven"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Explainability/Advisory/reccomendation"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Explainability/Advisory/deliver"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage14" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//SimplifiedIntelligentMobility">
+      <genClasses ecoreClass="new_Framework.ecore#//SimplifiedIntelligentMobility/MobilitySystem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//SimplifiedIntelligentMobility/MobilitySystem/field_drivingModel"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//SimplifiedIntelligentMobility/MobilitySystem/environment"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//SimplifiedIntelligentMobility/MobilitySystem/vehicle"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference new_Framework.ecore#//SimplifiedIntelligentMobility/MobilitySystem/driver"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//SimplifiedIntelligentMobility/MobilitySystem/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//SimplifiedIntelligentMobility/Environment">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//SimplifiedIntelligentMobility/Environment/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//SimplifiedIntelligentMobility/Environment/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//SimplifiedIntelligentMobility/Vehicle">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//SimplifiedIntelligentMobility/Vehicle/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//SimplifiedIntelligentMobility/Vehicle/method"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//SimplifiedIntelligentMobility/Driver">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//SimplifiedIntelligentMobility/Driver/field"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//SimplifiedIntelligentMobility/Driver/method"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="NewPackage15" disposableProviderFactory="true" ecorePackage="new_Framework.ecore#//Federation">
+      <genClasses ecoreClass="new_Framework.ecore#//Federation/FederatedDT">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Federation/FederatedDT/federationProtocol"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Federation/FederatedDT/connectivityLayer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Federation/FederatedDT/integratedsystem"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference new_Framework.ecore#//Federation/FederatedDT/federates"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Federation/FederatedDT/synchronize"/>
+      </genClasses>
+      <genClasses ecoreClass="new_Framework.ecore#//Federation/IntegratedSystem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Federation/IntegratedSystem/systemType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute new_Framework.ecore#//Federation/IntegratedSystem/interoperabilityStandard"/>
+        <genOperations ecoreOperation="new_Framework.ecore#//Federation/IntegratedSystem/integrate"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,83 +1,1063 @@
-# HDD Instance Code
+# TWIMO - Digital Twin Framework for Driving Behavior Analysis
 
-This folder contains the **implementation code** for the HDD-based Intelligent Mobility application scenario.
+TWIMO is a **domain-agnostic conceptual framework** for engineering **Digital Twins** in complex, data-driven domains. It provides a structured set of abstractions — including physical system models, AI-based services, perception pipelines, and explainability components — that can be instantiated and specialized for different application contexts wherever the engineering of intelligent digital replicas is required.
 
----
-
-## Purpose
-
-The purpose of this folder is to provide the executable realization of the scenario modeled in the Intelligent Mobility domain.
-
-This code operationalizes the application-specific logic associated with the HDD instance.
+In this repository, TWIMO is **applied to the intelligent mobility domain**, specifically to the modeling of **human driver behavior** and the simulation of a **vehicle in an urban environment** using data from the **Honda Driving Dataset (HDD)**. In this context, the framework is used to: predict driver maneuvers at multiple future time horizons, simulate vehicle motion with a kinematic model validated against RTK-GPS ground truth, cluster driving styles, and generate natural-language explanations for model predictions.
 
 ---
 
-## Role in the repository
+## What Can TWIMO Do?
 
-This is the implementation layer of the current TWIMO application scenario.
-
-It complements the model stored in `../model` and represents the concrete execution side of the repository.
-
-In TWIMO terms, this folder is where the scenario becomes operational.
-
----
-
-## Expected contents
-
-Depending on the current implementation state, this folder may contain:
-
-- scenario logic
-- data handling code
-- model processing utilities
-- pipeline scripts
-- configuration files
-- validation or experimentation code
-- integration code linking the scenario to the created model
+| Feature | Description |
+|---------|-------------|
+| **Maneuver Prediction** | Predict what the driver will do next (turn, brake, etc.) |
+| **Digital Twin Simulation** | Simulate vehicle motion and validate against GPS data |
+| **Driving Style Analysis** | Cluster sessions by driving style (prudent, aggressive, etc.) |
+| **Explainability** | Generate text explanations for predictions |
+| **EAF Ground-Truth Labels** | Train with human-annotated labels from ELAN (Goal + Stimuli prediction) |
 
 ---
 
-## Relationship with the rest of the repository
+## Validation Use Case Scenarios
 
-This folder should be read together with:
+TWIMO is validated against **5 use cases** derived from the DTE (Digital Twin Engineering) methodology.
+All scenarios can be run programmatically via the **DTE Framework Runner**:
 
-- the TWIMO Core, which provides the reusable engineering backbone
-- the Intelligent Mobility metamodel, which defines the domain semantics
-- the HDD model instance, which captures the scenario structure at modeling level
+```bash
+# Run all 5 scenarios end-to-end
+python -m twimo.run_scenarios --all
 
-The code is therefore not a standalone artifact, but part of a broader model-driven workflow.
+# Run a single scenario
+python -m twimo.run_scenarios --use-case A
+python -m twimo.run_scenarios --use-case B
+python -m twimo.run_scenarios --use-case C
+python -m twimo.run_scenarios --use-case D
+python -m twimo.run_scenarios --use-case E
+
+# Run specific steps within a use case
+python -m twimo.run_scenarios --use-case A --steps A1          # Transformer only
+python -m twimo.run_scenarios --use-case A --steps A1,A2       # Transformer + XGBoost
+python -m twimo.run_scenarios --all --steps A1,C2,D1,E1        # One step per use case
+
+# Custom root / manifest / artifacts directory
+python -m twimo.run_scenarios --all --root ./example_data --manifest ./artifacts/manifest.jsonl --artifacts-dir ./artifacts --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --prealigned-labels-dir  ./twimo/assets/hdd_prealigned/20200710_labels/target
+
+# Override individual output directories (all default to {artifacts-dir}/<subdir>)
+python -m twimo.run_scenarios --use-case A --transformer-outdir ./my_models/transformer --xgboost-outdir ./my_models/xgboost --rf-outdir ./my_models/rf
+
+python -m twimo.run_scenarios --use-case C --dt-basic-outdir ./results/dt_basic --dt-optimized-outdir ./results/dt_optimized
+
+python -m twimo.run_scenarios --use-case D --style-outdir ./results/style
+
+# Override explain output and/or force a specific model (E)
+python -m twimo.run_scenarios --use-case E --explain-modeldir ./my_models/xgboost --explain-outdir ./results/explain
+
+# Skip the scan step if the manifest already exists
+python -m twimo.run_scenarios --all --skip-setup
+```
+
+See [twimo/run_scenarios.py](twimo/run_scenarios.py) for the full implementation and [twimo/framework/README.md](twimo/framework/README.md) for the Python API.
 
 ---
 
-## Engineering expectations
+### Use Case A — Maneuver Prediction with Proxy Supervision
 
-The code in this folder should ideally support:
+**DTE Phase**: Build | **Supervision**: Path A (heuristic proxy labels)
+**DTE Object**: `model.aiBasedServices.prediction.Predictor`
 
-- reproducibility
-- traceability
-- consistency with the modeled scenario
-- maintainability
-- future extension of the scenario
+Predicts discrete maneuver labels from aligned CSV sensors across multiple prediction horizons, using proxy labels generated by threshold rules.
 
-Where possible, implementation choices should remain aligned with the concepts expressed in the metamodel and in the scenario model.
+| Horizon | Description |
+|---------|-------------|
+| 1 step (0.333s at 3 Hz) | Immediate reaction anticipation |
+| 2 steps (0.667s at 3 Hz) | Near-immediate anticipation |
+| 1.0s – 2.0s | Short-term maneuver prediction |
+| 3.0s – 5.0s | Strategic intent recognition |
+
+> **Note:** Horizons are auto-computed from `--sample-hz`. At 3 Hz the sub-second range covers steps 1–2 (0.333s, 0.667s); from 1s onward one horizon per second up to 5s. Changing the sampling rate automatically updates all horizons for every model.
+
+**Python (TwimoRunner):**
+```python
+from twimo.framework.runner import TwimoRunner
+from twimo.framework.twimo_components import instantiate_hdd_driving_behavior_twin
+
+twin = instantiate_hdd_driving_behavior_twin(root="./example_data", sample_hz=3.0)
+runner = TwimoRunner(twin=twin, manifest="./artifacts/manifest.jsonl")
+
+runner.train_maneuver(outdir="./artifacts/maneuver_transformer", model="transformer", epochs=5)
+runner.train_maneuver(outdir="./artifacts/maneuver_xgboost",     model="xgboost")
+runner.train_maneuver(outdir="./artifacts/maneuver_rf",          model="random_forest")
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir   ./artifacts/maneuver_transformer --model transformer --sample-hz 3 --epochs 5
+
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_xgboost --model xgboost --sample-hz 3
+```
+
+**Outputs**: `predictor_metadata.json`, `test_metrics.json`, `roc_curves.json`, `twin_config.json`
 
 ---
 
-## Typical usage
+### Use Case A (Extended) — Additional Prediction Models
 
-A typical workflow is:
+Alternative architectures for Use Case A, all sharing the same proxy-label supervision and multi-horizon evaluation:
 
-1. inspect the scenario model in `../model`
-2. inspect or execute the corresponding implementation here
-3. validate that code and model remain aligned
-4. evolve the implementation while preserving traceability
+#### LightGBM / XGBoost / Random Forest (tree-based)
+
+**Python (TwimoRunner):**
+```python
+runner.train_lightgbm(outdir="./artifacts/maneuver_lgbm")
+runner.train_maneuver(outdir="./artifacts/maneuver_xgboost", model="xgboost")
+runner.train_maneuver(outdir="./artifacts/maneuver_rf",      model="random_forest")
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_lgbm     --model lightgbm      --sample-hz 3
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_xgboost  --model xgboost       --sample-hz 3
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_rf       --model random_forest  --sample-hz 3
+```
+
+#### Recurrent Models (GRU / LSTM)
+
+**Python (TwimoRunner):**
+```python
+runner.train_gru(outdir="./artifacts/maneuver_gru",   epochs=10)
+runner.train_lstm(outdir="./artifacts/maneuver_lstm",  epochs=10)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_gru  --model gru  --sample-hz 3 --epochs 10
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_lstm --model lstm --sample-hz 3 --epochs 10
+```
+
+#### Temporal Convolutional Network (TCN)
+
+**Python (TwimoRunner):**
+```python
+runner.train_tcn(outdir="./artifacts/maneuver_tcn", epochs=10)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_tcn --model tcn --sample-hz 3 --epochs 10
+```
+
+#### MLP with Pooling (mean / max / concat)
+
+**Python (TwimoRunner):**
+```python
+runner.train_mlp_mean(outdir="./artifacts/maneuver_mlp_mean",     epochs=10)
+runner.train_mlp_max(outdir="./artifacts/maneuver_mlp_max",       epochs=10)
+runner.train_mlp_concat(outdir="./artifacts/maneuver_mlp_concat", epochs=10)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_mlp_mean   --model mlp_mean   --sample-hz 3 --epochs 10
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_mlp_max    --model mlp_max    --sample-hz 3 --epochs 10
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_mlp_concat --model mlp_concat --sample-hz 3 --epochs 10
+```
+
+**Outputs**: `test_metrics.json`, `train_metrics.json`, `val_metrics.json`, `roc_curves.json`
 
 ---
 
-## Notes
+### Use Case A + Video — Sensor + Camera Fusion
 
-As the repository evolves, this folder can be extended with:
-- automation scripts
-- validation artifacts
-- experiment runners
-- reporting utilities
-- additional scenario modules
+Augments sensor features with per-frame visual embeddings extracted from centre-camera video using MobileNetV3-Small.
+
+**Python (TwimoRunner):**
+```python
+runner.train_maneuver_with_video(
+    outdir="./artifacts/maneuver_transformer_video",
+    model="transformer",
+    video_extractor="mobilenet_v3_small",
+    epochs=5,
+)
+runner.train_maneuver_with_video(
+    outdir="./artifacts/maneuver_gru_video",
+    model="gru",
+    video_extractor="mobilenet_v3_small",
+    epochs=5,
+)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_transformer_video --model transformer --use-video --video-extractor mobilenet_v3_small --sample-hz 3 --epochs 5
+
+python -m twimo.cli train-maneuver --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/maneuver_gru_video --model gru --use-video --video-extractor mobilenet_v3_small --sample-hz 3 --epochs 5
+```
+
+**Outputs**: `test_metrics.json`, `roc_curves.json`, `video_cache/` (visual embeddings cache)
+
+---
+
+### Use Case A + Plots — Metric Visualisation and ROC Curves
+
+Generate metric comparison charts and per-class ROC curves from a trained model output directory.
+
+**Python (TwimoRunner):**
+```python
+runner.plot_metrics(
+    modeldir="./artifacts/maneuver_transformer",
+    outdir="./artifacts/plots/transformer_metrics",
+)
+runner.plot_roc_curves(
+    modeldir="./artifacts/maneuver_transformer",
+    outdir="./artifacts/plots/transformer_roc",
+)
+```
+
+**Equivalent CLI:**
+```bash
+# Metric plots (accuracy, F1, precision, recall by horizon)
+python twimo/plots/maneuver_plots.py \
+    ./artifacts/maneuver_transformer/test_metrics.json \
+    ./artifacts/plots/transformer_metrics
+
+# ROC curves (per-class FPR/TPR, all splits: train / val / test)
+python twimo/plots/plot_roc_curves.py \
+    --roc-json ./artifacts/maneuver_transformer/roc_curves.json \
+    --outdir   ./artifacts/plots/transformer_roc \
+    --splits test
+```
+
+**Outputs**: `metrics_by_horizon.png`, `roc_curves_by_horizon.png`
+
+---
+
+### Use Case B — Event Detection + Goal/Stimuli Classification (EAF Supervision)
+
+**DTE Phase**: Build | **Supervision**: Path B (EAF expert labels) + optional Path C (YOLOv8)
+**DTE Objects**: `drivingBehaviour.Goal`, `Stimulus`, `Cause`, `AttentionCue`
+
+Uses EAF expert labels aligned to the 3 Hz timeline to supervise a two-stage model:
+- **Stage 1 — EventNet**: binary event vs no-event detection
+- **Stage 2 — ClassifyNet**: conditional multi-head classification (Goal / Stimuli / Cause / Attention)
+
+Requires EAF parsed data and prealigned sensor arrays.
+
+**Python (direct cmd_ call — no TwimoRunner wrapper needed):**
+```python
+import argparse
+from pathlib import Path
+from twimo.strategies_eaf.two_stage_yolo_improved import cmd_train, cmd_evaluate
+
+# Train
+cmd_train(argparse.Namespace(
+    manifest               = Path("./artifacts/manifest.jsonl"),
+    eaf_parsed_dir         = Path("./artifacts/eaf/parsed"),
+    det_cache_dir          = None,   # or Path("./artifacts/det_cache_improved")
+    prealigned_sensors_dir = Path("./twimo/assets/hdd_prealigned/20200710_sensors/sensor"),
+    vocab_dir              = Path("./twimo/strategies_eaf"),
+    outdir                 = Path("./artifacts/eaf_two_stage"),
+    strategies             = [],
+    stage1_threshold       = 0.30,
+    sample_hz              = 3.0,
+    window_sec             = 5.0,
+    epochs                 = 40,
+    lr                     = 1e-4,
+    batch_size             = 32,
+))
+```
+
+**Equivalent CLI:**
+```bash
+# (Optional) Extract YOLOv8 detection features (Supervision C enrichment)
+python -m twimo.strategies_eaf.two_stage_yolo_improved extract-improved --manifest ./artifacts/manifest.jsonl --det-cache-dir ./artifacts/det_cache_improved --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor
+
+# Train two-stage model
+python -m twimo.strategies_eaf.two_stage_yolo_improved train --manifest ./artifacts/manifest.jsonl --eaf-parsed-dir ./artifacts/eaf/parsed --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --vocab-dir ./twimo/strategies_eaf --outdir ./artifacts/eaf_two_stage --epochs 40
+
+# Evaluate
+python -m twimo.strategies_eaf.two_stage_yolo_improved evaluate --manifest ./artifacts/manifest.jsonl --model-dir ./artifacts/eaf_two_stage --eaf-parsed-dir ./artifacts/eaf/parsed --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --vocab-dir ./twimo/strategies_eaf --outdir ./artifacts/eaf_two_stage/eval
+```
+
+**Outputs**: Stage 1 event detection metrics, Stage 2 per-class F1 for Goal/Stimuli/Cause/Attention
+
+---
+
+### Use Case C — Vehicle Digital Twin Simulation
+
+**DTE Phase**: Validate | **DTE Objects**: `digitalTwin.Run`, `ControlService`
+**PNG Layer**: Release & Validation → DT Validation Comparator
+
+Executes the kinematic bicycle Vehicle DT and validates trajectories against RTK GPS ground truth.
+
+| Regime | Status | Description |
+|--------|--------|-------------|
+| (i) Real controls | ✅ Implemented | Ground-truth steer + velocity from CSV sensors |
+| (i+) Calibrated DT | ✅ Implemented | Auto-calibration + periodic GPS drift correction |
+| (ii) Maneuver-to-control | ❌ Future work | Bridge from predicted maneuver to control commands |
+| (iii) ML control regression | ❌ Future work | End-to-end regression of steer/velocity |
+
+**Python (TwimoRunner):**
+```python
+from twimo.framework.runner import TwimoRunner
+from twimo.framework.twimo_components import instantiate_hdd_driving_behavior_twin, ControlService
+
+twin = instantiate_hdd_driving_behavior_twin(root="./example_data", sample_hz=3.0)
+runner = TwimoRunner(twin=twin, manifest="./artifacts/manifest.jsonl")
+
+# Regime (i) — basic open-loop
+runner.simulate_dt(outdir="./artifacts/dt_basic", sample_hz=10.0)
+
+# Regime (i+) — optimized with calibration and GPS reset
+runner.simulate_dt_optimized(
+    outdir="./artifacts/dt_optimized",
+    sample_hz=3.0,
+    calibrate=True,
+    use_reset=True,
+    reset_interval=30,
+)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli simulate-dt --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/dt_basic --sample-hz 10
+
+python -m twimo.cli simulate-dt-optimized --manifest ./artifacts/manifest.jsonl --outdir ./artifacts/dt_optimized --sample-hz 3
+```
+
+**Outputs**: `twin_run.json` (DTE Run), `dt_optimized_summary.json`, `dt_optimized_aggregated_metrics.json`
+
+---
+
+### Use Case D — Driving Style Analysis
+
+**DTE Phase**: Evolve | **DTE Object**: `drivingBehaviour.DrivingModel` (task='style')
+
+Computes engineered features from the time-aligned shadow and infers driving-style profiles (e.g., prudent / smooth / aggressive) as an interpretable behavioural summary.
+
+**Python (TwimoRunner):**
+```python
+from twimo.framework.runner import TwimoRunner
+from twimo.framework.twimo_components import instantiate_hdd_driving_behavior_twin
+
+twin = instantiate_hdd_driving_behavior_twin(root="./example_data", sample_hz=3.0)
+twin.driving_model.task       = "style"
+twin.driving_model.model_type = "kmeans"
+
+runner = TwimoRunner(twin=twin, manifest="./artifacts/manifest.jsonl")
+runner.train_style(outdir="./artifacts/style", k=3)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli train-style --manifest ./artifacts/manifest.jsonl --outdir   ./artifacts/style --k 3
+```
+
+**Outputs**: `style_centroids.json` — cluster centroids + per-session style assignments
+
+---
+
+### Use Case E — Explainability and Reporting
+
+**DTE Phase**: Evolve | **DTE Object**: `explainability.Explanation`
+**PNG Layer**: Digital Twin → Explanability (AI Service) → External Consumer (Dashboard/API)
+
+Generates human-readable explanations using rule-based inference from sensor signals. Explanation records are serialised to JSONL for auditing and iterative refinement.
+
+**Python (TwimoRunner):**
+```python
+from twimo.framework.runner import TwimoRunner
+from twimo.framework.twimo_components import instantiate_hdd_driving_behavior_twin
+
+twin = instantiate_hdd_driving_behavior_twin(root="./example_data", sample_hz=3.0)
+twin.driving_model.task = "explain"
+
+runner = TwimoRunner(twin=twin, manifest="./artifacts/manifest.jsonl")
+runner.explain(
+    modeldir="./artifacts/maneuver_transformer",
+    outdir="./artifacts/explain",
+    explain_every_steps=50,
+)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.cli explain --manifest ./artifacts/manifest.jsonl --modeldir ./artifacts/maneuver_transformer --outdir ./artifacts/explain --explain-every-steps 50
+```
+
+**Via run_scenarios with explicit model and output path:**
+```bash
+# Use a specific model (overrides automatic transformer→xgboost→rf fallback)
+python -m twimo.run_scenarios --use-case E --steps E1 --skip-setup \
+    --explain-modeldir ./artifacts/maneuver_xgboost \
+    --explain-outdir   ./results/explain
+
+# Default behaviour: auto-selects first available model in preference order
+python -m twimo.run_scenarios --use-case E --steps E1 --skip-setup
+```
+
+**Outputs**: `explanations__<day>.jsonl` (DTE `Explanation` records), `explain_index.json`
+
+---
+
+### Production Workflow — Autonomous DT for ML Testing
+
+Runs the trained maneuver predictor on all sessions, generates ML-predicted sensor CSVs, then validates the Digital Twin against those synthetic signals. Closes the loop between prediction and simulation.
+
+**Python (TwimoRunner):**
+```python
+runner.simulate_dt_production(
+    modeldir="./artifacts/maneuver_transformer",
+    outdir="./artifacts/dt_production",
+    sample_hz=3.0,
+)
+```
+
+**Equivalent CLI** (two-step composite):
+```bash
+# Step 1 — generate ML-predicted sensor CSVs from the trained model
+python twimo/workflows/generate_ml_predictions.py \
+    --model-dir  ./artifacts/maneuver_transformer \
+    --manifest   ./artifacts/manifest.jsonl \
+    --output-dir ./artifacts/dt_production/ml_sensors \
+    --sample-hz  3
+
+# Step 2 — run the optimized DT on the ML-predicted signals
+python -m twimo.cli simulate-dt-optimized \
+    --manifest ./artifacts/dt_production/ml_manifest.jsonl \
+    --outdir   ./artifacts/dt_production/dt_ml \
+    --sample-hz 3
+```
+
+**Outputs**: `dt_production/ml_manifest.jsonl`, `dt_production/dt_ml/dt_optimized_aggregated_metrics.json`
+
+---
+
+### ML Physical Consistency Validation
+
+Quantifies whether the Digital Twin behaves consistently when driven by ML-predicted signals versus real sensor signals.
+
+#### Approach 1 — RMSE Ratio (read-only)
+
+Compares aggregated RMSE from the real-sensor DT run and the ML-prediction DT run.
+
+**Python (TwimoRunner):**
+```python
+result = runner.validate_physical_consistency_v1(
+    real_dt_outdir="./artifacts/dt_optimized",
+    ml_dt_outdir="./artifacts/dt_production/dt_ml",
+)
+# result["verdict"]: "CONSISTENT", "MARGINAL", or "INCONSISTENT"
+print(result)
+```
+
+> **Note**: Approach 1 is a read-only JSON comparison — no CLI equivalent. Run it from Python after both DT outputs are available.
+
+**Verdict thresholds**: CONSISTENT (ratio < 2×), MARGINAL (2–5×), INCONSISTENT (> 5×)
+
+#### Approach 2 — Control Regression Loop
+
+Trains a regression model to predict steering/velocity from maneuver labels, generates control-regressed sensor CSVs, and re-runs the DT for a full closed-loop consistency check.
+
+**Python (TwimoRunner):**
+```python
+runner.validate_physical_consistency_v2(
+    modeldir="./artifacts/maneuver_transformer",
+    outdir="./artifacts/consistency_v2",
+    control_model="xgboost",
+    sample_hz=3.0,
+)
+```
+
+**Equivalent CLI** (three-step composite):
+```bash
+# Step 1 — train control-regression model (maneuver label → steer/velocity)
+python twimo/workflows/train_control_regression.py \
+    --manifest   ./artifacts/manifest.jsonl \
+    --outdir     ./artifacts/consistency_v2/control_model \
+    --model      xgboost \
+    --sample-hz  3
+
+# Step 2 — generate control-regressed sensor CSVs
+python twimo/workflows/generate_control_predictions.py \
+    --manifest   ./artifacts/manifest.jsonl \
+    --model-dir  ./artifacts/consistency_v2/control_model \
+    --outdir     ./artifacts/consistency_v2/control_sensors \
+    --sample-hz  3
+
+# Step 3 — run the DT on control-regressed signals
+python -m twimo.cli simulate-dt-optimized \
+    --manifest ./artifacts/consistency_v2/control_manifest.jsonl \
+    --outdir   ./artifacts/consistency_v2/dt_control \
+    --sample-hz 3
+```
+
+**Outputs**: `consistency_v2/control_model/`, `consistency_v2/dt_control/dt_optimized_aggregated_metrics.json`
+
+---
+
+### EAF Annotation Strategy
+
+Aligns ELAN `.eaf` expert annotation files to the 3 Hz sensor timeline and saves them as `.npy` arrays for use in supervised training.
+
+#### Single-Target (Goal only)
+
+**Python (TwimoRunner):**
+```python
+runner.align_eaf_single_target(
+    eaf_dir="./assets/hdd_prealigned/20200710_EAF",
+    outdir="./artifacts/eaf_aligned",
+    target="goal",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python twimo/strategies_eaf/align_eaf_to_sensors.py \
+    --eaf-parsed-dir ./artifacts/eaf/parsed \
+    --vocab          ./twimo/strategies_eaf/vocab_goal.json \
+    --manifest       ./artifacts/manifest.jsonl \
+    --output-dir     ./artifacts/eaf_aligned \
+    --sample-hz      3
+```
+
+#### Multi-Target (Goal + Stimuli + Cause + Attention)
+
+**Python (TwimoRunner):**
+```python
+runner.align_eaf_multi_target(
+    eaf_dir="./assets/hdd_prealigned/20200710_EAF",
+    outdir="./artifacts/eaf_aligned_multi",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python twimo/strategies_eaf/align_eaf_to_sensors_multitarget_new.py \
+    --eaf-parsed-dir ./artifacts/eaf/parsed \
+    --vocab-dir      ./twimo/strategies_eaf \
+    --manifest       ./artifacts/manifest.jsonl \
+    --output-dir     ./artifacts/eaf_aligned_multi \
+    --sample-hz      3
+```
+
+**Outputs**: `<SESSION_ID>_goal.npy`, `<SESSION_ID>_stimuli.npy`, etc.
+
+---
+
+### Two-Stage Transformer (Event-Centric)
+
+A two-stage architecture driven by EAF expert labels:
+- **Stage 1 — EventNet**: detects whether a driving event is occurring
+- **Stage 2 — ClassifyNet**: classifies the event type (Goal / Stimuli / Cause / Attention)
+
+**Python (TwimoRunner):**
+```python
+runner.two_stage_transformer_prepare(
+    eaf_parsed_dir="./artifacts/eaf/parsed",
+    outdir="./artifacts/two_stage_transformer",
+)
+runner.two_stage_transformer_train_stage1(
+    prepared_dir="./artifacts/two_stage_transformer",
+    outdir="./artifacts/two_stage_transformer",
+    epochs=30,
+)
+runner.two_stage_transformer_train_stage2(
+    prepared_dir="./artifacts/two_stage_transformer",
+    outdir="./artifacts/two_stage_transformer",
+    epochs=30,
+)
+runner.two_stage_transformer_predict(
+    prepared_dir="./artifacts/two_stage_transformer",
+    modeldir="./artifacts/two_stage_transformer",
+    outdir="./artifacts/two_stage_transformer/predictions",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.strategies_eaf.two_stage_transformer prepare    --manifest ./artifacts/manifest.jsonl --eaf-parsed-dir ./artifacts/eaf/parsed --outdir ./artifacts/two_stage_transformer
+
+python -m twimo.strategies_eaf.two_stage_transformer train-stage1 --prepared-dir ./artifacts/two_stage_transformer --outdir ./artifacts/two_stage_transformer --epochs 30
+
+python -m twimo.strategies_eaf.two_stage_transformer train-stage2 --prepared-dir ./artifacts/two_stage_transformer --outdir ./artifacts/two_stage_transformer --epochs 30
+
+python -m twimo.strategies_eaf.two_stage_transformer predict --prepared-dir ./artifacts/two_stage_transformer --model-dir ./artifacts/two_stage_transformer --outdir ./artifacts/two_stage_transformer/predictions
+```
+
+**Outputs**: Stage 1/2 checkpoints, `predictions.jsonl` with per-frame event + label scores
+
+---
+
+### Two-Stage YOLO Pipeline (Sensor + Object Detection Features)
+
+Combines prealigned sensor arrays with YOLOv8 object-detection features from centre-camera video to enrich the EAF two-stage model.
+
+**Python (TwimoRunner):**
+```python
+runner.two_stage_yolo_extract(
+    prealigned_sensors_dir="./twimo/assets/hdd_prealigned/20200710_sensors/sensor",
+    det_cache_dir="./artifacts/det_cache",
+)
+runner.two_stage_yolo_train(
+    eaf_parsed_dir="./artifacts/eaf/parsed",
+    prealigned_sensors_dir="./twimo/assets/hdd_prealigned/20200710_sensors/sensor",
+    det_cache_dir="./artifacts/det_cache",
+    outdir="./artifacts/eaf_yolo",
+    epochs=40,
+)
+runner.two_stage_yolo_evaluate(
+    eaf_parsed_dir="./artifacts/eaf/parsed",
+    prealigned_sensors_dir="./twimo/assets/hdd_prealigned/20200710_sensors/sensor",
+    det_cache_dir="./artifacts/det_cache",
+    modeldir="./artifacts/eaf_yolo",
+    outdir="./artifacts/eaf_yolo/eval",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.strategies_eaf.two_stage_yolo extract   --manifest ./artifacts/manifest.jsonl --det-cache-dir ./artifacts/det_cache --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor
+
+python -m twimo.strategies_eaf.two_stage_yolo train     --manifest ./artifacts/manifest.jsonl --eaf-parsed-dir ./artifacts/eaf/parsed --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --det-cache-dir ./artifacts/det_cache --outdir ./artifacts/eaf_yolo --epochs 40
+
+python -m twimo.strategies_eaf.two_stage_yolo evaluate  --manifest ./artifacts/manifest.jsonl --model-dir ./artifacts/eaf_yolo --eaf-parsed-dir ./artifacts/eaf/parsed --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --det-cache-dir ./artifacts/det_cache --outdir ./artifacts/eaf_yolo/eval
+```
+
+**Outputs**: `det_cache/` (YOLO detections), `eaf_yolo/` model + Stage 1/2 metrics
+
+---
+
+### Two-Stage YOLO Improved Pipeline (Strategy Selection)
+
+Enhanced version of the YOLO pipeline with automatic strategy selection (sensor-only / sensor+YOLO / multi-modal fusion) based on detection coverage.
+
+**Python (TwimoRunner):**
+```python
+runner.two_stage_yolo_improved_train(
+    eaf_parsed_dir="./artifacts/eaf/parsed",
+    prealigned_sensors_dir="./twimo/assets/hdd_prealigned/20200710_sensors/sensor",
+    det_cache_dir="./artifacts/det_cache_improved",
+    outdir="./artifacts/eaf_yolo_improved",
+    strategies=[],  # empty = auto-select
+    epochs=40,
+)
+runner.two_stage_yolo_improved_evaluate(
+    eaf_parsed_dir="./artifacts/eaf/parsed",
+    prealigned_sensors_dir="./twimo/assets/hdd_prealigned/20200710_sensors/sensor",
+    det_cache_dir="./artifacts/det_cache_improved",
+    modeldir="./artifacts/eaf_yolo_improved",
+    outdir="./artifacts/eaf_yolo_improved/eval",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python -m twimo.strategies_eaf.two_stage_yolo_improved train    --manifest ./artifacts/manifest.jsonl --eaf-parsed-dir ./artifacts/eaf/parsed --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --outdir ./artifacts/eaf_yolo_improved --epochs 40
+
+python -m twimo.strategies_eaf.two_stage_yolo_improved evaluate --manifest ./artifacts/manifest.jsonl --model-dir ./artifacts/eaf_yolo_improved --eaf-parsed-dir ./artifacts/eaf/parsed --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor --outdir ./artifacts/eaf_yolo_improved/eval
+```
+
+**Outputs**: Per-strategy Stage 1/2 metrics, `eval/` classification reports
+
+---
+
+### Video Annotation
+
+Generates annotated video overlays showing sensor signals and model predictions in sync with centre-camera footage.
+
+#### Proxy / Maneuver Annotation
+
+**Python (TwimoRunner):**
+```python
+runner.annotate_video(
+    modeldir="./artifacts/maneuver_transformer",
+    outdir="./artifacts/annotated_video",
+    session="201702271017",  # optional: omit to annotate all sessions
+)
+```
+
+**Equivalent CLI:**
+```bash
+python twimo/plots/annotate_video.py \
+    --manifest  ./artifacts/manifest.jsonl \
+    --modeldir  ./artifacts/maneuver_transformer \
+    --outdir    ./artifacts/annotated_video \
+    --session   201702271017        # omit --session to process all sessions
+```
+
+#### EAF Two-Stage Annotation
+
+**Python (TwimoRunner):**
+```python
+runner.annotate_video_eaf(
+    modeldir="./artifacts/eaf_two_stage",
+    outdir="./artifacts/annotated_video_eaf",
+    session="201702271017",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python twimo/plots/annotate_video_eaf.py \
+    --manifest  ./artifacts/manifest.jsonl \
+    --data-dir  ./artifacts/eaf_two_stage \
+    --vocab-dir ./twimo/strategies_eaf \
+    --outdir    ./artifacts/annotated_video_eaf \
+    --session   201702271017
+```
+
+#### EAF + YOLOv8 Annotation
+
+**Python (TwimoRunner):**
+```python
+runner.annotate_video_eaf_yolo(
+    modeldir="./artifacts/eaf_yolo",
+    outdir="./artifacts/annotated_video_eaf_yolo",
+    session="201702271017",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python twimo/plots/annotate_video_eaf_yolo.py \
+    --manifest    ./artifacts/manifest.jsonl \
+    --data-dir    ./artifacts/eaf_yolo \
+    --vocab-dir   ./twimo/strategies_eaf \
+    --outdir      ./artifacts/annotated_video_eaf_yolo \
+    --session     201702271017 \
+    --yolo-conf   0.30         # optional: detection confidence threshold
+```
+
+#### EAF + YOLOv8 Improved Annotation
+
+**Python (TwimoRunner):**
+```python
+runner.annotate_video_eaf_yolo_improved(
+    modeldir="./artifacts/eaf_yolo_improved",
+    outdir="./artifacts/annotated_video_eaf_yolo_improved",
+    session="201702271017",
+)
+```
+
+**Equivalent CLI:**
+```bash
+python twimo/plots/annotate_video_eaf_yolo_improved.py \
+    --manifest  ./artifacts/manifest.jsonl \
+    --model-dir ./artifacts/eaf_yolo_improved \
+    --vocab-dir ./twimo/strategies_eaf \
+    --outdir    ./artifacts/annotated_video_eaf_yolo_improved \
+    --session   201702271017
+```
+
+**Outputs**: `<SESSION_ID>_annotated.mp4` with sensor overlay, maneuver label, and detection bounding boxes
+
+---
+
+### Use Case Summary
+
+| Use Case | DTE Phase | Supervision | Status | Key Output |
+|----------|-----------|-------------|--------|------------|
+| A — Maneuver prediction | Build | Proxy (heuristic) | ✅ | `predictor_metadata.json`, `test_metrics.json` |
+| B — Goal/Stimuli EAF | Build | EAF expert + YOLOv8 | ✅ | Stage 1/2 classification metrics |
+| C — Vehicle DT (real controls) | Validate | Ground-truth sensors | ✅ | `twin_run.json`, `dt_optimized_aggregated_metrics.json` |
+| C — Vehicle DT (closed-loop) | Validate | Predicted maneuver | ❌ Future | ControlService.regressor_type='ml_regressor' |
+| D — Driving style | Evolve | Unsupervised | ✅ | `style_centroids.json` |
+| E — Explainability | Evolve | Rule-based | ✅ | `explanations__*.jsonl` |
+
+---
+
+### run_scenarios CLI — Complete Arguments Reference
+
+All arguments for `python -m twimo.run_scenarios`. Arguments marked *(default from config.yaml)* use `config.yaml` values when present, with hardcoded fallbacks otherwise.
+
+#### Step IDs reference
+
+Each use case is composed of named steps that can be run individually via `--steps`.
+
+| Step | Use Case | Description | Output dir arg | Key outputs |
+|------|----------|-------------|----------------|-------------|
+| `A1` | A — Maneuver prediction | Train **Transformer** (multi-head self-attention, multi-horizon). GPU recommended. | `--transformer-outdir` | `maneuver_transformer.pt`, `config.json`, `test_metrics.json` |
+| `A2` | A — Maneuver prediction | Train **XGBoost** (gradient boosting, window-stats features, CPU-friendly). | `--xgboost-outdir` | `xgboost.joblib`, `config.json`, `test_metrics.json` |
+| `A3` | A — Maneuver prediction | Train **Random Forest** (fully interpretable, robust baseline). | `--rf-outdir` | `random_forest.joblib`, `config.json`, `test_metrics.json` |
+| `A4` | A — Maneuver prediction | Train **LightGBM** (very fast, memory-efficient, excellent CPU performance). | `--lightgbm-outdir` | `lightgbm.joblib`, `config.json`, `test_metrics.json` |
+| `A5` | A — Maneuver prediction | Train **GRU** (recurrent, good for sequential patterns). | `--gru-outdir` | `gru.pt`, `config.json`, `test_metrics.json` |
+| `A6` | A — Maneuver prediction | Train **LSTM** (recurrent, long-term temporal dependencies). | `--lstm-outdir` | `lstm.pt`, `config.json`, `test_metrics.json` |
+| `A7` | A — Maneuver prediction | Train **TCN** (temporal convolutions, fully parallelizable, long receptive field). | `--tcn-outdir` | `tcn.pt`, `config.json`, `test_metrics.json` |
+| `A8` | A — Maneuver prediction | Train **MLP mean pooling** (simple feedforward, mean aggregation). | `--mlp-mean-outdir` | `mlp_mean.pt`, `config.json`, `test_metrics.json` |
+| `A9` | A — Maneuver prediction | Train **MLP max pooling** (feedforward, max aggregation). | `--mlp-max-outdir` | `mlp_max.pt`, `config.json`, `test_metrics.json` |
+| `A10` | A — Maneuver prediction | Train **MLP concat pooling** (mean+max+first+last concatenated). | `--mlp-concat-outdir` | `mlp_concat.pt`, `config.json`, `test_metrics.json` |
+| `B1` | B — EAF two-stage | Train **EventNet** + **ClassifyNet** (improved YOLO pipeline: sensor+EAF+YOLO when det-cache available, else sensor+EAF only). | `--eaf-outdir` | Stage 1/2 checkpoints, `stage1_metrics.json`, `stage2_metrics.json` |
+| `B2` | B — EAF two-stage | **Evaluate** B1 model on the test split. | `--eaf-outdir` (eval subdir) | `eval/classification_report.json`, per-strategy F1 scores |
+| `B3` | B — EAF two-stage | Train **Two-Stage YOLO** (standard, non-improved: sensor + YOLOv8 detection features). Requires `--det-cache-dir`. | `--yolo-outdir` | `eaf_yolo/` Stage 1/2 checkpoints + metrics |
+| `B4` | B — EAF two-stage | **Evaluate** B3 Two-Stage YOLO model on the test split. | `--yolo-outdir` (eval subdir) | `eaf_yolo/eval/` per-class F1 + classification report |
+| `C1` | C — DT simulation | **Basic DT**: open-loop kinematic bicycle simulation using ground-truth steer + velocity from CSV. | `--dt-basic-outdir` | `dt_summary.csv`, `dt_aggregated_metrics.json` |
+| `C2` | C — DT simulation | **Optimized DT**: auto-calibrates vehicle parameters (wheelbase, speed/steer scale) and applies periodic GPS drift correction. 10–100× better accuracy than C1. | `--dt-optimized-outdir` | `dt_optimized_summary.json`, `dt_optimized_aggregated_metrics.json` |
+| `D1` | D — Driving style | **K-means clustering** on aggregated sensor features (aggression score, steering variance, braking intensity). Assigns each session a style label. | `--style-outdir` | `style_profiles.jsonl`, `style_centroids.json` |
+| `E1` | E — Explainability | rule-based textual explanations for model predictions, one record every N steps. Uses first available trained model (transformer → xgboost → rf) unless `--explain-modeldir` is set. | `--explain-outdir` | `explanations__<day>.jsonl`, `explain_index.json` |
+
+> **Note**: All A steps support `--use-video` (adds camera features via `--video-extractor`) and `--epochs` (neural models only).
+> Video fusion concatenates MobileNetV3/ResNet18 embeddings to sensor features — increases input dimension significantly.
+
+#### Execution control
+
+| Argument | Type | Description |
+|----------|------|-------------|
+| `--use-case {A,B,C,D,E}` | str | Run a single use case |
+| `--all` | flag | Run all use cases A → E |
+| `--steps STEPS` | str | Comma-separated step IDs to run (e.g. `A1,C2,E1`). Omit to run all steps. Valid IDs: `A1 A2 A3 B1 B2 C1 C2 D1 E1` |
+| `--skip-setup` | flag | Skip the scan/manifest step (use existing manifest) |
+
+#### Data paths
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--root PATH` | `./example_data` *(config)* | HDD data root folder |
+| `--manifest PATH` | `./artifacts/manifest.jsonl` *(config)* | Manifest JSONL path |
+| `--artifacts-dir PATH` | `./artifacts` *(config)* | Root directory for all output artefacts |
+| `--prealigned-sensors-dir PATH` | `./twimo/assets/…/sensor` | Prealigned sensor `.npy` directory |
+| `--prealigned-labels-dir PATH` | `./twimo/assets/…/target` | Prealigned label `.npy` directory |
+
+#### Output directories (Use Case A — model training)
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--transformer-outdir PATH` | `{artifacts-dir}/maneuver_transformer` | Output dir for A1 Transformer |
+| `--xgboost-outdir PATH` | `{artifacts-dir}/maneuver_xgboost` | Output dir for A2 XGBoost |
+| `--rf-outdir PATH` | `{artifacts-dir}/maneuver_rf` | Output dir for A3 Random Forest |
+| `--lightgbm-outdir PATH` | `{artifacts-dir}/maneuver_lightgbm` | Output dir for A4 LightGBM |
+| `--gru-outdir PATH` | `{artifacts-dir}/maneuver_gru` | Output dir for A5 GRU |
+| `--lstm-outdir PATH` | `{artifacts-dir}/maneuver_lstm` | Output dir for A6 LSTM |
+| `--tcn-outdir PATH` | `{artifacts-dir}/maneuver_tcn` | Output dir for A7 TCN |
+| `--mlp-mean-outdir PATH` | `{artifacts-dir}/maneuver_mlp_mean` | Output dir for A8 MLP mean |
+| `--mlp-max-outdir PATH` | `{artifacts-dir}/maneuver_mlp_max` | Output dir for A9 MLP max |
+| `--mlp-concat-outdir PATH` | `{artifacts-dir}/maneuver_mlp_concat` | Output dir for A10 MLP concat |
+
+#### Video fusion (Use Case A)
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--use-video` | `False` | Enable video fusion for all A steps (sensor + camera embeddings) |
+| `--video-extractor NAME` | `mobilenet_v3_small` | Backbone for video features. Options: `mobilenet_v3_small`, `resnet18` |
+
+#### Output directories (Use Cases B–E)
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--eaf-outdir PATH` | `{artifacts-dir}/eaf_two_stage` | Output dir for B1/B2 EAF two-stage (improved YOLO) |
+| `--yolo-outdir PATH` | `{artifacts-dir}/eaf_yolo` | Output dir for B3/B4 Two-Stage YOLO (standard) |
+| `--dt-basic-outdir PATH` | `{artifacts-dir}/dt_basic` | Output dir for C1 basic DT simulation |
+| `--dt-optimized-outdir PATH` | `{artifacts-dir}/dt_optimized` | Output dir for C2 optimized DT simulation |
+| `--style-outdir PATH` | `{artifacts-dir}/style` | Output dir for D1 style clustering |
+| `--explain-outdir PATH` | `{artifacts-dir}/explain` | Output dir for E1 explanations |
+
+#### Model selection (Use Case E)
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--explain-modeldir PATH` | *(auto)* | Explicit model directory for E1 explain. Overrides the automatic `transformer → xgboost → rf` fallback. Reads `model_kind.txt` to detect the model type. |
+
+#### Use Case B paths
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--eaf-parsed-dir PATH` | `./artifacts/eaf/parsed` | Parsed EAF JSON annotation files |
+| `--vocab-dir PATH` | `./twimo/strategies_eaf` | Folder with `vocab_*.json` files |
+| `--det-cache-dir PATH` | `./artifacts/det_cache_improved` | YOLOv8 detection feature cache (optional enrichment) |
+
+#### Training hyperparameters
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--epochs N` | `3` | Training epochs for Use Case A Transformer |
+| `--eaf-epochs N` | `40` | Training epochs for Use Case B two-stage model |
+| `--style-k N` | `3` *(config)* | Number of K-means clusters for Use Case D |
+| `--explain-every-steps N` | `50` | Generate one explanation every N time steps (Use Case E) |
+
+#### Quick-reference: common override patterns
+
+```bash
+# Run only Transformer training, custom output
+python -m twimo.run_scenarios --use-case A --steps A1 --skip-setup \
+    --transformer-outdir ./experiments/run1/transformer
+
+# Run only optimized DT, custom output
+python -m twimo.run_scenarios --use-case C --steps C2 --skip-setup \
+    --dt-optimized-outdir ./experiments/run1/dt_opt
+
+# Run explain with a specific model and output path
+python -m twimo.run_scenarios --use-case E --steps E1 --skip-setup \
+    --explain-modeldir ./experiments/run1/transformer \
+    --explain-outdir   ./experiments/run1/explain
+
+# Full pipeline, all custom paths
+python -m twimo.run_scenarios --all --skip-setup \
+    --transformer-outdir    ./exp/transformer \
+    --xgboost-outdir        ./exp/xgboost \
+    --rf-outdir             ./exp/rf \
+    --dt-optimized-outdir   ./exp/dt_opt \
+    --style-outdir          ./exp/style \
+    --explain-modeldir      ./exp/transformer \
+    --explain-outdir        ./exp/explain
+```
+
+
+---
+
+## Project Structure
+
+```
+TWIMO-CODE-FINAL/
+├── config.yaml                      # Centralized configuration
+├── requirements.txt                 # Python dependencies
+├── requirements-optional.txt        # XGBoost, LightGBM
+├── twimo/
+│   ├── cli.py                       # Main CLI entry point
+│   ├── config.py                    # Configuration loader
+│   ├── data/                        # Data loading and scanning
+│   ├── features/                    # Feature extraction
+│   ├── analysis/                    # Advanced analysis
+│   ├── models/                      # ML models (11 architectures)
+│   ├── dt/                          # Digital Twin simulation
+│   ├── video/                       # Video processing
+│   ├── xai/                         # Explainability
+│   ├── visualization/               # Visualization tools
+│   ├── utils/                       # Utilities
+│   ├── workflows/                   # Analysis scripts
+│   │   ├── build_manifest.py
+│   │   ├── train_control_regression.py
+│   │   ├── advanced_clustering_analysis.py
+│   │   ├── advanced_clustering_analysis_eaf.py
+│   │   ├── visualize_hierarchical_clustering.py
+│   │   ├── visualize_hierarchical_clustering_eaf.py
+│   │   └── visualize_driving_styles.py, visualize_driving_styles_eaf.py
+│   └── strategies_eaf/              # EAF annotation workflow (Goal + Stimuli)
+│       ├── parse_eaf.py             # Parse ELAN annotation files
+│       ├── build_vocab.py, build_all_vocabs.py
+│       ├── align_eaf_to_sensors.py, align_eaf_to_sensors_multitarget.py
+│       ├── two_stage_transformer.py # Two-Stage Transformer (Event + Goal/Stimuli)
+│       ├── style_eaf.py             # Area-aware style clustering
+│       ├── style_eaf_viz.py         # Area-aware style visualizations
+│       ├── hierarchical_eaf_viz.py  # Hierarchical visualizations
+│       ├── evaluate_eaf.py, evaluate_maneuver_transformer_multihorizon.py
+│       ├── compare_all_models.bat/sh
+│       ├── example_pipeline.ps1/sh, example_pipeline_multitarget.ps1/sh
+│       └── README.md, README_MULTITARGET.md
+├── example_data/                    # Example HDD sessions
+├── qdrant/                          # Vector database
+│   ├── docker-compose.yml
+│   ├── start_qdrant.bat
+│   └── start_qdrant.sh
+├── artifacts/                       # Generated outputs (all results organized by type)
+│   ├── manifest.jsonl               # Session registry
+│   ├── maneuver/                    # Maneuver prediction models
+│   ├── dt/                          # Digital Twin simulation results
+│   ├── style/                       # Driving style clustering
+│   ├── explainability/              # XAI outputs
+│   ├── eaf/                         # EAF annotation workflow artifacts
+│   │   ├── parsed/                  # Parsed EAF JSON files
+│   │   ├── vocabs/                  # Vocabularies (Goal, Stimuli, Area, etc.)
+│   │   ├── aligned/                 # Single-target aligned data
+│   │   ├── aligned_multitarget/     # Multi-target aligned data
+│   │   ├── two_stage/               # Two-Stage Transformer artifacts
+│   │   │   ├── data/                # Prepared windowed dataset
+│   │   │   ├── stage1_event/        # Event detection model
+│   │   │   ├── stage2_classify/     # Goal/Stimuli classification model
+│   │   │   └── predictions/         # End-to-end predictions
+│   │   ├── maneuver_goal/           # Goal maneuver prediction model
+│   │   ├── maneuver_stimuli/        # Stimuli prediction model
+│   │   ├── eval_goal/               # Goal evaluation results
+│   │   ├── eval_stimuli/            # Stimuli evaluation results
+│   │   └── style_analysis/          # Area-aware style clustering
+│   └── control_predicted/           # Control prediction outputs
+└── docs/                            # Documentation
+```
+
+---
+
+## Troubleshooting
+
+### No sessions found when building manifest
+
+- Check that `data_dir` in `config.yaml` points to the correct folder
+- Verify session structure: `<scenario>/<session_id>/general/csv/`
+- Run `python twimo/workflows/build_manifest.py` to see what's being scanned
+
+### `FileNotFoundError: ffmpeg not found`
+
+- Only needed for `--use-video`
+- Download ffmpeg for Windows and add to System PATH
+- Verify: `ffmpeg -version`
+
+### CUDA out of memory
+
+- Use CPU-friendly model: `--model xgboost` or `--model random_forest`
+- Disable video: remove `--use-video`
+
+### Session skipped in DT simulation
+
+- Check for required RTK files: `rtk_pos.csv`, `rtk_track.csv`
+- Verify CSV headers match expected column names
+
+### Qdrant connection refused
+
+- Start Qdrant: `cd qdrant && docker-compose up -d`
+- Check dashboard: `http://localhost:6333/dashboard`
+
+### EAF alignment: "Labels remapped to [0..0]" (only 1 class)
+
+This means the vocabulary contains only the "unknown" class. Common causes:
+- **Wrong tier specified**: Check EAF files have the tier you're filtering for (e.g., `--tier Goal`)
+- **Empty annotations**: Verify parsed JSON files have `tiers_grouped` field
+- **Normalization issue**: Check `label_map` in vocab JSON
+
+**Fix**: Run diagnostic check:
+```bash
+python twimo/strategies_eaf/diagnostic_check.py \
+  --eaf-parsed-dir ./artifacts/eaf/parsed \
+  --manifest ./artifacts/manifest.jsonl
+```
+
+See [twimo/strategies_eaf/README_MULTITARGET.md](strategies_EAF/README_MULTITARGET.md) for detailed troubleshooting.
+
+---
+
+## Technology Stack
+
+- **PyTorch** (>= 2.1): Deep learning models
+- **Torchvision** (>= 0.16): Video feature extraction
+- **NumPy** (>= 1.23): Numerical computing
+- **Pandas** (>= 2.0): DataFrame operations
+- **Scikit-learn** (>= 1.3): ML algorithms, preprocessing, clustering
+- **OpenCV** (>= 4.8): Video processing
+- **Plotly** (>= 5.18): Interactive visualizations
+- **UMAP** (>= 0.5.5): Dimensionality reduction
+- **Qdrant** (>= 1.7): Vector similarity search
+- **PyYAML** (>= 6.0): Configuration parsing
+- **CodeCarbon** (>= 2.3): Carbon footprint tracking
+- *Optional*: XGBoost (>= 2.0), LightGBM (>= 4.0)
+
+---
+
+## Documentation
+
+Each module has its own README with detailed explanations:
+
+### Main Modules
+- [twimo/data/README.md](twimo/data/README.md) - Data loading, manifest, CSV processing, heuristic labels
+- [twimo/models/MODELS_OVERVIEW.md](twimo/models/MODELS_OVERVIEW.md) - Model comparison guide (11 models)
+- [twimo/dt/README.md](twimo/dt/README.md) - Digital Twin simulation internals
+- [twimo/features/README.md](twimo/features/README.md) - Feature engineering, ELAN parser
+- [twimo/analysis/README.md](twimo/analysis/README.md) - Hierarchical clustering, event detection, sequential modeling
+- [twimo/xai/README.md](twimo/xai/README.md) - Explainability and text explanations
+- [twimo/visualization/README.md](twimo/visualization/README.md) - Semantic space, Qdrant, interactive plots
+- [twimo/video/README.md](twimo/video/README.md) - Video processing and feature extraction
+- [twimo/utils/README.md](twimo/utils/README.md) - Utilities, profiling, logging
+
+### Workflows
+- [twimo/workflows/README.md](twimo/workflows/README.md) - End-to-end pipeline workflows
+
+---
+
+## License
+
+Research prototype for academic / internal experimentation.

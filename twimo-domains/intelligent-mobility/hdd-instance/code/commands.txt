@@ -1,0 +1,800 @@
+================================================================================
+TWIMO — COMMAND REFERENCE
+================================================================================
+Version 0.2.0 | Python 3.10+ | Platform: Windows (bash syntax)
+All commands are run from the project root directory.
+================================================================================
+
+
+════════════════════════════════════════════════════════════════════════════════
+SECTION 1 — SYNTAX REFERENCE (FLAGS & ARGUMENTS)
+════════════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────────────
+1.1  python -m twimo.run_scenarios
+────────────────────────────────────────────────────────────────────────────────
+  --all                      Run all use cases (A through E) end-to-end
+  --use-case {A,B,C,D,E}     Run a single use case
+  --steps A1,A2,...          Comma-separated list of step IDs to run
+                             (omit to run all steps of the chosen use case)
+  --skip-setup               Skip scan/manifest creation (manifest must exist)
+  --root PATH                Root directory of HDD dataset
+                             [default: ./example_data]
+  --manifest PATH            Path to JSONL manifest file
+                             [default: ./artifacts/manifest.jsonl]
+  --artifacts-dir PATH       Base output directory for all artifacts
+                             [default: ./artifacts]
+  --prealigned-sensors-dir PATH
+                             Directory with prealigned sensor .npy files
+  --prealigned-labels-dir PATH
+                             Directory with prealigned label .npy files
+  --transformer-outdir PATH  Output dir for Transformer model   [Use Case A]
+  --xgboost-outdir PATH      Output dir for XGBoost model       [Use Case A]
+  --rf-outdir PATH           Output dir for Random Forest model [Use Case A]
+  --dt-basic-outdir PATH     Output dir for basic DT results    [Use Case C]
+  --dt-optimized-outdir PATH Output dir for optimized DT results [Use Case C]
+  --style-outdir PATH        Output dir for style clustering    [Use Case D]
+  --explain-modeldir PATH    Model dir used for explanations    [Use Case E]
+  --explain-outdir PATH      Output dir for explanations        [Use Case E]
+
+  Step IDs:
+    A1  Train Transformer (multi-horizon, GPU recommended)
+    A2  Train XGBoost (fast, CPU-friendly)
+    A3  Train Random Forest (interpretable baseline)
+    A4  Train LightGBM (very fast, memory-efficient)
+    A5  Train GRU (recurrent, sequence modeling)
+    A6  Train LSTM (long-term temporal dependencies)
+    A7  Train TCN (temporal convolutions, parallelizable)
+    A8  Train MLP mean pooling
+    A9  Train MLP max pooling
+    A10 Train MLP concat pooling
+    B1  Train two-stage EAF model (improved YOLO pipeline)
+    B2  Evaluate two-stage EAF model
+    B3  Train Two-Stage YOLO (standard)
+    B4  Evaluate Two-Stage YOLO (standard)
+    C1  Basic DT simulation (open-loop)
+    C2  Optimized DT simulation (auto-calibration + GPS drift correction)
+    D1  Driving style clustering (K-means)
+    E1  Generate explanations
+
+────────────────────────────────────────────────────────────────────────────────
+1.2  python -m twimo.cli scan
+────────────────────────────────────────────────────────────────────────────────
+  --root PATH                Root directory to scan for HDD sessions [required]
+  --out PATH                 Output JSONL manifest file             [required]
+  --prealigned-labels-dir PATH
+                             Directory with prealigned label .npy files
+  --prealigned-sensors-dir PATH
+                             Directory with prealigned sensor .npy files
+
+────────────────────────────────────────────────────────────────────────────────
+1.3  python -m twimo.cli train-maneuver
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            JSONL manifest                         [required]
+  --outdir PATH              Output directory for model artifacts   [required]
+  --model MODEL              Model type (see list below)
+                             [default: transformer]
+  --sample-hz FLOAT          Sensor sampling frequency in Hz
+                             [default: 3]
+  --epochs INT               Training epochs (neural models only)
+                             [default: 8]
+  --horizons FLOAT [...]     Prediction horizons in seconds
+                             [default: auto-computed from sample-hz]
+                             At 3Hz: [0.333, 0.667, 1.0, 2.0, 3.0, 4.0, 5.0]
+  --use-video                Enable video fusion
+  --video-extractor NAME     Backbone for video features
+                             {resnet18, mobilenet_v3_small}
+                             [default: mobilenet_v3_small]
+  --max-sessions INT         Limit number of sessions processed
+
+  Available models:
+    transformer    Multi-head self-attention (best accuracy, GPU recommended)
+    xgboost        Gradient boosting (fast, excellent, CPU-friendly)
+    lightgbm       Light gradient boosting (very fast, low memory)
+    random_forest  Random Forest (robust, interpretable)
+    gru            Gated Recurrent Unit
+    lstm           Long Short-Term Memory
+    tcn            Temporal Convolutional Network
+    mlp_mean       MLP with mean pooling
+    mlp_max        MLP with max pooling
+    mlp_concat     MLP with mean+max+first+last pooling
+    baseline       Auto-fallback: XGBoost or Random Forest
+
+  Outputs (in --outdir):
+    config.json          Model configuration
+    feature_names.json   Feature column names
+    model_kind.txt       Model type identifier
+    model.pth            Neural model weights (PyTorch)
+    model.joblib         Tree-based model (scikit-learn)
+    train_metrics.json   Metrics on training set (per horizon)
+    val_metrics.json     Metrics on validation set (per horizon)
+    test_metrics.json    Metrics on test set (per horizon)
+    roc_curves.json      Per-class FPR/TPR arrays for each horizon
+
+────────────────────────────────────────────────────────────────────────────────
+1.4  python -m twimo.cli simulate-dt
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            JSONL manifest                         [required]
+  --outdir PATH              Output directory                       [required]
+  --sample-hz FLOAT          Sampling frequency [default: 3]
+  --wheelbase FLOAT          Vehicle wheelbase in meters [default: 2.7]
+  --save-traj                Save per-session trajectory CSVs
+
+  Required per-session CSV files:
+    rtk_pos.csv              (columns: lng, lat)
+    rtk_track.csv            (column: GPS_Yaw)
+    steer.csv                (column: steer_angle)
+    vel.csv                  (column: speed in km/h)
+
+  Outputs:
+    dt_summary.csv / dt_summary.json          Per-session metrics
+    dt_aggregated_metrics.json                Global statistics
+    sim__<SESSION_ID>.csv                     Trajectories (if --save-traj)
+
+────────────────────────────────────────────────────────────────────────────────
+1.5  python -m twimo.cli simulate-dt-optimized
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            JSONL manifest                         [required]
+  --outdir PATH              Output directory                       [required]
+  --sample-hz FLOAT          [default: 3]
+  --no-calibrate             Use fixed parameters (no auto-calibration)
+  --no-reset                 Pure open-loop (no periodic GPS position reset)
+  --reset-interval INT       Steps between GPS resets [default: 30]
+  --save-traj                Save per-session trajectory CSVs
+
+  Outputs:
+    dt_optimized_summary.json                 Per-session metrics + params
+    dt_optimized_aggregated_metrics.json      Global statistics
+    sim_optimized__<SESSION_ID>.csv           Trajectories (if --save-traj)
+
+────────────────────────────────────────────────────────────────────────────────
+1.6  python -m twimo.cli train-style
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            JSONL manifest                         [required]
+  --outdir PATH              Output directory                       [required]
+  --sample-hz FLOAT          [default: 3]
+  --k INT                    Number of clusters [default: 3]
+
+  Outputs:
+    style_centroids.json     Cluster centroids and session assignments
+
+────────────────────────────────────────────────────────────────────────────────
+1.7  python -m twimo.cli explain
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            JSONL manifest                         [required]
+  --modeldir PATH            Trained model directory                [required]
+  --outdir PATH              Output directory                       [required]
+  --explain-every-steps INT  Generate explanation every N steps [default: 50]
+
+  Outputs:
+    explanations__<DAY_ID>.jsonl     Per-day explanations
+    explanations__all.jsonl          All explanations combined
+    explain_index.json               Index of generated files
+
+────────────────────────────────────────────────────────────────────────────────
+1.8  python -m twimo.cli plot-maneuver
+────────────────────────────────────────────────────────────────────────────────
+  --json-file PATH           Path to metrics JSON (test/val/train_metrics.json) [required]
+  --outdir PATH              Output directory for PNG plots                      [required]
+
+────────────────────────────────────────────────────────────────────────────────
+1.9  python -m twimo.cli plot-roc
+────────────────────────────────────────────────────────────────────────────────
+  --roc-json PATH            Path to roc_curves.json                [required]
+  --outdir PATH              Output directory for PNG plots          [required]
+  --splits STR [...]         Splits to plot (default: all). E.g. --splits test
+                             or --splits train val test
+
+────────────────────────────────────────────────────────────────────────────────
+1.10 python -m twimo.cli align-eaf  (single-target: Goal)
+────────────────────────────────────────────────────────────────────────────────
+  --eaf-parsed-dir PATH      Directory with parsed EAF JSONL files  [required]
+  --vocab PATH               Vocabulary JSON (e.g. vocab_goal.json) [required]
+  --manifest PATH            JSONL manifest                          [required]
+  --outdir PATH              Output directory for aligned .npy files [required]
+  --sample-hz FLOAT          [default: 3]
+
+────────────────────────────────────────────────────────────────────────────────
+1.11 python -m twimo.cli align-eaf-multi  (multi-target: Goal + Stimuli + ...)
+────────────────────────────────────────────────────────────────────────────────
+  --eaf-parsed-dir PATH      Directory with parsed EAF JSONL files  [required]
+  --vocab-dir PATH           Directory with all vocab_*.json files   [required]
+  --manifest PATH            JSONL manifest                          [required]
+  --outdir PATH              Output directory                        [required]
+  --sample-hz FLOAT          [default: 3]
+  --debug                    Enable verbose debug output
+
+────────────────────────────────────────────────────────────────────────────────
+1.12 python -m twimo.cli eaf-yolo-improved  <subcommand> [flags...]
+────────────────────────────────────────────────────────────────────────────────
+  Subcommands: extract-improved | train | evaluate
+  All flags are forwarded verbatim to the underlying pipeline.
+
+  extract-improved:
+    --manifest PATH
+    --det-cache-dir PATH
+    --prealigned-sensors-dir PATH
+
+  train:
+    --manifest PATH
+    --eaf-parsed-dir PATH
+    --prealigned-sensors-dir PATH
+    --vocab-dir PATH
+    --outdir PATH
+    --epochs INT [default: 40]
+
+  evaluate:
+    --manifest PATH
+    --model-dir PATH
+    --eaf-parsed-dir PATH
+    --prealigned-sensors-dir PATH
+    --vocab-dir PATH
+    --outdir PATH
+
+────────────────────────────────────────────────────────────────────────────────
+1.13 python -m twimo.cli eaf-yolo  <subcommand> [flags...]
+────────────────────────────────────────────────────────────────────────────────
+  Subcommands: extract | train | validate | filter-retrain | evaluate
+  All flags are forwarded verbatim to the underlying pipeline.
+
+  extract:
+    --manifest PATH
+    --det-cache-dir PATH
+    --prealigned-sensors-dir PATH
+
+  train:
+    --manifest PATH
+    --eaf-parsed-dir PATH
+    --prealigned-sensors-dir PATH
+    --det-cache-dir PATH
+    --outdir PATH
+    --epochs INT [default: 40]
+
+  evaluate:
+    --manifest PATH
+    --model-dir PATH
+    --eaf-parsed-dir PATH
+    --prealigned-sensors-dir PATH
+    --det-cache-dir PATH
+    --outdir PATH
+
+────────────────────────────────────────────────────────────────────────────────
+1.14 python -m twimo.cli eaf-transformer  <subcommand> [flags...]
+────────────────────────────────────────────────────────────────────────────────
+  Subcommands: prepare | train-stage1 | train-stage2 | predict
+  All flags are forwarded verbatim to the underlying pipeline.
+
+  prepare:
+    --manifest PATH
+    --eaf-parsed-dir PATH
+    --outdir PATH
+
+  train-stage1 / train-stage2:
+    --prepared-dir PATH
+    --outdir PATH
+    --epochs INT [default: 30]
+
+  predict:
+    --prepared-dir PATH
+    --model-dir PATH
+    --outdir PATH
+
+────────────────────────────────────────────────────────────────────────────────
+1.15 python -m twimo.cli annotate-video
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            JSONL manifest                         [required]
+  --modeldir PATH            Trained maneuver model directory       [required]
+  --outdir PATH              Output directory for annotated videos  [required]
+  --session SESSION_ID       Session to annotate (default: all)
+  --horizons FLOAT [...]     Horizons to overlay in seconds [default: 1.0 3.0 5.0]
+  --sample-hz FLOAT          [default: 3.0]
+  --max-seconds FLOAT        Trim to first N seconds (default: full)
+  --prealigned-sensors-dir PATH
+
+────────────────────────────────────────────────────────────────────────────────
+1.16 python -m twimo.cli annotate-video-eaf
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            [required]
+  --stage1-model PATH        EventNet .pt file                      [required]
+  --stage2-model PATH        ClassifyNet .pt file                   [required]
+  --data-dir PATH            EAF model output dir (config + norms)  [required]
+  --vocab-dir PATH           Directory with vocab_*.json files      [required]
+  --outdir PATH              [required]
+  --session SESSION_ID       (default: all)
+  --sample-hz FLOAT          [default: 3.0]
+  --horizons FLOAT [...]     [default: 1.0 3.0 5.0]
+  --max-seconds FLOAT
+  --prealigned-sensors-dir PATH
+  --eaf-parsed-dir PATH      For ground-truth overlay (optional)
+
+────────────────────────────────────────────────────────────────────────────────
+1.17 python -m twimo.cli annotate-video-eaf-yolo
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            [required]
+  --stage1-model PATH        [required]
+  --stage2-model PATH        [required]
+  --data-dir PATH            [required]
+  --vocab-dir PATH           [required]
+  --outdir PATH              [required]
+  --session SESSION_ID
+  --sample-hz FLOAT          [default: 3.0]
+  --horizons FLOAT [...]     [default: 1.0 3.0 5.0]
+  --max-seconds FLOAT
+  --prealigned-sensors-dir PATH
+  --det-cache-dir PATH       Precomputed YOLO detection cache
+  --eaf-parsed-dir PATH
+  --yolo-model STR           YOLOv8 weights (e.g. yolov8n.pt); omit for cache-only
+  --yolo-conf FLOAT          Confidence threshold [default: 0.30]
+
+────────────────────────────────────────────────────────────────────────────────
+1.18 python -m twimo.cli annotate-video-eaf-yolo-improved
+────────────────────────────────────────────────────────────────────────────────
+  --manifest PATH            [required]
+  --model-dir PATH           Improved EAF model directory           [required]
+  --vocab-dir PATH           [required]
+  --outdir PATH              [required]
+  --session SESSION_ID
+  --sample-hz FLOAT          [default: 3.0]
+  --horizons FLOAT [...]     [default: 1.0 3.0 5.0]
+  --max-seconds FLOAT
+  --prealigned-sensors-dir PATH
+  --det-cache-dir PATH
+  --eaf-parsed-dir PATH
+  --yolo-model STR
+  --yolo-conf FLOAT          [default: 0.30]
+  --no-zone-colours          Disable colour-coded zone overlays
+
+
+════════════════════════════════════════════════════════════════════════════════
+SECTION 2 — COMMANDS BY USE CASE AND STEP
+════════════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────────────
+SETUP — Data Scan & Manifest Creation
+────────────────────────────────────────────────────────────────────────────────
+
+[SETUP-1] Scan example data (CSV-only mode, no prealigned assets):
+python -m twimo.cli scan --root ./example_data --out ./artifacts/manifest.jsonl
+
+[SETUP-2] Scan full HDD dataset with prealigned assets (recommended):
+python -m twimo.cli scan \
+  --root ./path/to/HDD \
+  --out ./artifacts/manifest.jsonl \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor \
+  --prealigned-labels-dir  ./twimo/assets/hdd_prealigned/20200710_labels/target
+
+────────────────────────────────────────────────────────────────────────────────
+USE CASE A — Maneuver Prediction with Proxy Supervision
+────────────────────────────────────────────────────────────────────────────────
+
+[A1] Train Transformer (multi-horizon, GPU recommended):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_transformer \
+  --model    transformer \
+  --sample-hz 3 \
+  --epochs   5
+
+[A2] Train XGBoost (fast, CPU-friendly):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_xgboost \
+  --model    xgboost \
+  --sample-hz 3
+
+[A3] Train Random Forest (interpretable baseline):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_rf \
+  --model    random_forest \
+  --sample-hz 3
+
+[A4] Train LightGBM (very fast, memory-efficient):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_lgbm \
+  --model    lightgbm \
+  --sample-hz 3
+
+[A5] Train GRU (recurrent, sequence modeling):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_gru \
+  --model    gru \
+  --sample-hz 3 \
+  --epochs   10
+
+[A6] Train LSTM (long-term temporal dependencies):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_lstm \
+  --model    lstm \
+  --sample-hz 3 \
+  --epochs   10
+
+[A7] Train TCN (temporal convolutions, parallelizable):
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_tcn \
+  --model    tcn \
+  --sample-hz 3 \
+  --epochs   10
+
+[A8] Train MLP with mean pooling:
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_mlp_mean \
+  --model    mlp_mean \
+  --sample-hz 3 \
+  --epochs   10
+
+[A9] Train MLP with max pooling:
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_mlp_max \
+  --model    mlp_max \
+  --sample-hz 3 \
+  --epochs   10
+
+[A10] Train MLP with concatenated pooling:
+python -m twimo.cli train-maneuver \
+  --manifest ./artifacts/manifest.jsonl \
+  --outdir   ./artifacts/maneuver_mlp_concat \
+  --model    mlp_concat \
+  --sample-hz 3 \
+  --epochs   10
+
+[A-VIDEO-1] Train Transformer with video fusion:
+python -m twimo.cli train-maneuver \
+  --manifest       ./artifacts/manifest.jsonl \
+  --outdir         ./artifacts/maneuver_transformer_video \
+  --model          transformer \
+  --use-video \
+  --video-extractor mobilenet_v3_small \
+  --sample-hz 3 \
+  --epochs    5
+
+[A-VIDEO-2] Train GRU with video fusion:
+python -m twimo.cli train-maneuver \
+  --manifest       ./artifacts/manifest.jsonl \
+  --outdir         ./artifacts/maneuver_gru_video \
+  --model          gru \
+  --use-video \
+  --video-extractor mobilenet_v3_small \
+  --sample-hz 3 \
+  --epochs    5
+
+[A-PLOT-1] Generate maneuver prediction plots (test set):
+python -m twimo.cli plot-maneuver \
+  --json-file ./artifacts/maneuver_transformer/test_metrics.json \
+  --outdir    ./artifacts/plots/transformer_metrics
+
+[A-PLOT-1b] Generate maneuver prediction plots (validation set):
+python -m twimo.cli plot-maneuver \
+  --json-file ./artifacts/maneuver_transformer/val_metrics.json \
+  --outdir    ./artifacts/plots/transformer_metrics_val
+
+[A-PLOT-2] Generate ROC curves for Transformer test set:
+python -m twimo.cli plot-roc \
+  --roc-json ./artifacts/maneuver_transformer/roc_curves.json \
+  --outdir   ./artifacts/plots/transformer_roc \
+  --splits   test
+
+[A-PLOT-3] Generate ROC curves for all splits (train/val/test):
+python -m twimo.cli plot-roc \
+  --roc-json ./artifacts/maneuver_transformer/roc_curves.json \
+  --outdir   ./artifacts/plots/transformer_roc \
+  --splits   train val test
+
+────────────────────────────────────────────────────────────────────────────────
+USE CASE B — EAF Ground-Truth: Goal & Stimuli Prediction
+────────────────────────────────────────────────────────────────────────────────
+
+[B-PREP-1] Align EAF annotations to sensors (single-target: Goal only):
+python -m twimo.cli align-eaf \
+  --eaf-parsed-dir ./artifacts/eaf/parsed \
+  --vocab          ./twimo/strategies_eaf/vocab_goal.json \
+  --manifest       ./artifacts/manifest.jsonl \
+  --outdir         ./artifacts/eaf_aligned \
+  --sample-hz      3
+
+[B-PREP-2] Align EAF annotations to sensors (multi-target: Goal + Stimuli + Cause + Attention):
+python -m twimo.cli align-eaf-multi \
+  --eaf-parsed-dir ./artifacts/eaf/parsed \
+  --vocab-dir      ./twimo/strategies_eaf \
+  --manifest       ./artifacts/manifest.jsonl \
+  --outdir         ./artifacts/eaf_aligned_multi \
+  --sample-hz      3
+
+[B1] Train Two-Stage EAF model — improved YOLO pipeline (extract features):
+python -m twimo.cli eaf-yolo-improved extract-improved \
+  --manifest               ./artifacts/manifest.jsonl \
+  --det-cache-dir          ./artifacts/det_cache_improved \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor
+
+[B1b] Train Two-Stage EAF model — improved YOLO pipeline (train):
+python -m twimo.cli eaf-yolo-improved train \
+  --manifest               ./artifacts/manifest.jsonl \
+  --eaf-parsed-dir         ./artifacts/eaf/parsed \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor \
+  --vocab-dir              ./twimo/strategies_eaf \
+  --outdir                 ./artifacts/eaf_two_stage \
+  --epochs                 40
+
+[B2] Evaluate Two-Stage EAF model — improved YOLO pipeline:
+python -m twimo.cli eaf-yolo-improved evaluate \
+  --manifest               ./artifacts/manifest.jsonl \
+  --model-dir              ./artifacts/eaf_two_stage \
+  --eaf-parsed-dir         ./artifacts/eaf/parsed \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor \
+  --vocab-dir              ./twimo/strategies_eaf \
+  --outdir                 ./artifacts/eaf_two_stage/eval
+
+[B3] Train Two-Stage YOLO (standard, extract features):
+python -m twimo.cli eaf-yolo extract \
+  --manifest               ./artifacts/manifest.jsonl \
+  --det-cache-dir          ./artifacts/det_cache \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor
+
+[B3b] Train Two-Stage YOLO (standard, train):
+python -m twimo.cli eaf-yolo train \
+  --manifest               ./artifacts/manifest.jsonl \
+  --eaf-parsed-dir         ./artifacts/eaf/parsed \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor \
+  --det-cache-dir          ./artifacts/det_cache \
+  --outdir                 ./artifacts/eaf_yolo \
+  --epochs                 40
+
+[B4] Evaluate Two-Stage YOLO (standard):
+python -m twimo.cli eaf-yolo evaluate \
+  --manifest               ./artifacts/manifest.jsonl \
+  --model-dir              ./artifacts/eaf_yolo \
+  --eaf-parsed-dir         ./artifacts/eaf/parsed \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor \
+  --det-cache-dir          ./artifacts/det_cache \
+  --outdir                 ./artifacts/eaf_yolo/eval
+
+[B-TRANSFORMER-1] Two-Stage Transformer: prepare data:
+python -m twimo.cli eaf-transformer prepare \
+  --manifest       ./artifacts/manifest.jsonl \
+  --eaf-parsed-dir ./artifacts/eaf/parsed \
+  --outdir         ./artifacts/two_stage_transformer
+
+[B-TRANSFORMER-2] Two-Stage Transformer: train Stage 1:
+python -m twimo.cli eaf-transformer train-stage1 \
+  --prepared-dir ./artifacts/two_stage_transformer \
+  --outdir       ./artifacts/two_stage_transformer \
+  --epochs       30
+
+[B-TRANSFORMER-3] Two-Stage Transformer: train Stage 2:
+python -m twimo.cli eaf-transformer train-stage2 \
+  --prepared-dir ./artifacts/two_stage_transformer \
+  --outdir       ./artifacts/two_stage_transformer \
+  --epochs       30
+
+[B-TRANSFORMER-4] Two-Stage Transformer: generate predictions:
+python -m twimo.cli eaf-transformer predict \
+  --prepared-dir ./artifacts/two_stage_transformer \
+  --model-dir    ./artifacts/two_stage_transformer \
+  --outdir       ./artifacts/two_stage_transformer/predictions
+
+────────────────────────────────────────────────────────────────────────────────
+USE CASE C — Vehicle Digital Twin Simulation
+────────────────────────────────────────────────────────────────────────────────
+
+[C1] Basic DT simulation (ground-truth controls, open-loop):
+python -m twimo.cli simulate-dt \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/dt_basic \
+  --sample-hz 10
+
+[C1b] Basic DT simulation with trajectory export:
+python -m twimo.cli simulate-dt \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/dt_basic \
+  --sample-hz 10 \
+  --save-traj
+
+[C2] Optimized DT simulation (auto-calibration + GPS drift correction):
+python -m twimo.cli simulate-dt-optimized \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/dt_optimized \
+  --sample-hz 3
+
+[C2b] Optimized DT simulation with trajectory export:
+python -m twimo.cli simulate-dt-optimized \
+  --manifest       ./artifacts/manifest.jsonl \
+  --outdir         ./artifacts/dt_optimized \
+  --sample-hz      3 \
+  --reset-interval 30 \
+  --save-traj
+
+[C2c] Optimized DT simulation: pure open-loop (no GPS reset):
+python -m twimo.cli simulate-dt-optimized \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/dt_optimized_openloop \
+  --sample-hz 3 \
+  --no-reset
+
+[C2d] Optimized DT simulation: fixed parameters (no auto-calibration):
+python -m twimo.cli simulate-dt-optimized \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/dt_optimized_fixed \
+  --sample-hz 3 \
+  --no-calibrate
+
+────────────────────────────────────────────────────────────────────────────────
+USE CASE D — Driving Style Analysis
+────────────────────────────────────────────────────────────────────────────────
+
+[D1] Train driving style clustering (3 clusters):
+python -m twimo.cli train-style \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/style \
+  --sample-hz 3 \
+  --k 3
+
+[D1b] Train with 5 clusters:
+python -m twimo.cli train-style \
+  --manifest  ./artifacts/manifest.jsonl \
+  --outdir    ./artifacts/style_k5 \
+  --sample-hz 3 \
+  --k 5
+
+────────────────────────────────────────────────────────────────────────────────
+USE CASE E — Explainability (CODE-style)
+────────────────────────────────────────────────────────────────────────────────
+
+[E1] Generate explanations from Transformer model:
+python -m twimo.cli explain \
+  --manifest           ./artifacts/manifest.jsonl \
+  --modeldir           ./artifacts/maneuver_transformer \
+  --outdir             ./artifacts/explain \
+  --explain-every-steps 50
+
+[E1b] Generate explanations from XGBoost model:
+python -m twimo.cli explain \
+  --manifest           ./artifacts/manifest.jsonl \
+  --modeldir           ./artifacts/maneuver_xgboost \
+  --outdir             ./artifacts/explain_xgboost \
+  --explain-every-steps 50
+
+────────────────────────────────────────────────────────────────────────────────
+VIDEO ANNOTATION
+────────────────────────────────────────────────────────────────────────────────
+
+[VID-1] Annotate video with proxy/maneuver labels:
+python -m twimo.cli annotate-video \
+  --manifest ./artifacts/manifest.jsonl \
+  --modeldir ./artifacts/maneuver_transformer \
+  --outdir   ./artifacts/annotated_video \
+  --session  201702271017
+
+[VID-2] Annotate video with EAF two-stage labels:
+python -m twimo.cli annotate-video-eaf \
+  --manifest      ./artifacts/manifest.jsonl \
+  --stage1-model  ./artifacts/eaf_two_stage/stage1_model.pt \
+  --stage2-model  ./artifacts/eaf_two_stage/stage2_model.pt \
+  --data-dir      ./artifacts/eaf_two_stage \
+  --vocab-dir     ./twimo/strategies_eaf \
+  --outdir        ./artifacts/annotated_video_eaf \
+  --session       201702271017
+
+[VID-3] Annotate video with EAF + YOLOv8 labels:
+python -m twimo.cli annotate-video-eaf-yolo \
+  --manifest      ./artifacts/manifest.jsonl \
+  --stage1-model  ./artifacts/eaf_yolo/stage1_model.pt \
+  --stage2-model  ./artifacts/eaf_yolo/stage2_model.pt \
+  --data-dir      ./artifacts/eaf_yolo \
+  --vocab-dir     ./twimo/strategies_eaf \
+  --outdir        ./artifacts/annotated_video_eaf_yolo \
+  --session       201702271017 \
+  --yolo-conf     0.30
+
+[VID-4] Annotate video with EAF + YOLOv8 improved labels:
+python -m twimo.cli annotate-video-eaf-yolo-improved \
+  --manifest  ./artifacts/manifest.jsonl \
+  --model-dir ./artifacts/eaf_yolo_improved \
+  --vocab-dir ./twimo/strategies_eaf \
+  --outdir    ./artifacts/annotated_video_eaf_yolo_improved \
+  --session   201702271017
+
+────────────────────────────────────────────────────────────────────────────────
+ORCHESTRATION — Run All Use Cases (run_scenarios shortcuts)
+────────────────────────────────────────────────────────────────────────────────
+
+[RUN-1] Run all 5 use cases end-to-end:
+python -m twimo.run_scenarios --all
+
+[RUN-2] Run all use cases with prealigned assets:
+python -m twimo.run_scenarios --all \
+  --root ./example_data \
+  --manifest ./artifacts/manifest.jsonl \
+  --artifacts-dir ./artifacts \
+  --prealigned-sensors-dir ./twimo/assets/hdd_prealigned/20200710_sensors/sensor \
+  --prealigned-labels-dir  ./twimo/assets/hdd_prealigned/20200710_labels/target
+
+[RUN-3] Run single use case:
+python -m twimo.run_scenarios --use-case A
+python -m twimo.run_scenarios --use-case B
+python -m twimo.run_scenarios --use-case C
+python -m twimo.run_scenarios --use-case D
+python -m twimo.run_scenarios --use-case E
+
+[RUN-4] Run specific steps only:
+python -m twimo.run_scenarios --use-case A --steps A1
+python -m twimo.run_scenarios --use-case A --steps A1,A2
+python -m twimo.run_scenarios --use-case C --steps C2
+python -m twimo.run_scenarios --all --steps A1,C2,D1,E1
+
+[RUN-5] Run with skip-setup (manifest already exists):
+python -m twimo.run_scenarios --all --skip-setup
+
+[RUN-6] Run with custom output directories:
+python -m twimo.run_scenarios --all \
+  --transformer-outdir  ./experiments/run1/transformer \
+  --xgboost-outdir      ./experiments/run1/xgboost \
+  --rf-outdir           ./experiments/run1/rf \
+  --dt-optimized-outdir ./experiments/run1/dt_opt \
+  --style-outdir        ./experiments/run1/style \
+  --explain-modeldir    ./experiments/run1/transformer \
+  --explain-outdir      ./experiments/run1/explain
+
+
+════════════════════════════════════════════════════════════════════════════════
+SECTION 3 — SUMMARY TABLE
+════════════════════════════════════════════════════════════════════════════════
+
+Step    | Use Case  | Module / Script                         | Key Flags
+--------+-----------+-----------------------------------------+------------------------
+SETUP-1 | Setup     | twimo.cli scan                          | --root --out
+SETUP-2 | Setup     | twimo.cli scan                          | --root --prealigned-*
+A1      | Maneuver  | twimo.cli train-maneuver                | --model transformer
+A2      | Maneuver  | twimo.cli train-maneuver                | --model xgboost
+A3      | Maneuver  | twimo.cli train-maneuver                | --model random_forest
+A4      | Maneuver  | twimo.cli train-maneuver                | --model lightgbm
+A5      | Maneuver  | twimo.cli train-maneuver                | --model gru
+A6      | Maneuver  | twimo.cli train-maneuver                | --model lstm
+A7      | Maneuver  | twimo.cli train-maneuver                | --model tcn
+A8      | Maneuver  | twimo.cli train-maneuver                | --model mlp_mean
+A9      | Maneuver  | twimo.cli train-maneuver                | --model mlp_max
+A10     | Maneuver  | twimo.cli train-maneuver                | --model mlp_concat
+A-VID   | Maneuver  | twimo.cli train-maneuver                | --use-video
+A-PLT1  | Plots     | twimo.cli plot-maneuver                 | --json-file --outdir
+A-PLT2  | Plots     | twimo.cli plot-roc                      | --roc-json --splits
+B-P1    | EAF Prep  | twimo.cli align-eaf                     | --vocab (single-target)
+B-P2    | EAF Prep  | twimo.cli align-eaf-multi               | --vocab-dir (multi)
+B1      | EAF Train | twimo.cli eaf-yolo-improved extract-improved | --det-cache-dir
+B1b     | EAF Train | twimo.cli eaf-yolo-improved train       | --epochs 40
+B2      | EAF Eval  | twimo.cli eaf-yolo-improved evaluate    | --model-dir
+B3      | EAF Train | twimo.cli eaf-yolo extract              | --det-cache-dir
+B3b     | EAF Train | twimo.cli eaf-yolo train                | --epochs 40
+B4      | EAF Eval  | twimo.cli eaf-yolo evaluate             | --model-dir
+B-T1    | EAF Alt   | twimo.cli eaf-transformer prepare       | --eaf-parsed-dir
+B-T2    | EAF Alt   | twimo.cli eaf-transformer train-stage1  | --epochs 30
+B-T3    | EAF Alt   | twimo.cli eaf-transformer train-stage2  | --epochs 30
+B-T4    | EAF Alt   | twimo.cli eaf-transformer predict       | --model-dir
+C1      | Dig. Twin | twimo.cli simulate-dt                   | --wheelbase --save-traj
+C2      | Dig. Twin | twimo.cli simulate-dt-optimized         | --reset-interval
+D1      | Style     | twimo.cli train-style                   | --k 3
+E1      | Explain   | twimo.cli explain                       | --explain-every-steps
+VID-1   | Video     | twimo.cli annotate-video                | --modeldir --session
+VID-2   | Video     | twimo.cli annotate-video-eaf            | --stage1-model --session
+VID-3   | Video     | twimo.cli annotate-video-eaf-yolo       | --yolo-conf --session
+VID-4   | Video     | twimo.cli annotate-video-eaf-yolo-improved | --model-dir --session
+RUN-ALL | Orch.     | twimo.run_scenarios                     | --all
+RUN-UC  | Orch.     | twimo.run_scenarios                     | --use-case {A-E}
+RUN-ST  | Orch.     | twimo.run_scenarios                     | --steps A1,C2,...
+
+================================================================================
+NOTES
+================================================================================
+- Default sample-hz: 3 Hz (all commands that accept --sample-hz)
+- Default prediction horizons at 3 Hz: [0.333s, 0.667s, 1.0s, 2.0s, 3.0s, 4.0s, 5.0s]
+  (auto-computed from sample-hz; override with --horizons if needed)
+- Neural models (transformer, gru, lstm, tcn, mlp_*): GPU recommended
+- Tree models (xgboost, lightgbm, random_forest): CPU-only, no GPU needed
+- First run with --use-video builds a video cache (slow); subsequent runs reuse it
+- DT simulation requires: rtk_pos.csv, rtk_track.csv, steer.csv, vel.csv per session
+- Expected DT RMSE: ~2000-3000m (basic), ~20-200m (optimized)
+================================================================================

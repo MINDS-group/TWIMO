@@ -1,0 +1,164 @@
+# TWIMO Configuration File
+# ========================
+#
+# IMPORTANT: Modify these paths to point to your dataset location
+# Currently configured for development dataset (limited sessions)
+# For full dataset testing, update paths to your external hard drive
+
+# Dataset Paths
+# -------------
+
+# Base directory containing driving session data
+# Structure: <data_dir>/<scenario>/<session_id>/general/csv/
+# data_dir: "example_data"
+data_dir: "F:/TWIMO/CASE-STUDY/hdd_data/release_2019_07_08"
+
+# Alternative: Full dataset on external hard drive (uncomment when ready)
+# data_dir: "E:/HDD_Dataset"  # Example external drive path
+
+# EAF annotation files directory
+# Contains ELAN .eaf files for annotated sessions
+# eaf_dir: "assets/hdd_prealigned/20200710_EAF"
+eaf_dir: "F:/TWIMO/CASE-STUDY/hdd_data/release_2019_07_08/EAF"
+
+# Alternative: Full annotations on external drive (uncomment when ready)
+# eaf_dir: "E:/HDD_Dataset/annotations/EAF"
+
+# Preprocessed ELAN data directory (for fast loading)
+# Contains .npy files for sensors and labels processed from EAF files
+preprocessed_elan_dir: "assets/hdd_prealigned/20200710_EAF_NPY"
+
+# Alternative: Preprocessed data on external drive (uncomment when ready)
+# preprocessed_elan_dir: "E:/HDD_Dataset/preprocessed/20200710_EAF_NPY"
+
+# Video files base directory (optional, for reference)
+# Structure: <video_dir>/<scenario>/<session_id>/camera/center/
+# video_dir: "example_data"
+video_dir: "F:/TWIMO/CASE-STUDY/hdd_data/release_2019_07_08"
+
+# Alternative: Full videos on external drive (uncomment when ready)
+# video_dir: "E:/HDD_Dataset/videos"
+
+# Output/Artifacts Paths
+# ----------------------
+
+# Base directory for all generated artifacts
+artifacts_dir: "artifacts"
+
+# Manifest file (session registry)
+manifest_file: "artifacts/manifest.jsonl"
+
+# Specific output directories
+output_dirs:
+  style_viz: "artifacts/style_viz"
+  advanced_analysis: "artifacts/advanced_analysis"
+  advanced_viz: "artifacts/advanced_viz"
+  annotated_analysis: "artifacts/annotated_analysis"
+  qdrant_db: "artifacts/qdrant_db"
+
+# Qdrant Configuration
+# --------------------
+
+qdrant:
+  collection_name: "driving_sessions"
+  vector_dim: 40
+  host: "localhost"
+  port: 6333
+
+# Analysis Parameters
+# -------------------
+
+# Session filtering
+max_sessions: null  # null = process all sessions, or set a number for testing
+
+# Temporal segmentation
+temporal:
+  window_size_sec: 30
+  stride_sec: 15
+  min_samples: 1000
+
+# Clustering parameters
+clustering:
+  level1_clusters: 3  # Style: prudent, smooth, aggressive
+  level2_clusters: 7  # Style + Context
+  level3_clusters: 11 # Fine-grained behaviors
+
+  # Advanced clustering methods
+  methods:
+    - "basic"
+    - "hierarchical"
+    - "temporal"
+    - "density_based"
+    - "fuzzy"
+
+# Sequential modeling
+sequential:
+  time_window_ms: 10000  # 10 seconds
+  train_test_split: 0.8
+
+# Event detection thresholds
+event_detection:
+  stop_threshold_ms: 2.0  # m/s
+  min_stop_duration_ms: 2000
+  turn_steer_threshold_deg: 45.0
+  lane_change_steer_threshold_deg: 15.0
+  hard_accel_threshold_pct: 20.0
+  hard_brake_threshold_kpa: 800.0
+
+# Annotation matching
+annotation:
+  max_time_diff_ms: 2000  # Maximum time difference for annotation-event matching
+
+# Visualization parameters
+visualization:
+  reduction_method: "umap"  # or "tsne"
+  umap_neighbors: 15
+  umap_min_dist: 0.1
+  figsize_width: 12
+  figsize_height: 8
+  dpi: 100
+
+# Dataset Information
+# -------------------
+
+# Expected CSV file structure in session directories
+csv_files:
+  - "vel.csv"
+  - "accel_pedal.csv"
+  - "brake_pedal.csv"
+  - "steer.csv"
+
+# Scenarios to process (leave empty to process all)
+scenarios: []
+# Example: Specific scenarios only
+# scenarios:
+#   - "2017_02_27_ITS1"
+#   - "2017_02_28_ITS1"
+
+# Session ID filter (leave empty to process all)
+session_ids: []
+# Example: Specific sessions only
+# session_ids:
+#   - "201702271017"
+#   - "201702271123"
+
+# Notes for Full Dataset Testing
+# -------------------------------
+#
+# When ready to test on the full dataset:
+#
+# 1. Update 'data_dir' to point to external hard drive
+#    Example: "E:/HDD_Dataset" or "/Volumes/ExternalHD/HDD_Dataset"
+#
+# 2. Update 'eaf_dir' for full annotations
+#    Example: "E:/HDD_Dataset/annotations/EAF"
+#
+# 3. Update 'video_dir' if processing videos
+#    Example: "E:/HDD_Dataset/videos"
+#
+# 4. Optionally set 'max_sessions' to null for all sessions
+#
+# 5. Run manifest builder first:
+#    python twimo/workflows/build_manifest.py
+#
+# 6. Then run analysis scripts as usual

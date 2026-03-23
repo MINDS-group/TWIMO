@@ -1,0 +1,17 @@
+# Java / Eclipse
+bin/
+*.class
+*.log
+
+# GMF / EMF (generated)
+*.gmfgen
+
+# Eclipse
+.metadata/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db

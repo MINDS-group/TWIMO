@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/DMB_ExtendedMetamodel/src" modelPluginID="DMB_ExtendedMetamodel"
+    modelName="DrivingBehaviourMetamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" copyrightFields="false" importOrganizing="true">
+  <foreignModel>intelligentMobility.ecore</foreignModel>
+  <genPackages prefix="IntelligentMobility" disposableProviderFactory="true" loadInitialization="true"
+      literalsInterface="false" ecorePackage="intelligentMobility.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//DriverType">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//DriverType/Human"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//DriverType/Selfdriving"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//Lanes">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/NormalLane"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/Entry"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/Exit"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/ExitSection"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/EmergencyLane"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/RushHourLane"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/SecondaryRoad"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/ZebraCrossings"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Lanes/Confluence"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Direction/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Direction/Right"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Direction/Straight"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//Direction/UTurn"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//CarType">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//CarType/NormalCar"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//CarType/Truck"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//CarType/Scooter"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//CarType/Motorbike"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//RoadShape">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//RoadShape/Round"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//RoadShape/Straight"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//RoadType">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//RoadType/Highway"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//RoadType/UrbanRoad"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//RoadType/MountainRoad"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//TrafficType">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//TrafficType/Congestion"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//TrafficType/RushHours"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="intelligentMobility.ecore#//ProtocolType">
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//ProtocolType/CinqueG"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//ProtocolType/C_V2X"/>
+      <genEnumLiterals ecoreEnumLiteral="intelligentMobility.ecore#//ProtocolType/DSRC"/>
+    </genEnums>
+    <genClasses ecoreClass="intelligentMobility.ecore#//MobilitySystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/driver_profile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/vehicle_configuration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/environment_background"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/driver_preference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/knowledge_and_skill"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/driver_emotion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/driving_behaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/normal_behaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/following"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/lane_changing"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/abnormal_behaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/forward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/backward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/turn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/gap_acceptance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/vehicle_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/platoon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/normal_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/leading_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/following_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/platoon_member"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/possible_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/environment_condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/lane_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/regulation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/safety_requirement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/weather"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/traffic_situation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/special_condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/collision"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/intersection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/obstruction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/traffic_light"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/execption_condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_driver_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_driver_environment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_vehicle_environment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_driverProfile_driverPreference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_vehicleConfiguration_vehicleType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentBackground_possibleVehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentBackground_environmentCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_driverPreference_driverEmotion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_driverPreference_drivingBehaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_driverPreference_environmentCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_drivingBehaviour_normalBehaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_normalBehaviour_following"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_normalBehaviour_laneChanging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_following_minGap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_following_forward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_following_backward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_laneChanging_turn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_laneChanging_gapAcceptance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_laneChanging_environmentCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_abnormalBehaviour_action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_platoon_leadingVehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_platoon_followingVehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_normalVehicle_safetyRequirement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_followingVehicle_frontVehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentCondition_laneType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentCondition_regulation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentCondition_weather"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentCondition_trafficCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_environmentCondition_specialCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_laneType_regulation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_safetyRequirement_regulation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_specialCondition_intersection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_collision_obstruction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_intersection_trafficLight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//MobilitySystem/systemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//MobilitySystem/geographicalScope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//MobilitySystem/infrastructureType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/infrastructure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/communicationInterfaces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/goal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_infrastructure_vehicle_configuration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_communicationInterface_vehicleConfiguration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_communicationInterface_infrastructure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_goal_drivingBehaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/cooperativeBehaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_cooperativeBehaviour_communicationInterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_cooperativeBehaviour_vehicleConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_trafficSituation_environmentCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_following_laneChanging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_collision_specialCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_action_backward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_action_forward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_action_turn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//MobilitySystem/link_knowledgeAndSkill_driverPreference"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Driver_Profile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driver_Profile/driver_preference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/driverName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/driverType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/patienceValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/lanePreference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/energySpeedRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/riskLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/reactionTime_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/reactionTime_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/reactionTime_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Profile/age"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Vehicle_Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/brandName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/colorR_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/colorR_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/colorG_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/colorG_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/colorB_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/colorB_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Vehicle_Configuration/vehicle_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/gpsYaw"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/gpsPitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/gpsRoll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/latitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Configuration/longitude"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Vehicle_Configuration/connectedInfrastructure"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Environment_Background">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/roadLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/roadShape"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/totalVehiclePerFrame"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/trafficDensity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/simulationFrameTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/simulationSleepTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Background/possiblevehicles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Background/environment_condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Background/roadIncline"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Driver_Preference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driver_Preference/driver_emotions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driver_Preference/knowledge_and_skills"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Preference/name_PreferenceSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driver_Preference/driving_behaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driver_Preference/environment_condition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Knowledge_and_Skill">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Knowledge_and_Skill/drivingSkill"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Knowledge_and_Skill/trafficSignAwareness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Knowledge_and_Skill/regulationAwareness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Knowledge_and_Skill/laneSwitchPreferenceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Knowledge_and_Skill/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Driver_Emotion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Emotion/drowsinessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Emotion/impulseControlLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Emotion/metanlCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Emotion/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Emotion/ecgHr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driver_Emotion/gsr"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Driving_Behaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/prepDistanceForDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/prepDistanceForTurn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/initialSpeed_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/initialSpeed_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/initialSpeed_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/desiredSpeed_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/desiredSpeed_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driving_Behaviour/normal_behaviour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/steeringAngle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/throttle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/brake"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/gear"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/handbrake"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/rpm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/keyEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/pedalAngle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/pedalPressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/steerSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/intentType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Driving_Behaviour/confidence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Driving_Behaviour/goal"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Normal_Behaviour">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Normal_Behaviour/following"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Normal_Behaviour/lanechanging"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Following">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Following/followingGap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Following/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Following/minGap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Following/forward"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Following/backward"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//LaneChanging">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/laneSwitchSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//LaneChanging/turn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//LaneChanging/gapacceptance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//LaneChanging/environment_condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/leftLaneChange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/rightLaneChange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/leftLaneBranch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/rightLaneBranch"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//LaneChanging/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/maneuverType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//LaneChanging/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Abnormal_Behaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Abnormal_Behaviour/zigzag_Driving"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Abnormal_Behaviour/risky_Acceleration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Abnormal_Behaviour/risky_Lanechanging"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Abnormal_Behaviour/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Abnormal_Behaviour/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Forward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Forward/acceleration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Forward/deceleration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Forward/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Backward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Backward/backwardSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Backward/backDistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Backward/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Turn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Turn/turnSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Turn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//GapAcceptance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//GapAcceptance/lagGap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//GapAcceptance/leadGap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//GapAcceptance/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intelligentMobility.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Action/actionType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Action/timestamp"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intelligentMobility.ecore#//Vehicle_Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/maxSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleWidth_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleWidth_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleWidth_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleLength_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleLength_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleLength_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleHeight_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleHeight_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/vehicleHeight_precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/speed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Vehicle_Type/stop"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Platoon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/v2vTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/followerCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/resetColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/colorR_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/colorR_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/colorG_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/colorG_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/colorB_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Platoon/colorB_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Platoon/leading_vehicle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Platoon/following_vehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Normal_Vehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/resetColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/colorR_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/colorR_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/colorG_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/colorG_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/colorB_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Normal_Vehicle/colorB_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Normal_Vehicle/safety_requirements"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Leading_Vehicle"/>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Following_Vehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Following_Vehicle/headwayMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Following_Vehicle/headwayMax"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Following_Vehicle/frontvehicle"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intelligentMobility.ecore#//PlatoonMember"/>
+    <genClasses ecoreClass="intelligentMobility.ecore#//PossibleVehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//PossibleVehicle/vehicleType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//PossibleVehicle/amountPercentage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//PossibleVehicle/simulationOrderIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Environment_Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Condition/roadType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Condition/laneAmount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Condition/name_EnvironmentCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Condition/lane_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Condition/regulations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Condition/weather"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Condition/traffic_condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Condition/special_condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Condition/cueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Environment_Condition/salience"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Environment_Condition/position"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Lane_Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Lane_Type/laneType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Lane_Type/laneCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Lane_Type/laneWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Lane_Type/laneLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Lane_Type/maxSpeedLimitation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Lane_Type/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Lane_Type/regulations"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Regulation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Regulation/legislation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Regulation/courtesy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Regulation/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Safety_Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Safety_Requirement/safeSecond"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Safety_Requirement/safezoneLength_default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Safety_Requirement/safeFrontMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Safety_Requirement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Safety_Requirement/regulations"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Weather">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Weather/slipperiness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Weather/weatherType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Weather/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Traffic_Situation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Traffic_Situation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Traffic_Situation/trafficType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Traffic_Situation/stimulusType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Traffic_Situation/intensity"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Special_Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Special_Condition/conditionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Special_Condition/collision"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Special_Condition/intersection"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Collision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Collision/recoveryTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Collision/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Collision/obstructions"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Intersection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Intersection/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Intersection/traffic_lights"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Intersection/crossIntersection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Intersection/crossRailway"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Obstruction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Obstruction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Obstruction/obstacleLocationX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Obstruction/obstacleLocationY"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Traffic_Light">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Traffic_Light/enforces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Traffic_Light/name"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//ExceptionCondition"/>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Driver_Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Driver_Environment/link_name_driver_environment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Driver_Environment/link_driver_profile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Driver_Environment/link_environment_background"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Driver_Vehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Driver_Vehicle/link_name_driver_vehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Driver_Vehicle/link_driver_profile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Driver_Vehicle/link_vehicle_configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Vehicle_Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Vehicle_Environment/link_name_vehicle_environment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Vehicle_Environment/link_vehicle_configuration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Vehicle_Environment/link_environment_background"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_DriverProfile_DriverPreference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_DriverProfile_DriverPreference/name_link_profile_preference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverProfile_DriverPreference/link_driver_profile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverProfile_DriverPreference/link_driver_preference"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_VehicleConfiguration_VehicleType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_VehicleConfiguration_VehicleType/name_link_configuration_type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_VehicleConfiguration_VehicleType/link_vehicle_configuration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_VehicleConfiguration_VehicleType/link_vehicle_type"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentBackground_PossibleVehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentBackground_PossibleVehicle/name_link_background_possibleVehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentBackground_PossibleVehicle/link_environment_background"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentBackground_PossibleVehicle/link_possible_vehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentBackground_EnvironmentCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentBackground_EnvironmentCondition/name_link_background_condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentBackground_EnvironmentCondition/link_environment_background"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentBackground_EnvironmentCondition/link_environment_condition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_DriverPreference_DriverEmotion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_DriverPreference_DriverEmotion/name_link_preference_emotion"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverPreference_DriverEmotion/link_driver_preference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverPreference_DriverEmotion/link_driver_emotion"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_DriverPreference_DrivingBehaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_DriverPreference_DrivingBehaviour/name_link_preference_behaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverPreference_DrivingBehaviour/link_driver_preference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverPreference_DrivingBehaviour/link_driving_behaviour"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_DriverPreference_EnvironmentCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_DriverPreference_EnvironmentCondition/name_link_preference_condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverPreference_EnvironmentCondition/link_driver_preference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DriverPreference_EnvironmentCondition/link_environment_condition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_DrivingBehaviour_NormalBehaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_DrivingBehaviour_NormalBehaviour/name_link_driving_normal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DrivingBehaviour_NormalBehaviour/link_driving_behaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_DrivingBehaviour_NormalBehaviour/link_normal_behaviour"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_NormalBehaviour_Following">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_NormalBehaviour_Following/name_link_behaviour_following"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_NormalBehaviour_Following/link_normal_behaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_NormalBehaviour_Following/link_following"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_NormalBehaviour_LaneChanging">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_NormalBehaviour_LaneChanging/name_link_behaviour_laneChanging"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_NormalBehaviour_LaneChanging/link_normal_behaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_NormalBehaviour_LaneChanging/link_lane_changing"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Following_MinGap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Following_MinGap/name_link_following_minGap"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_MinGap/link_following"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_MinGap/link_minGap"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Following_Forward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Following_Forward/name_link_following_forward"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_Forward/link_following"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_Forward/link_forward"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Following_Backward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Following_Backward/name_link_following_backward"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_Backward/link_following"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_Backward/link_backward"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_LaneChanging_Turn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_LaneChanging_Turn/name_link_laneChanging_turn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneChanging_Turn/link_laneChanging"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneChanging_Turn/link_turn"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_LaneChanging_GapAcceptance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_LaneChanging_GapAcceptance/name_link_laneChanging_gapAcceptane"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneChanging_GapAcceptance/link_laneChanging"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneChanging_GapAcceptance/link_gapAcceptance"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_LaneChanging_EnvironmentCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_LaneChanging_EnvironmentCondition/name_link_laneChanging_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneChanging_EnvironmentCondition/link_laneChanging"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneChanging_EnvironmentCondition/link_environmentCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_AbnormalBehaviour_Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_AbnormalBehaviour_Action/name_link_abnormalBehaviour_action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_AbnormalBehaviour_Action/link_abnormalBehaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_AbnormalBehaviour_Action/link_action"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Platoon_LeadingVehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Platoon_LeadingVehicle/name_link_platoon_leadingVehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Platoon_LeadingVehicle/link_platoon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Platoon_LeadingVehicle/link_leadingVehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Platoon_FollowingVehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Platoon_FollowingVehicle/name_link_platoon_followingVehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Platoon_FollowingVehicle/link_platoon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Platoon_FollowingVehicle/link_followingVehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_NormalVehicle_SafetyRequirements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_NormalVehicle_SafetyRequirements/name_link_normalVehicle_safetyRequirement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_NormalVehicle_SafetyRequirements/link_normalVehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_NormalVehicle_SafetyRequirements/link_safetyRequirement"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_FollowingVehicle_FrontVehicle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_FollowingVehicle_FrontVehicle/name_link_followingVehicle_frontVehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_FollowingVehicle_FrontVehicle/link_followingVehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_FollowingVehicle_FrontVehicle/link_frontVehicle"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentCondition_LaneType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentCondition_LaneType/name_link_environmentCondition_laneType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_LaneType/link_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_LaneType/link_laneType"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentCondition_Regulations">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentCondition_Regulations/name_link_environmentCondition_regulation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_Regulations/link_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_Regulations/link_regulation"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentCondition_Weather">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentCondition_Weather/name_link_environmentCondition_weather"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_Weather/link_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_Weather/link_weather"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentCondition_TrafficCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentCondition_TrafficCondition/name_link_environmentCondition_trafficCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_TrafficCondition/link_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_TrafficCondition/link_trafficCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_EnvironmentCondition_SpecialCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_EnvironmentCondition_SpecialCondition/name_link_environmentCondition_specialCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_SpecialCondition/link_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_EnvironmentCondition_SpecialCondition/link_specialCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_LaneType_Regulation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_LaneType_Regulation/name_link_laneType_regulation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneType_Regulation/link_laneType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_LaneType_Regulation/link_regulation"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_SafetyRequirement_Regulation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_SafetyRequirement_Regulation/name_link_safetyRequirement_regulation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_SafetyRequirement_Regulation/link_safetyRequirement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_SafetyRequirement_Regulation/link_regulation"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_SpecialCondition_Intersection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_SpecialCondition_Intersection/name_link_specialCondition_intersection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_SpecialCondition_Intersection/link_specialCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_SpecialCondition_Intersection/link_intersection"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Collision_Obstruction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Collision_Obstruction/name_link_collision_obstruction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Collision_Obstruction/link_collision"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Collision_Obstruction/link_obstruction"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Intersection_TrafficLight">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Intersection_TrafficLight/name_link_intersection_trafficLight"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Intersection_TrafficLight/link_intersection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Intersection_TrafficLight/link_trafficLight"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="intelligentMobility.ecore#//Infrastructure">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Infrastructure/communicatesWith"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//RoadSegment"/>
+    <genClasses ecoreClass="intelligentMobility.ecore#//SmartSensor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//SmartSensor/monitors"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Road_Side_Unit"/>
+    <genClasses ecoreClass="intelligentMobility.ecore#//ChargingStation"/>
+    <genClasses ecoreClass="intelligentMobility.ecore#//CommunicationInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//CommunicationInterface/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//CommunicationInterface/latency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//CommunicationInterface/bandwidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//CommunicationInterface/reliabilityLevel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//CommunicationInterface/connects_vehicle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//CommunicationInterface/connects_infrastructure"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//CooperativeBehavior">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//CooperativeBehavior/dependsOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//CooperativeBehavior/coordinatedWith"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Goal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Goal/goalType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Goal/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Goal/isGoalDriven"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Goal/isStimulusDriven"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Infrastructure_VehicleConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Infrastructure_VehicleConfiguration/name_link_infrastructure_vehicleConfiguration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Infrastructure_VehicleConfiguration/link_infrastructure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Infrastructure_VehicleConfiguration/link_vehicle_configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_CommunicationInterface_VehicleConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_CommunicationInterface_VehicleConfiguration/name_link_communication_interface_vehicleConfiguration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CommunicationInterface_VehicleConfiguration/link_communication_interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CommunicationInterface_VehicleConfiguration/link_vehicle_configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Goal_DrivingBehaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Goal_DrivingBehaviour/name_link_goal_drivingBehaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Goal_DrivingBehaviour/link_goal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Goal_DrivingBehaviour/link_drivingBehaviour"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_CooperativeBehaviour_CommunicationInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_CooperativeBehaviour_CommunicationInterface/name_link_cooperativeBehaviour_communicationInterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CooperativeBehaviour_CommunicationInterface/link_cooperativeBehaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CooperativeBehaviour_CommunicationInterface/link_communicationInterface"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_CommunicationInterface_Infrastructure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_CommunicationInterface_Infrastructure/name_link_communication_interface_infrastructure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CommunicationInterface_Infrastructure/link_communicationInterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CommunicationInterface_Infrastructure/link_infrastructure"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_CooperativeBehaviour_VehicleConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_CooperativeBehaviour_VehicleConfiguration/name_link_cooperativeBehaviour_vehicleConfiguration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CooperativeBehaviour_VehicleConfiguration/link_cooperativeBehaviour"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_CooperativeBehaviour_VehicleConfiguration/link_vehicleConfiguration"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_TrafficSituation_EnvironmentCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_TrafficSituation_EnvironmentCondition/name_link_trafficSituation_environmentCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_TrafficSituation_EnvironmentCondition/link_trafficSituation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_TrafficSituation_EnvironmentCondition/link_environmentCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Following_LaneChanging">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Following_LaneChanging/name_link_following_laneChanging"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_LaneChanging/link_following"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Following_LaneChanging/link_laneChanging"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Collision_SpecialCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Collision_SpecialCondition/name_link_collision_specialCondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Collision_SpecialCondition/link_collision"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Collision_SpecialCondition/link_specialCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Action_Backward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Action_Backward/name_link_action_backward"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Action_Backward/link_action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Action_Backward/link_backward"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Action_Forward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Action_Forward/name_link_action_forward"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Action_Forward/link_action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Action_Forward/link_forward"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_Action_Turn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_Action_Turn/name_link_action_turn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Action_Turn/link_action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_Action_Turn/link_turn"/>
+    </genClasses>
+    <genClasses ecoreClass="intelligentMobility.ecore#//Link_KnowledgeAndSkill_DriverPreference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute intelligentMobility.ecore#//Link_KnowledgeAndSkill_DriverPreference/name_link_knowledgeAndSkill_driverPreference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_KnowledgeAndSkill_DriverPreference/link_knowledgeAndSkill"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference intelligentMobility.ecore#//Link_KnowledgeAndSkill_DriverPreference/link_driverPreference"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

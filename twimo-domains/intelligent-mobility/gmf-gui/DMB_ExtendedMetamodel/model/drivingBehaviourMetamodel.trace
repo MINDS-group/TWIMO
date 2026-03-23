@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2037"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Vehicle_Configuration') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'vehicle_configuration')">
+    <nodeLabelTraces
+        visualID="5033"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2042"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Environment_Background') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'environment_background')">
+    <nodeLabelTraces
+        visualID="5038"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2054"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Driver_Profile') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'driver_profile')">
+    <nodeLabelTraces
+        visualID="5048"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2059"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Special_Condition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'special_condition')">
+    <nodeLabelTraces
+        visualID="5053"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2060"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Weather') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'weather')">
+    <nodeLabelTraces
+        visualID="5054"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2061"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Traffic_Light') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'traffic_light')"/>
+  <nodeTraces
+      visualID="2062"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Knowledge_and_Skill') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'knowledge_and_skill')">
+    <nodeLabelTraces
+        visualID="5055"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2063"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Obstruction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'obstruction')">
+    <nodeLabelTraces
+        visualID="5056"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2064"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Driver_Preference') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'driver_preference')">
+    <nodeLabelTraces
+        visualID="5057"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2065"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Intersection') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'intersection')">
+    <nodeLabelTraces
+        visualID="5058"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2066"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Environment_Condition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'environment_condition')">
+    <nodeLabelTraces
+        visualID="5059"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2067"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Platoon') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'platoon')">
+    <nodeLabelTraces
+        visualID="5060"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2068"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Forward') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'forward')">
+    <nodeLabelTraces
+        visualID="5061"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2069"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Lane_Type') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'lane_type')">
+    <nodeLabelTraces
+        visualID="5062"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2070"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Turn') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'turn')"/>
+  <nodeTraces
+      visualID="2071"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'LaneChanging') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'lane_changing')">
+    <nodeLabelTraces
+        visualID="5063"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2072"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Driver_Emotion') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'driver_emotion')">
+    <nodeLabelTraces
+        visualID="5064"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2073"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Collision') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'collision')">
+    <nodeLabelTraces
+        visualID="5065"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2074"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'PossibleVehicle') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'possible_vehicle')"/>
+  <nodeTraces
+      visualID="2075"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Following') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'following')">
+    <nodeLabelTraces
+        visualID="5066"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2076"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'GapAcceptance') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'gap_acceptance')">
+    <nodeLabelTraces
+        visualID="5067"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2077"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Leading_Vehicle') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'leading_vehicle')">
+    <nodeLabelTraces
+        visualID="5068"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2078"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Backward') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'backward')">
+    <nodeLabelTraces
+        visualID="5069"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2079"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Regulation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'regulation')">
+    <nodeLabelTraces
+        visualID="5070"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2080"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Traffic_Situation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'traffic_situation')">
+    <nodeLabelTraces
+        visualID="5071"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2081"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Safety_Requirement') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'safety_requirement')">
+    <nodeLabelTraces
+        visualID="5072"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2082"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Driving_Behaviour') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'driving_behaviour')">
+    <nodeLabelTraces
+        visualID="5073"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2083"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Following_Vehicle') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'following_vehicle')">
+    <nodeLabelTraces
+        visualID="5074"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2084"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Abnormal_Behaviour') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'MobilitySystem') and _containmentMF_.name = 'abnormal_behaviour')">
+    <nodeLabelTraces
+        visualID="5075"
+        queryText="true"/>
+  </nodeTraces>
+  <linkTraces
+      visualID="4001"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_LaneType_Regulation')"/>
+  <linkTraces
+      visualID="4002"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Driver_Vehicle')"/>
+  <linkTraces
+      visualID="4003"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentBackground_PossibleVehicle')"/>
+  <linkTraces
+      visualID="4004"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Vehicle_Environment')"/>
+  <linkTraces
+      visualID="4005"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_NormalVehicle_SafetyRequirements')"/>
+  <linkTraces
+      visualID="4006"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_DriverProfile_DriverPreference')"/>
+  <linkTraces
+      visualID="4007"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Collision_Obstruction')"/>
+  <linkTraces
+      visualID="4008"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Platoon_FollowingVehicle')"/>
+  <linkTraces
+      visualID="4009"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_DriverPreference_EnvironmentCondition')"/>
+  <linkTraces
+      visualID="4010"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_AbnormalBehaviour_Action')"/>
+  <linkTraces
+      visualID="4011"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Following_Forward')"/>
+  <linkTraces
+      visualID="4012"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentCondition_LaneType')"/>
+  <linkTraces
+      visualID="4013"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_VehicleConfiguration_VehicleType')"/>
+  <linkTraces
+      visualID="4014"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Platoon_LeadingVehicle')"/>
+  <linkTraces
+      visualID="4015"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Driver_Environment')"/>
+  <linkTraces
+      visualID="4016"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_LaneChanging_Turn')"/>
+  <linkTraces
+      visualID="4017"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentCondition_TrafficCondition')"/>
+  <linkTraces
+      visualID="4018"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Intersection_TrafficLight')"/>
+  <linkTraces
+      visualID="4019"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Following_MinGap')"/>
+  <linkTraces
+      visualID="4020"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_NormalBehaviour_LaneChanging')"/>
+  <linkTraces
+      visualID="4021"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_SafetyRequirement_Regulation')"/>
+  <linkTraces
+      visualID="4022"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_DriverPreference_DrivingBehaviour')"/>
+  <linkTraces
+      visualID="4023"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_FollowingVehicle_FrontVehicle')"/>
+  <linkTraces
+      visualID="4024"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_DriverPreference_DriverEmotion')"/>
+  <linkTraces
+      visualID="4025"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentBackground_EnvironmentCondition')"/>
+  <linkTraces
+      visualID="4026"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentCondition_Weather')"/>
+  <linkTraces
+      visualID="4027"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentCondition_SpecialCondition')"/>
+  <linkTraces
+      visualID="4028"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_SpecialCondition_Intersection')"/>
+  <linkTraces
+      visualID="4029"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_Following_Backward')"/>
+  <linkTraces
+      visualID="4030"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_EnvironmentCondition_Regulations')"/>
+  <linkTraces
+      visualID="4031"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_DrivingBehaviour_NormalBehaviour')"/>
+  <linkTraces
+      visualID="4032"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_LaneChanging_EnvironmentCondition')"/>
+  <linkTraces
+      visualID="4033"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_LaneChanging_GapAcceptance')"/>
+  <linkTraces
+      visualID="4034"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.example.org/drivingBehaviourMetamodel' and _eClass_.name = 'Link_NormalBehaviour_Following')"/>
+</trace:TraceModel>

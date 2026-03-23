@@ -1,0 +1,7 @@
+# Tracing options for the DMB_ExtendedMetamodel.diagram plug-in
+
+# Common issues
+DMB_ExtendedMetamodel.diagram/debug=false
+
+# Visual IDs
+DMB_ExtendedMetamodel.diagram/debug/visualID=false

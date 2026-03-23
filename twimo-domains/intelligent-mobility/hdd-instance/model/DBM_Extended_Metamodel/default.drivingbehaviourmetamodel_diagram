@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:drivingBehaviourMetamodel="http://www.example.org/drivingBehaviourMetamodel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_cwmiYBbOEe-NOILDDzhpew" type="DrivingBehaviourMetamodel" name="default.drivingbehaviourmetamodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_0D0AkBeGEe-6Su6WtFaP4g" type="2025" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_0D0noBeGEe-6Su6WtFaP4g" type="5022"/>
+    <element xmi:type="drivingBehaviourMetamodel:Driver_Profile" href="default.drivingbehaviourmetamodel#//@driver_profile.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0D0AkReGEe-6Su6WtFaP4g" x="108" y="84"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_1HBKABeGEe-6Su6WtFaP4g" type="2008" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_1HBKAheGEe-6Su6WtFaP4g" type="5007"/>
+    <element xmi:type="drivingBehaviourMetamodel:Vehicle_Configuration" href="default.drivingbehaviourmetamodel#//@vehicle_configuration.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1HBKAReGEe-6Su6WtFaP4g" x="90" y="198"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_ACmt0BeHEe-6Su6WtFaP4g" type="2013" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ACmt0heHEe-6Su6WtFaP4g" type="5012"/>
+    <element xmi:type="drivingBehaviourMetamodel:Environment_Background" href="default.drivingbehaviourmetamodel#//@environment_background.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ACmt0ReHEe-6Su6WtFaP4g" x="504" y="306"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_NGQKUBeHEe-6Su6WtFaP4g" type="2024" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_NGQKUheHEe-6Su6WtFaP4g" type="5021"/>
+    <element xmi:type="drivingBehaviourMetamodel:Traffic_Situation" href="default.drivingbehaviourmetamodel#//@traffic_situation.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NGQKUReHEe-6Su6WtFaP4g" x="942" y="192"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_jMUCgBeHEe-6Su6WtFaP4g" type="2009" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_jMUpkBeHEe-6Su6WtFaP4g" type="5008"/>
+    <element xmi:type="drivingBehaviourMetamodel:Environment_Condition" href="default.drivingbehaviourmetamodel#//@environment_condition.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jMUCgReHEe-6Su6WtFaP4g" x="672" y="186"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_LyFXQBeIEe-6Su6WtFaP4g" type="2002" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_LyFXQheIEe-6Su6WtFaP4g" type="5002"/>
+    <element xmi:type="drivingBehaviourMetamodel:Weather" href="default.drivingbehaviourmetamodel#//@weather.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LyFXQReIEe-6Su6WtFaP4g" x="924" y="6"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_i-i20BeIEe-6Su6WtFaP4g" type="2016" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_i-i20heIEe-6Su6WtFaP4g" type="5014"/>
+    <element xmi:type="drivingBehaviourMetamodel:Driver_Emotion" href="default.drivingbehaviourmetamodel#//@driver_emotion.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_i-i20ReIEe-6Su6WtFaP4g" x="576" y="12"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_nGfjoBeIEe-6Su6WtFaP4g" type="2006" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_nGfjoheIEe-6Su6WtFaP4g" type="5005"/>
+    <element xmi:type="drivingBehaviourMetamodel:Driver_Preference" href="default.drivingbehaviourmetamodel#//@driver_preference.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nGfjoReIEe-6Su6WtFaP4g" x="636" y="96" width="199"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_T1PZUBggEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="driver vehicle">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_T1ScoBggEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_T1ScoRggEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T1PZURggEe-hyb2omVDqlw" x="300" y="144" width="103"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_iXuyYBggEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="driving preference">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_iXvZcBggEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_iXvZcRggEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iXuyYRggEe-hyb2omVDqlw" x="498" y="90"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_3zGHwBggEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="driver emotion">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_3zGHwhggEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_3zGHwxggEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3zGHwRggEe-hyb2omVDqlw" x="738" y="60"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_LL-A8BghEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="weather">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_LL-oABghEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_LL-oARghEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LL-A8RghEe-hyb2omVDqlw" x="924" y="102" width="76"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_UKsPcBghEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="environment condition">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_UKs2gBghEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_UKs2gRghEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UKsPcRghEe-hyb2omVDqlw" x="558" y="150"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_dZqgcBghEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="traffic situation">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_dZrukBghEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_dZrukRghEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dZqgcRghEe-hyb2omVDqlw" x="840" y="204"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_vnDd8BghEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="environment street">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_vnGhQBghEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_vnGhQRghEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnDd8RghEe-hyb2omVDqlw" x="756" y="264"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_6iPZIBghEe-hyb2omVDqlw" type="Text" fontName="Segoe UI" description="driving environment">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_6iQAMBghEe-hyb2omVDqlw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_6iQAMRghEe-hyb2omVDqlw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6iPZIRghEe-hyb2omVDqlw" x="402" y="264"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_cwmiYRbOEe-NOILDDzhpew"/>
+  <element xmi:type="drivingBehaviourMetamodel:Model" href="default.drivingbehaviourmetamodel#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_781LQBeGEe-6Su6WtFaP4g" type="4002" source="_0D0AkBeGEe-6Su6WtFaP4g" target="_1HBKABeGEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_781LQReGEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_Driver_Vehicle" href="default.drivingbehaviourmetamodel#//@link_driver_vehicle.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_781LQheGEe-6Su6WtFaP4g" points="[7, 20, -62, -189]$[53, 208, -16, -1]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_79ItQBeGEe-6Su6WtFaP4g" id="(0.43680709534368073,0.05)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_CzYzYBeHEe-6Su6WtFaP4g" type="4004" source="_1HBKABeGEe-6Su6WtFaP4g" target="_ACmt0BeHEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_CzYzYReHEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_Vehicle_Environment" href="default.drivingbehaviourmetamodel#//@link_vehicle_environment.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CzYzYheHEe-6Su6WtFaP4g" points="[31, -16, -255, 131]$[206, -143, -80, 4]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Cznc4BeHEe-6Su6WtFaP4g" id="(0.9135254988913526,0.4)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Cznc4ReHEe-6Su6WtFaP4g" id="(0.11614730878186968,0.025)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_mEX0wBeHEe-6Su6WtFaP4g" type="4017" source="_NGQKUBeHEe-6Su6WtFaP4g" target="_jMUCgBeHEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_mEYb0BeHEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_EnvironmentCondition_TrafficCondition" href="default.drivingbehaviourmetamodel#//@link_environmentCondition_trafficCondition.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mEYb0ReHEe-6Su6WtFaP4g" points="[-12, -20, 83, 143]$[-52, -167, 43, -4]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mEl3MBeHEe-6Su6WtFaP4g" id="(0.8237704918032787,0.325)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_nMPbwBeHEe-6Su6WtFaP4g" type="4025" source="_ACmt0BeHEe-6Su6WtFaP4g" target="_jMUCgBeHEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nMPbwReHEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_EnvironmentBackground_EnvironmentCondition" href="default.drivingbehaviourmetamodel#//@link_environmentBackground_environmentCondition.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nMPbwheHEe-6Su6WtFaP4g" points="[13, -20, -181, 208]$[72, -228, -122, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__jHHcBggEe-hyb2omVDqlw" id="(0.7280453257790368,0.1)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_NMqe4BeIEe-6Su6WtFaP4g" type="4026" source="_jMUCgBeHEe-6Su6WtFaP4g" target="_LyFXQBeIEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_NMqe4ReIEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_EnvironmentCondition_Weather" href="default.drivingbehaviourmetamodel#//@link_environmentCondition_weather.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NMqe4heIEe-6Su6WtFaP4g" points="[8, -2, -160, 160]$[8, -38, -160, 124]$[168, -38, 0, 124]$[168, -142, 0, 20]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NM2FEBeIEe-6Su6WtFaP4g" id="(0.9024390243902439,0.05)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_pxfKQBeIEe-6Su6WtFaP4g" type="4006" source="_0D0AkBeGEe-6Su6WtFaP4g" target="_nGfjoBeIEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_pxfKQReIEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_DriverProfile_DriverPreference" href="default.drivingbehaviourmetamodel#//@link_driverProfile_driverPreference.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pxfKQheIEe-6Su6WtFaP4g" points="[25, 8, -158, 0]$[84, 8, -99, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pxrXgBeIEe-6Su6WtFaP4g" id="(0.9844155844155844,0.55)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_M-0L8BePEe-6Su6WtFaP4g" id="(0.010050251256281407,0.35)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_qfijEBeIEe-6Su6WtFaP4g" type="4024" source="_nGfjoBeIEe-6Su6WtFaP4g" target="_i-i20BeIEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_qfijEReIEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_DriverPreference_DriverEmotion" href="default.drivingbehaviourmetamodel#//@link_driverPreference_driverEmotion.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qfijEheIEe-6Su6WtFaP4g" points="[3, -20, 0, 46]$[11, -46, 8, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_rcWwoBeIEe-6Su6WtFaP4g" type="4009" source="_nGfjoBeIEe-6Su6WtFaP4g" target="_jMUCgBeHEe-6Su6WtFaP4g">
+    <styles xmi:type="notation:FontStyle" xmi:id="_rcWwoReIEe-6Su6WtFaP4g" fontName="Segoe UI"/>
+    <element xmi:type="drivingBehaviourMetamodel:Link_DriverPreference_EnvironmentCondition" href="default.drivingbehaviourmetamodel#//@link_driverPreference_environmentCondition.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rcWwoheIEe-6Su6WtFaP4g" points="[6, 1, 0, -52]$[6, 51, 0, -2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rcjk8BeIEe-6Su6WtFaP4g" id="(0.32160804020100503,0.975)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rcjk8ReIEe-6Su6WtFaP4g" id="(0.21951219512195122,0.1)"/>
+  </edges>
+</notation:Diagram>

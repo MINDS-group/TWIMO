@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<intelligentMobility:MobilitySystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intelligentMobility="http://www.example.org/intelligentMobility" systemID="1" geographicalScope="Honda HDD driving sessions" infrastructureType="dynamic_by_segment">
+  <driver_profile driverName="DriverProfile" patienceValue="2" energySpeedRate="3.3" reactionTime_min="0.2" reactionTime_max="0.4" reactionTime_precision="3" age="27"/>
+  <vehicle_configuration brandName="EgoVehicle_HDD" connectedInfrastructure="//@intersection.0"/>
+  <environment_background name="HondaHDD_EnvironmentBackground"/>
+  <driver_preference name_PreferenceSet="DriverPreference - Unset" environment_condition="//@environment_condition.0"/>
+  <knowledge_and_skill name="KnowledgeAndSkill - Unset"/>
+  <driver_emotion metanlCondition="DriverEmotion - Unset" name=""/>
+  <driving_behaviour name="DrivingBehaviour - Current_behavior_segment" intentType="derived_from_goal_or_behavior_subtype"/>
+  <following name="Following"/>
+  <lane_changing name="LaneChanging" action="//@action.1"/>
+  <forward name="Forward"/>
+  <backward name="Backward"/>
+  <turn turnSide="Straight" name="Turn"/>
+  <action xsi:type="intelligentMobility:Turn"/>
+  <action actionType="Action"/>
+  <environment_condition roadType="UrbanRoad" name_EnvironmentCondition="EnvironmentCondition - Area_or_attention_label_at_time_t" cueType="attention_label" position="//@vehicle_configuration.0"/>
+  <regulation legislation="Regulation"/>
+  <weather weatherType="Weather" name="Sun"/>
+  <traffic_situation name="TrafficSituation - stimulus_or_cause_label_at_time_t" stimulusType="unknown; avoid_on-road_bicyclist; avoid_parked_car; avoid_pedestrian_near_ego_lane; avoid_tp; stop_4_congestion; stop_4_light; stop_4_pedestrian; stop_4_sign; stop_for_others"/>
+  <special_condition conditionName="Special_Condition"/>
+  <collision name="Collision"/>
+  <intersection communicatesWith="//@vehicle_configuration.0" name="Intersection"/>
+  <obstruction name="Obstruction"/>
+  <traffic_light name="Traffic_Light"/>
+  <link_driver_vehicle link_driver_profile="//@driver_profile.0" link_vehicle_configuration="//@vehicle_configuration.0"/>
+  <link_vehicle_environment link_vehicle_configuration="//@vehicle_configuration.0" link_environment_background="//@environment_background.0"/>
+  <link_driverProfile_driverPreference link_driver_profile="//@driver_profile.0" link_driver_preference="//@driver_preference.0"/>
+  <link_environmentBackground_environmentCondition link_environment_background="//@environment_background.0" link_environment_condition="//@environment_condition.0"/>
+  <link_driverPreference_driverEmotion link_driver_preference="//@driver_preference.0" link_driver_emotion="//@driver_emotion.0"/>
+  <link_driverPreference_drivingBehaviour link_driver_preference="//@driver_preference.0" link_driving_behaviour="//@driving_behaviour.0"/>
+  <link_following_forward link_following="//@following.0" link_forward="//@forward.0"/>
+  <link_following_backward link_following="//@following.0" link_backward="//@backward.0"/>
+  <link_laneChanging_turn link_laneChanging="//@lane_changing.0" link_turn="//@turn.0"/>
+  <link_laneChanging_environmentCondition link_laneChanging="//@lane_changing.0" link_environmentCondition="//@environment_condition.0"/>
+  <link_environmentCondition_regulation link_environmentCondition="//@environment_condition.0" link_regulation="//@regulation.0"/>
+  <link_environmentCondition_weather link_environmentCondition="//@environment_condition.0" link_weather="//@weather.0"/>
+  <link_environmentCondition_trafficCondition link_environmentCondition="//@environment_condition.0" link_trafficCondition="//@traffic_situation.0"/>
+  <link_environmentCondition_specialCondition link_environmentCondition="//@environment_condition.0" link_specialCondition="//@special_condition.0"/>
+  <link_specialCondition_intersection link_specialCondition="//@special_condition.0" link_intersection="//@intersection.0"/>
+  <link_collision_obstruction link_collision="//@collision.0" link_obstruction="//@obstruction.0"/>
+  <link_intersection_trafficLight link_intersection="//@intersection.0" link_trafficLight="//@traffic_light.0"/>
+  <goal goalType="Goal"/>
+  <link_goal_drivingBehaviour link_goal="//@goal.0" link_drivingBehaviour="//@driving_behaviour.0"/>
+  <cooperativeBehaviour/>
+  <cooperativeBehaviour/>
+  <cooperativeBehaviour/>
+  <link_following_laneChanging link_following="//@following.0" link_laneChanging="//@lane_changing.0"/>
+  <link_collision_specialCondition link_collision="//@collision.0" link_specialCondition="//@special_condition.0"/>
+  <link_action_backward link_action="//@action.1" link_backward="//@backward.0"/>
+  <link_action_forward link_action="//@action.1" link_forward="//@forward.0"/>
+  <link_action_turn link_action="//@action.1" link_turn="//@turn.0"/>
+  <link_knowledgeAndSkill_driverPreference link_knowledgeAndSkill="//@knowledge_and_skill.0" link_driverPreference="//@driver_preference.0"/>
+</intelligentMobility:MobilitySystem>

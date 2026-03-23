@@ -1,0 +1,1590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="intelligentmobility_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="intelligentmobility_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/IntelligentMobilityDiagramFile.gif"
+         extensions="intelligentmobility_diagram"
+         default="true"
+         class="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditor"
+         matchingStrategy="intelligentMobility.diagram.part.DrivingBehaviourMetamodelMatchingStrategy"
+         contributorClass="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="intelligentMobility.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/IntelligentMobilityDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="intelligentMobility.diagram.part.DrivingBehaviourMetamodelCreationWizard"
+  	     id="intelligentMobility.diagram.part.DrivingBehaviourMetamodelCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="DMB_ExtendedMetamodel.diagram.InitDiagram"
+            nameFilter="*.intelligentmobility"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="intelligentMobility.diagram.part.DrivingBehaviourMetamodelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="DMB_ExtendedMetamodel.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="DrivingBehaviourMetamodelPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="DrivingBehaviourMetamodelPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="DrivingBehaviourMetamodelRender">
+         <Priority name="Lowest"/>
+         <ViewId id="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="intelligentMobility.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="DMB_ExtendedMetamodel.diagram.general"
+            name="%prefpage.DMB_ExtendedMetamodel.diagram.general"
+            class="intelligentMobility.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="DMB_ExtendedMetamodel.diagram.appearance"
+            name="%prefpage.DMB_ExtendedMetamodel.diagram.appearance"
+            category="DMB_ExtendedMetamodel.diagram.general"
+            class="intelligentMobility.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="DMB_ExtendedMetamodel.diagram.connections"
+            name="%prefpage.DMB_ExtendedMetamodel.diagram.connections"
+            category="DMB_ExtendedMetamodel.diagram.general"
+            class="intelligentMobility.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="DMB_ExtendedMetamodel.diagram.printing"
+            name="%prefpage.DMB_ExtendedMetamodel.diagram.printing"
+            category="DMB_ExtendedMetamodel.diagram.general"
+            class="intelligentMobility.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="DMB_ExtendedMetamodel.diagram.rulersAndGrid"
+            name="%prefpage.DMB_ExtendedMetamodel.diagram.rulersAndGrid"
+            category="DMB_ExtendedMetamodel.diagram.general"
+            class="intelligentMobility.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="DMB_ExtendedMetamodel.diagram"
+            labelProvider="intelligentMobility.diagram.sheet.DrivingBehaviourMetamodelSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="DMB_ExtendedMetamodel.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="DMB_ExtendedMetamodel.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="intelligentMobility.diagram.sheet.DrivingBehaviourMetamodelPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="intelligentMobility.diagram.providers.DrivingBehaviourMetamodelViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="DrivingBehaviourMetamodel"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2039"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016,4017,4018,4019,4020,4021,4022,4023,4024,4025,4026,4027,4028,4029,4030,4031,4032,4033,4034,4035,4036,4037,4038,4039,4040,4041,4042,4043,4044,4045,4046,4047"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="intelligentMobility.diagram.providers.DrivingBehaviourMetamodelEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="DrivingBehaviourMetamodel"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2039"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016,4017,4018,4019,4020,4021,4022,4023,4024,4025,4026,4027,4028,4029,4030,4031,4032,4033,4034,4035,4036,4037,4038,4039,4040,4041,4042,4043,4044,4045,4046,4047"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5031,5003,5004,5005,5006,5007,5008,5009,5010,5011,5012,5028,5013,5014,5015,5016,5017,5018,5019,5020,5021,5022,5023,5024,5025,5026,5027,5030"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfMobilitySystemEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.MobilitySystemEditPart" id="MobilitySystem_1000"/>
+         <context elements="MobilitySystem_1000"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfSpecial_ConditionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Special_ConditionEditPart" id="Special_Condition_2001"/>
+         <context elements="Special_Condition_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfWeatherEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.WeatherEditPart" id="Weather_2002"/>
+         <context elements="Weather_2002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfTraffic_LightEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Traffic_LightEditPart" id="Traffic_Light_2003"/>
+         <context elements="Traffic_Light_2003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfKnowledge_and_SkillEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Knowledge_and_SkillEditPart" id="Knowledge_and_Skill_2004"/>
+         <context elements="Knowledge_and_Skill_2004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfObstructionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.ObstructionEditPart" id="Obstruction_2005"/>
+         <context elements="Obstruction_2005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfDriver_PreferenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Driver_PreferenceEditPart" id="Driver_Preference_2006"/>
+         <context elements="Driver_Preference_2006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfIntersectionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.IntersectionEditPart" id="Intersection_2007"/>
+         <context elements="Intersection_2007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfVehicle_ConfigurationEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Vehicle_ConfigurationEditPart" id="Vehicle_Configuration_2008"/>
+         <context elements="Vehicle_Configuration_2008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfEnvironment_ConditionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Environment_ConditionEditPart" id="Environment_Condition_2009"/>
+         <context elements="Environment_Condition_2009"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfPlatoonEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.PlatoonEditPart" id="Platoon_2010"/>
+         <context elements="Platoon_2010"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfForwardEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.ForwardEditPart" id="Forward_2011"/>
+         <context elements="Forward_2011"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfLane_TypeEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Lane_TypeEditPart" id="Lane_Type_2012"/>
+         <context elements="Lane_Type_2012"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfEnvironment_BackgroundEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Environment_BackgroundEditPart" id="Environment_Background_2013"/>
+         <context elements="Environment_Background_2013"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfTurnEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.TurnEditPart" id="Turn_2014"/>
+         <context elements="Turn_2014"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfLaneChangingEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.LaneChangingEditPart" id="LaneChanging_2015"/>
+         <context elements="LaneChanging_2015"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfDriver_EmotionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Driver_EmotionEditPart" id="Driver_Emotion_2016"/>
+         <context elements="Driver_Emotion_2016"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfCollisionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.CollisionEditPart" id="Collision_2017"/>
+         <context elements="Collision_2017"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfPossibleVehicleEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.PossibleVehicleEditPart" id="PossibleVehicle_2018"/>
+         <context elements="PossibleVehicle_2018"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfFollowingEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.FollowingEditPart" id="Following_2019"/>
+         <context elements="Following_2019"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfGapAcceptanceEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.GapAcceptanceEditPart" id="GapAcceptance_2020"/>
+         <context elements="GapAcceptance_2020"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfLeading_VehicleEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Leading_VehicleEditPart" id="Leading_Vehicle_2021"/>
+         <context elements="Leading_Vehicle_2021"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfBackwardEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.BackwardEditPart" id="Backward_2022"/>
+         <context elements="Backward_2022"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfRegulationEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.RegulationEditPart" id="Regulation_2023"/>
+         <context elements="Regulation_2023"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfTraffic_SituationEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Traffic_SituationEditPart" id="Traffic_Situation_2024"/>
+         <context elements="Traffic_Situation_2024"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfDriver_ProfileEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Driver_ProfileEditPart" id="Driver_Profile_2025"/>
+         <context elements="Driver_Profile_2025"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfSafety_RequirementEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Safety_RequirementEditPart" id="Safety_Requirement_2026"/>
+         <context elements="Safety_Requirement_2026"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfDriving_BehaviourEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Driving_BehaviourEditPart" id="Driving_Behaviour_2027"/>
+         <context elements="Driving_Behaviour_2027"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfFollowing_VehicleEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Following_VehicleEditPart" id="Following_Vehicle_2028"/>
+         <context elements="Following_Vehicle_2028"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfAbnormal_BehaviourEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Abnormal_BehaviourEditPart" id="Abnormal_Behaviour_2029"/>
+         <context elements="Abnormal_Behaviour_2029"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfBackward2EditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Backward2EditPart" id="Backward_2030"/>
+         <context elements="Backward_2030"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfIntersection2EditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Intersection2EditPart" id="Intersection_2031"/>
+         <context elements="Intersection_2031"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfCommunicationInterfaceEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.CommunicationInterfaceEditPart" id="CommunicationInterface_2032"/>
+         <context elements="CommunicationInterface_2032"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfGoalEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.GoalEditPart" id="Goal_2033"/>
+         <context elements="Goal_2033"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfNormal_BehaviourEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Normal_BehaviourEditPart" id="Normal_Behaviour_2034"/>
+         <context elements="Normal_Behaviour_2034"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfPlatoon2EditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Platoon2EditPart" id="Platoon_2035"/>
+         <context elements="Platoon_2035"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfNormal_VehicleEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.Normal_VehicleEditPart" id="Normal_Vehicle_2036"/>
+         <context elements="Normal_Vehicle_2036"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfCooperativeBehaviorEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.CooperativeBehaviorEditPart" id="CooperativeBehavior_2037"/>
+         <context elements="CooperativeBehavior_2037"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="intelligentMobility.diagram.providers.assistants.DrivingBehaviourMetamodelModelingAssistantProviderOfActionEditPart">
+         <Priority name="Lowest"/>
+         <object class="intelligentMobility.diagram.edit.parts.ActionEditPart" id="Action_2039"/>
+         <context elements="Action_2039"/>
+      </modelingAssistantProvider>
+      
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="intelligentMobility.diagram.providers.DrivingBehaviourMetamodelIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="intelligentMobility.diagram.providers.DrivingBehaviourMetamodelParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.MobilitySystem_1000"
+               name="%metatype.name.MobilitySystem_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MobilitySystem"
+               edithelper="intelligentMobility.diagram.edit.helpers.MobilitySystemEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Special_Condition_2001"
+               name="%metatype.name.Special_Condition_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Special_Condition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Special_ConditionEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Weather_2002"
+               name="%metatype.name.Weather_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Weather"
+               edithelper="intelligentMobility.diagram.edit.helpers.WeatherEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Traffic_Light_2003"
+               name="%metatype.name.Traffic_Light_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Traffic_Light"
+               edithelper="intelligentMobility.diagram.edit.helpers.Traffic_LightEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Knowledge_and_Skill_2004"
+               name="%metatype.name.Knowledge_and_Skill_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Knowledge_and_Skill"
+               edithelper="intelligentMobility.diagram.edit.helpers.Knowledge_and_SkillEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Obstruction_2005"
+               name="%metatype.name.Obstruction_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Obstruction"
+               edithelper="intelligentMobility.diagram.edit.helpers.ObstructionEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Driver_Preference_2006"
+               name="%metatype.name.Driver_Preference_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Driver_Preference"
+               edithelper="intelligentMobility.diagram.edit.helpers.Driver_PreferenceEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Intersection_2007"
+               name="%metatype.name.Intersection_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Intersection"
+               edithelper="intelligentMobility.diagram.edit.helpers.IntersectionEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Vehicle_Configuration_2008"
+               name="%metatype.name.Vehicle_Configuration_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Vehicle_Configuration"
+               edithelper="intelligentMobility.diagram.edit.helpers.Vehicle_ConfigurationEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Environment_Condition_2009"
+               name="%metatype.name.Environment_Condition_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Environment_Condition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Environment_ConditionEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Platoon_2010"
+               name="%metatype.name.Platoon_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Platoon"
+               edithelper="intelligentMobility.diagram.edit.helpers.PlatoonEditHelper">
+            <param name="semanticHint" value="2010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Forward_2011"
+               name="%metatype.name.Forward_2011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Forward"
+               edithelper="intelligentMobility.diagram.edit.helpers.ForwardEditHelper">
+            <param name="semanticHint" value="2011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Lane_Type_2012"
+               name="%metatype.name.Lane_Type_2012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Lane_Type"
+               edithelper="intelligentMobility.diagram.edit.helpers.Lane_TypeEditHelper">
+            <param name="semanticHint" value="2012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Environment_Background_2013"
+               name="%metatype.name.Environment_Background_2013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Environment_Background"
+               edithelper="intelligentMobility.diagram.edit.helpers.Environment_BackgroundEditHelper">
+            <param name="semanticHint" value="2013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Turn_2014"
+               name="%metatype.name.Turn_2014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Turn"
+               edithelper="intelligentMobility.diagram.edit.helpers.TurnEditHelper">
+            <param name="semanticHint" value="2014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.LaneChanging_2015"
+               name="%metatype.name.LaneChanging_2015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LaneChanging"
+               edithelper="intelligentMobility.diagram.edit.helpers.LaneChangingEditHelper">
+            <param name="semanticHint" value="2015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Driver_Emotion_2016"
+               name="%metatype.name.Driver_Emotion_2016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Driver_Emotion"
+               edithelper="intelligentMobility.diagram.edit.helpers.Driver_EmotionEditHelper">
+            <param name="semanticHint" value="2016"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Collision_2017"
+               name="%metatype.name.Collision_2017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Collision"
+               edithelper="intelligentMobility.diagram.edit.helpers.CollisionEditHelper">
+            <param name="semanticHint" value="2017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.PossibleVehicle_2018"
+               name="%metatype.name.PossibleVehicle_2018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PossibleVehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.PossibleVehicleEditHelper">
+            <param name="semanticHint" value="2018"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Following_2019"
+               name="%metatype.name.Following_2019"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Following"
+               edithelper="intelligentMobility.diagram.edit.helpers.FollowingEditHelper">
+            <param name="semanticHint" value="2019"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.GapAcceptance_2020"
+               name="%metatype.name.GapAcceptance_2020"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="GapAcceptance"
+               edithelper="intelligentMobility.diagram.edit.helpers.GapAcceptanceEditHelper">
+            <param name="semanticHint" value="2020"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Leading_Vehicle_2021"
+               name="%metatype.name.Leading_Vehicle_2021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Leading_Vehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Leading_VehicleEditHelper">
+            <param name="semanticHint" value="2021"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Backward_2022"
+               name="%metatype.name.Backward_2022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Backward"
+               edithelper="intelligentMobility.diagram.edit.helpers.BackwardEditHelper">
+            <param name="semanticHint" value="2022"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Regulation_2023"
+               name="%metatype.name.Regulation_2023"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Regulation"
+               edithelper="intelligentMobility.diagram.edit.helpers.RegulationEditHelper">
+            <param name="semanticHint" value="2023"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Traffic_Situation_2024"
+               name="%metatype.name.Traffic_Situation_2024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Traffic_Situation"
+               edithelper="intelligentMobility.diagram.edit.helpers.Traffic_SituationEditHelper">
+            <param name="semanticHint" value="2024"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Driver_Profile_2025"
+               name="%metatype.name.Driver_Profile_2025"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Driver_Profile"
+               edithelper="intelligentMobility.diagram.edit.helpers.Driver_ProfileEditHelper">
+            <param name="semanticHint" value="2025"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Safety_Requirement_2026"
+               name="%metatype.name.Safety_Requirement_2026"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Safety_Requirement"
+               edithelper="intelligentMobility.diagram.edit.helpers.Safety_RequirementEditHelper">
+            <param name="semanticHint" value="2026"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Driving_Behaviour_2027"
+               name="%metatype.name.Driving_Behaviour_2027"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Driving_Behaviour"
+               edithelper="intelligentMobility.diagram.edit.helpers.Driving_BehaviourEditHelper">
+            <param name="semanticHint" value="2027"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Following_Vehicle_2028"
+               name="%metatype.name.Following_Vehicle_2028"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Following_Vehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Following_VehicleEditHelper">
+            <param name="semanticHint" value="2028"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Abnormal_Behaviour_2029"
+               name="%metatype.name.Abnormal_Behaviour_2029"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Abnormal_Behaviour"
+               edithelper="intelligentMobility.diagram.edit.helpers.Abnormal_BehaviourEditHelper">
+            <param name="semanticHint" value="2029"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <specializationType
+               id="DMB_ExtendedMetamodel.diagram.Backward_2030"
+               name="%metatype.name.Backward_2030"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="DMB_ExtendedMetamodel.diagram.Backward_2022"/>
+            <param name="semanticHint" value="2030"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <specializationType
+               id="DMB_ExtendedMetamodel.diagram.Intersection_2031"
+               name="%metatype.name.Intersection_2031"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="DMB_ExtendedMetamodel.diagram.Intersection_2007"/>
+            <param name="semanticHint" value="2031"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.CommunicationInterface_2032"
+               name="%metatype.name.CommunicationInterface_2032"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CommunicationInterface"
+               edithelper="intelligentMobility.diagram.edit.helpers.CommunicationInterfaceEditHelper">
+            <param name="semanticHint" value="2032"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Goal_2033"
+               name="%metatype.name.Goal_2033"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Goal"
+               edithelper="intelligentMobility.diagram.edit.helpers.GoalEditHelper">
+            <param name="semanticHint" value="2033"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Normal_Behaviour_2034"
+               name="%metatype.name.Normal_Behaviour_2034"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Normal_Behaviour"
+               edithelper="intelligentMobility.diagram.edit.helpers.Normal_BehaviourEditHelper">
+            <param name="semanticHint" value="2034"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <specializationType
+               id="DMB_ExtendedMetamodel.diagram.Platoon_2035"
+               name="%metatype.name.Platoon_2035"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="DMB_ExtendedMetamodel.diagram.Platoon_2010"/>
+            <param name="semanticHint" value="2035"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Normal_Vehicle_2036"
+               name="%metatype.name.Normal_Vehicle_2036"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Normal_Vehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Normal_VehicleEditHelper">
+            <param name="semanticHint" value="2036"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.CooperativeBehavior_2037"
+               name="%metatype.name.CooperativeBehavior_2037"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CooperativeBehavior"
+               edithelper="intelligentMobility.diagram.edit.helpers.CooperativeBehaviorEditHelper">
+            <param name="semanticHint" value="2037"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Action_2039"
+               name="%metatype.name.Action_2039"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Action"
+               edithelper="intelligentMobility.diagram.edit.helpers.ActionEditHelper">
+            <param name="semanticHint" value="2039"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_LaneType_Regulation_4001"
+               name="%metatype.name.Link_LaneType_Regulation_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_LaneType_Regulation"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_LaneType_RegulationEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Driver_Vehicle_4002"
+               name="%metatype.name.Link_Driver_Vehicle_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Driver_Vehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Driver_VehicleEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentBackground_PossibleVehicle_4003"
+               name="%metatype.name.Link_EnvironmentBackground_PossibleVehicle_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentBackground_PossibleVehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentBackground_PossibleVehicleEditHelper">
+            <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Vehicle_Environment_4004"
+               name="%metatype.name.Link_Vehicle_Environment_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Vehicle_Environment"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Vehicle_EnvironmentEditHelper">
+            <param name="semanticHint" value="4004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_NormalVehicle_SafetyRequirements_4005"
+               name="%metatype.name.Link_NormalVehicle_SafetyRequirements_4005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_NormalVehicle_SafetyRequirements"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_NormalVehicle_SafetyRequirementsEditHelper">
+            <param name="semanticHint" value="4005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_DriverProfile_DriverPreference_4006"
+               name="%metatype.name.Link_DriverProfile_DriverPreference_4006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_DriverProfile_DriverPreference"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_DriverProfile_DriverPreferenceEditHelper">
+            <param name="semanticHint" value="4006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Collision_Obstruction_4007"
+               name="%metatype.name.Link_Collision_Obstruction_4007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Collision_Obstruction"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Collision_ObstructionEditHelper">
+            <param name="semanticHint" value="4007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Platoon_FollowingVehicle_4008"
+               name="%metatype.name.Link_Platoon_FollowingVehicle_4008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Platoon_FollowingVehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Platoon_FollowingVehicleEditHelper">
+            <param name="semanticHint" value="4008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_DriverPreference_EnvironmentCondition_4009"
+               name="%metatype.name.Link_DriverPreference_EnvironmentCondition_4009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_DriverPreference_EnvironmentCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_DriverPreference_EnvironmentConditionEditHelper">
+            <param name="semanticHint" value="4009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_AbnormalBehaviour_Action_4010"
+               name="%metatype.name.Link_AbnormalBehaviour_Action_4010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_AbnormalBehaviour_Action"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_AbnormalBehaviour_ActionEditHelper">
+            <param name="semanticHint" value="4010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Following_Forward_4011"
+               name="%metatype.name.Link_Following_Forward_4011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Following_Forward"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Following_ForwardEditHelper">
+            <param name="semanticHint" value="4011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_LaneType_4012"
+               name="%metatype.name.Link_EnvironmentCondition_LaneType_4012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentCondition_LaneType"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentCondition_LaneTypeEditHelper">
+            <param name="semanticHint" value="4012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_VehicleConfiguration_VehicleType_4013"
+               name="%metatype.name.Link_VehicleConfiguration_VehicleType_4013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_VehicleConfiguration_VehicleType"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_VehicleConfiguration_VehicleTypeEditHelper">
+            <param name="semanticHint" value="4013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Platoon_LeadingVehicle_4014"
+               name="%metatype.name.Link_Platoon_LeadingVehicle_4014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Platoon_LeadingVehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Platoon_LeadingVehicleEditHelper">
+            <param name="semanticHint" value="4014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Driver_Environment_4015"
+               name="%metatype.name.Link_Driver_Environment_4015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Driver_Environment"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Driver_EnvironmentEditHelper">
+            <param name="semanticHint" value="4015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_LaneChanging_Turn_4016"
+               name="%metatype.name.Link_LaneChanging_Turn_4016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_LaneChanging_Turn"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_LaneChanging_TurnEditHelper">
+            <param name="semanticHint" value="4016"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_TrafficCondition_4017"
+               name="%metatype.name.Link_EnvironmentCondition_TrafficCondition_4017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentCondition_TrafficCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentCondition_TrafficConditionEditHelper">
+            <param name="semanticHint" value="4017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Intersection_TrafficLight_4018"
+               name="%metatype.name.Link_Intersection_TrafficLight_4018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Intersection_TrafficLight"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Intersection_TrafficLightEditHelper">
+            <param name="semanticHint" value="4018"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Following_MinGap_4019"
+               name="%metatype.name.Link_Following_MinGap_4019"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Following_MinGap"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Following_MinGapEditHelper">
+            <param name="semanticHint" value="4019"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_NormalBehaviour_LaneChanging_4020"
+               name="%metatype.name.Link_NormalBehaviour_LaneChanging_4020"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_NormalBehaviour_LaneChanging"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_NormalBehaviour_LaneChangingEditHelper">
+            <param name="semanticHint" value="4020"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_SafetyRequirement_Regulation_4021"
+               name="%metatype.name.Link_SafetyRequirement_Regulation_4021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_SafetyRequirement_Regulation"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_SafetyRequirement_RegulationEditHelper">
+            <param name="semanticHint" value="4021"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_DriverPreference_DrivingBehaviour_4022"
+               name="%metatype.name.Link_DriverPreference_DrivingBehaviour_4022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_DriverPreference_DrivingBehaviour"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_DriverPreference_DrivingBehaviourEditHelper">
+            <param name="semanticHint" value="4022"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_FollowingVehicle_FrontVehicle_4023"
+               name="%metatype.name.Link_FollowingVehicle_FrontVehicle_4023"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_FollowingVehicle_FrontVehicle"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_FollowingVehicle_FrontVehicleEditHelper">
+            <param name="semanticHint" value="4023"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_DriverPreference_DriverEmotion_4024"
+               name="%metatype.name.Link_DriverPreference_DriverEmotion_4024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_DriverPreference_DriverEmotion"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_DriverPreference_DriverEmotionEditHelper">
+            <param name="semanticHint" value="4024"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentBackground_EnvironmentCondition_4025"
+               name="%metatype.name.Link_EnvironmentBackground_EnvironmentCondition_4025"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentBackground_EnvironmentCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentBackground_EnvironmentConditionEditHelper">
+            <param name="semanticHint" value="4025"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_Weather_4026"
+               name="%metatype.name.Link_EnvironmentCondition_Weather_4026"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentCondition_Weather"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentCondition_WeatherEditHelper">
+            <param name="semanticHint" value="4026"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_SpecialCondition_4027"
+               name="%metatype.name.Link_EnvironmentCondition_SpecialCondition_4027"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentCondition_SpecialCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentCondition_SpecialConditionEditHelper">
+            <param name="semanticHint" value="4027"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_SpecialCondition_Intersection_4028"
+               name="%metatype.name.Link_SpecialCondition_Intersection_4028"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_SpecialCondition_Intersection"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_SpecialCondition_IntersectionEditHelper">
+            <param name="semanticHint" value="4028"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Following_Backward_4029"
+               name="%metatype.name.Link_Following_Backward_4029"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Following_Backward"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Following_BackwardEditHelper">
+            <param name="semanticHint" value="4029"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_Regulations_4030"
+               name="%metatype.name.Link_EnvironmentCondition_Regulations_4030"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_EnvironmentCondition_Regulations"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_EnvironmentCondition_RegulationsEditHelper">
+            <param name="semanticHint" value="4030"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_DrivingBehaviour_NormalBehaviour_4031"
+               name="%metatype.name.Link_DrivingBehaviour_NormalBehaviour_4031"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_DrivingBehaviour_NormalBehaviour"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_DrivingBehaviour_NormalBehaviourEditHelper">
+            <param name="semanticHint" value="4031"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_LaneChanging_EnvironmentCondition_4032"
+               name="%metatype.name.Link_LaneChanging_EnvironmentCondition_4032"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_LaneChanging_EnvironmentCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_LaneChanging_EnvironmentConditionEditHelper">
+            <param name="semanticHint" value="4032"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_LaneChanging_GapAcceptance_4033"
+               name="%metatype.name.Link_LaneChanging_GapAcceptance_4033"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_LaneChanging_GapAcceptance"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_LaneChanging_GapAcceptanceEditHelper">
+            <param name="semanticHint" value="4033"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_NormalBehaviour_Following_4034"
+               name="%metatype.name.Link_NormalBehaviour_Following_4034"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_NormalBehaviour_Following"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_NormalBehaviour_FollowingEditHelper">
+            <param name="semanticHint" value="4034"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Infrastructure_VehicleConfiguration_4035"
+               name="%metatype.name.Link_Infrastructure_VehicleConfiguration_4035"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Infrastructure_VehicleConfiguration"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Infrastructure_VehicleConfigurationEditHelper">
+            <param name="semanticHint" value="4035"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_CommunicationInterface_VehicleConfiguration_4036"
+               name="%metatype.name.Link_CommunicationInterface_VehicleConfiguration_4036"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_CommunicationInterface_VehicleConfiguration"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_CommunicationInterface_VehicleConfigurationEditHelper">
+            <param name="semanticHint" value="4036"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Goal_DrivingBehaviour_4037"
+               name="%metatype.name.Link_Goal_DrivingBehaviour_4037"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Goal_DrivingBehaviour"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Goal_DrivingBehaviourEditHelper">
+            <param name="semanticHint" value="4037"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_CooperativeBehaviour_CommunicationInterface_4038"
+               name="%metatype.name.Link_CooperativeBehaviour_CommunicationInterface_4038"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_CooperativeBehaviour_CommunicationInterface"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_CooperativeBehaviour_CommunicationInterfaceEditHelper">
+            <param name="semanticHint" value="4038"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_CommunicationInterface_Infrastructure_4039"
+               name="%metatype.name.Link_CommunicationInterface_Infrastructure_4039"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_CommunicationInterface_Infrastructure"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_CommunicationInterface_InfrastructureEditHelper">
+            <param name="semanticHint" value="4039"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_CooperativeBehaviour_VehicleConfiguration_4040"
+               name="%metatype.name.Link_CooperativeBehaviour_VehicleConfiguration_4040"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_CooperativeBehaviour_VehicleConfiguration"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_CooperativeBehaviour_VehicleConfigurationEditHelper">
+            <param name="semanticHint" value="4040"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_TrafficSituation_EnvironmentCondition_4041"
+               name="%metatype.name.Link_TrafficSituation_EnvironmentCondition_4041"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_TrafficSituation_EnvironmentCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_TrafficSituation_EnvironmentConditionEditHelper">
+            <param name="semanticHint" value="4041"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Collision_SpecialCondition_4042"
+               name="%metatype.name.Link_Collision_SpecialCondition_4042"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Collision_SpecialCondition"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Collision_SpecialConditionEditHelper">
+            <param name="semanticHint" value="4042"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Following_LaneChanging_4043"
+               name="%metatype.name.Link_Following_LaneChanging_4043"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Following_LaneChanging"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Following_LaneChangingEditHelper">
+            <param name="semanticHint" value="4043"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Action_Backward_4044"
+               name="%metatype.name.Link_Action_Backward_4044"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Action_Backward"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Action_BackwardEditHelper">
+            <param name="semanticHint" value="4044"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Action_Forward_4045"
+               name="%metatype.name.Link_Action_Forward_4045"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Action_Forward"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Action_ForwardEditHelper">
+            <param name="semanticHint" value="4045"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_Action_Turn_4046"
+               name="%metatype.name.Link_Action_Turn_4046"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_Action_Turn"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_Action_TurnEditHelper">
+            <param name="semanticHint" value="4046"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/intelligentMobility">
+         <metamodelType
+               id="DMB_ExtendedMetamodel.diagram.Link_KnowledgeAndSkill_DriverPreference_4047"
+               name="%metatype.name.Link_KnowledgeAndSkill_DriverPreference_4047"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Link_KnowledgeAndSkill_DriverPreference"
+               edithelper="intelligentMobility.diagram.edit.helpers.Link_KnowledgeAndSkill_DriverPreferenceEditHelper">
+            <param name="semanticHint" value="4047"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="DMB_ExtendedMetamodel.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="DMB_ExtendedMetamodel.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="DMB_ExtendedMetamodel.diagram.TypeContext">
+         <elementType ref="DMB_ExtendedMetamodel.diagram.MobilitySystem_1000"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Special_Condition_2001"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Weather_2002"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Traffic_Light_2003"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Knowledge_and_Skill_2004"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Obstruction_2005"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Driver_Preference_2006"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Intersection_2007"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Vehicle_Configuration_2008"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Environment_Condition_2009"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Platoon_2010"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Forward_2011"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Lane_Type_2012"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Environment_Background_2013"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Turn_2014"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.LaneChanging_2015"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Driver_Emotion_2016"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Collision_2017"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.PossibleVehicle_2018"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Following_2019"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.GapAcceptance_2020"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Leading_Vehicle_2021"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Backward_2022"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Regulation_2023"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Traffic_Situation_2024"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Driver_Profile_2025"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Safety_Requirement_2026"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Driving_Behaviour_2027"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Following_Vehicle_2028"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Abnormal_Behaviour_2029"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Backward_2030"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Intersection_2031"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.CommunicationInterface_2032"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Goal_2033"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Normal_Behaviour_2034"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Platoon_2035"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Normal_Vehicle_2036"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.CooperativeBehavior_2037"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Action_2039"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_LaneType_Regulation_4001"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Driver_Vehicle_4002"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentBackground_PossibleVehicle_4003"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Vehicle_Environment_4004"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_NormalVehicle_SafetyRequirements_4005"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_DriverProfile_DriverPreference_4006"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Collision_Obstruction_4007"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Platoon_FollowingVehicle_4008"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_DriverPreference_EnvironmentCondition_4009"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_AbnormalBehaviour_Action_4010"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Following_Forward_4011"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_LaneType_4012"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_VehicleConfiguration_VehicleType_4013"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Platoon_LeadingVehicle_4014"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Driver_Environment_4015"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_LaneChanging_Turn_4016"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_TrafficCondition_4017"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Intersection_TrafficLight_4018"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Following_MinGap_4019"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_NormalBehaviour_LaneChanging_4020"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_SafetyRequirement_Regulation_4021"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_DriverPreference_DrivingBehaviour_4022"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_FollowingVehicle_FrontVehicle_4023"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_DriverPreference_DriverEmotion_4024"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentBackground_EnvironmentCondition_4025"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_Weather_4026"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_SpecialCondition_4027"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_SpecialCondition_Intersection_4028"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Following_Backward_4029"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_EnvironmentCondition_Regulations_4030"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_DrivingBehaviour_NormalBehaviour_4031"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_LaneChanging_EnvironmentCondition_4032"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_LaneChanging_GapAcceptance_4033"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_NormalBehaviour_Following_4034"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Infrastructure_VehicleConfiguration_4035"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_CommunicationInterface_VehicleConfiguration_4036"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Goal_DrivingBehaviour_4037"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_CooperativeBehaviour_CommunicationInterface_4038"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_CommunicationInterface_Infrastructure_4039"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_CooperativeBehaviour_VehicleConfiguration_4040"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_TrafficSituation_EnvironmentCondition_4041"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Collision_SpecialCondition_4042"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Following_LaneChanging_4043"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Action_Backward_4044"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Action_Forward_4045"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_Action_Turn_4046"/>
+         <elementType ref="DMB_ExtendedMetamodel.diagram.Link_KnowledgeAndSkill_DriverPreference_4047"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="DMB_ExtendedMetamodel.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="DMB_ExtendedMetamodel.diagram"
+           properties="isURIEditorInput"
+           class="intelligentMobility.diagram.part.DrivingBehaviourMetamodelUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="DMB_ExtendedMetamodel.diagram.resourceContent"/>
+			<contentExtension pattern="DMB_ExtendedMetamodel.diagram.domainResourceContent"/>
+            <contentExtension pattern="DMB_ExtendedMetamodel.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="DMB_ExtendedMetamodel.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="DMB_ExtendedMetamodel.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelNavigatorContentProvider" 
+            labelProvider="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelNavigatorLabelProvider"
+            icon="icons/obj16/IntelligentMobilityDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="intelligentmobility_diagram"/>
+               </and>
+               <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="DMB_ExtendedMetamodel.diagram.navigatorSorter" 
+               class="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="intelligentmobility_diagram"/>
+                  </and>
+                  <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="DMB_ExtendedMetamodel.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelDomainNavigatorContentProvider" 
+            labelProvider="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelDomainNavigatorLabelProvider"
+            icon="icons/obj16/IntelligentMobilityDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="intelligentmobility"/>
+               </and>
+               <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="DMB_ExtendedMetamodel.diagram.navigatorActionProvider"
+            class="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="DMB_ExtendedMetamodel.diagram.navigatorLinkHelper"
+            class="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="DMB_ExtendedMetamodel.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="intelligentMobility.diagram.navigator.DrivingBehaviourMetamodelAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="intelligentMobility.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="intelligentMobility.diagram.updateDiagram"
+         contextId="intelligentMobility.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="DMB_ExtendedMetamodel.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="intelligentMobility.diagram.edit.parts.MobilitySystemEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="DMB_ExtendedMetamodel.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="intelligentMobility.diagram.part.DrivingBehaviourMetamodelDiagramEditorID"
+         defaultHandler="intelligentMobility.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

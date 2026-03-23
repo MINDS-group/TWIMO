@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="drivingBehaviourMetamodelPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="drivingBehaviourMetamodel">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Driver_Profile"
+          description="Create new Driver_Profile">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Vehicle_Configuration"
+          description="Create new Vehicle_Configuration">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Environment_Background"
+          description="Create new Environment_Background">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Driver_Preference"
+          description="Create new Driver_Preference">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Driver_PreferenceEnvironment_condition"
+          description="Create new Driver_PreferenceEnvironment_condition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Knowledge_and_Skill"
+          description="Create new Knowledge_and_Skill">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Driver_Emotion"
+          description="Create new Driver_Emotion">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Driving_Behaviour"
+          description="Create new Driving_Behaviour">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Normal_Behaviour"
+          description="Create new Normal_Behaviour">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Following"
+          description="Create new Following">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="FollowingMinGap"
+          description="Create new FollowingMinGap">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="LaneChanging"
+          description="Create new LaneChanging">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="LaneChangingEnvironment_condition"
+          description="Create new LaneChangingEnvironment_condition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Abnormal_Behaviour"
+          description="Create new Abnormal_Behaviour">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Forward"
+          description="Create new Forward">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Backward"
+          description="Create new Backward">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Turn"
+          description="Create new Turn">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="GapAcceptance"
+          description="Create new GapAcceptance">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Platoon"
+          description="Create new Platoon">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Normal_Vehicle"
+          description="Create new Normal_Vehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Leading_Vehicle"
+          description="Create new Leading_Vehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Following_Vehicle"
+          description="Create new Following_Vehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Following_VehicleFrontvehicle"
+          description="Create new Following_VehicleFrontvehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="PossibleVehicle"
+          description="Create new PossibleVehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Environment_Condition"
+          description="Create new Environment_Condition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Lane_Type"
+          description="Create new Lane_Type">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Regulation"
+          description="Create new Regulation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Safety_Requirement"
+          description="Create new Safety_Requirement">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Weather"
+          description="Create new Weather">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Traffic_Situation"
+          description="Create new Traffic_Situation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Special_Condition"
+          description="Create new Special_Condition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Collision"
+          description="Create new Collision">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Intersection"
+          description="Create new Intersection">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Obstruction"
+          description="Create new Obstruction">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Traffic_Light"
+          description="Create new Traffic_Light">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ExceptionCondition"
+          description="Create new ExceptionCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Driver_Environment"
+          description="Create new Link_Driver_Environment">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Driver_Vehicle"
+          description="Create new Link_Driver_Vehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Vehicle_Environment"
+          description="Create new Link_Vehicle_Environment">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_DriverProfile_DriverPreference"
+          description="Create new Link_DriverProfile_DriverPreference">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_VehicleConfiguration_VehicleType"
+          description="Create new Link_VehicleConfiguration_VehicleType">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentBackground_PossibleVehicle"
+          description="Create new Link_EnvironmentBackground_PossibleVehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentBackground_EnvironmentCondition"
+          description="Create new Link_EnvironmentBackground_EnvironmentCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_DriverPreference_DriverEmotion"
+          description="Create new Link_DriverPreference_DriverEmotion">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_DriverPreference_DrivingBehaviour"
+          description="Create new Link_DriverPreference_DrivingBehaviour">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_DriverPreference_EnvironmentCondition"
+          description="Create new Link_DriverPreference_EnvironmentCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_DrivingBehaviour_NormalBehaviour"
+          description="Create new Link_DrivingBehaviour_NormalBehaviour">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_NormalBehaviour_Following"
+          description="Create new Link_NormalBehaviour_Following">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_NormalBehaviour_LaneChanging"
+          description="Create new Link_NormalBehaviour_LaneChanging">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Following_MinGap"
+          description="Create new Link_Following_MinGap">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Following_Forward"
+          description="Create new Link_Following_Forward">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Following_Backward"
+          description="Create new Link_Following_Backward">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_LaneChanging_Turn"
+          description="Create new Link_LaneChanging_Turn">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_LaneChanging_GapAcceptance"
+          description="Create new Link_LaneChanging_GapAcceptance">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_LaneChanging_EnvironmentCondition"
+          description="Create new Link_LaneChanging_EnvironmentCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_AbnormalBehaviour_Action"
+          description="Create new Link_AbnormalBehaviour_Action">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Platoon_LeadingVehicle"
+          description="Create new Link_Platoon_LeadingVehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Platoon_FollowingVehicle"
+          description="Create new Link_Platoon_FollowingVehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_NormalVehicle_SafetyRequirements"
+          description="Create new Link_NormalVehicle_SafetyRequirements">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_FollowingVehicle_FrontVehicle"
+          description="Create new Link_FollowingVehicle_FrontVehicle">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentCondition_LaneType"
+          description="Create new Link_EnvironmentCondition_LaneType">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentCondition_Regulations"
+          description="Create new Link_EnvironmentCondition_Regulations">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentCondition_Weather"
+          description="Create new Link_EnvironmentCondition_Weather">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentCondition_TrafficCondition"
+          description="Create new Link_EnvironmentCondition_TrafficCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_EnvironmentCondition_SpecialCondition"
+          description="Create new Link_EnvironmentCondition_SpecialCondition">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_LaneType_Regulation"
+          description="Create new Link_LaneType_Regulation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_SafetyRequirement_Regulation"
+          description="Create new Link_SafetyRequirement_Regulation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_SpecialCondition_Intersection"
+          description="Create new Link_SpecialCondition_Intersection">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Collision_Obstruction"
+          description="Create new Link_Collision_Obstruction">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Intersection_TrafficLight"
+          description="Create new Link_Intersection_TrafficLight">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CommunicationInterface"
+          description="Create new CommunicationInterface"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Goal"
+          description="Create new Goal"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CooperativeBehaviour"
+          description="Create new CooperativeBehaviour"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Infrastructure_VehicleConfiguration"
+          description="Create new Link_Infrastructure_VehicleConfiguration"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_CommunicationInterface_VehicleConfiguration"
+          description="Create new Link_CommunicationInterface_VehicleConfiguration"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Goal_DrivingBehaviour"
+          description="Create new Link_Goal_DrivingBehaviour"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_CooperativeBehaviour_CommunicationInterface"
+          description="Create new Link_CooperativeBehaviour_CommunicationInterface"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_CommunicationInterface_Infrastructure"
+          description="Create new Link_CommunicationInterface_Infrastructure"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_CooperativeBehaviour_VehicleConfiguration"
+          description="Create new Link_CooperativeBehaviour_VehicleConfiguration"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Action"
+          description="Create new Action"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_TrafficSituation_EnvironmentCondition"
+          description="Create new Link_TrafficSituation_EnvironmentCondition"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Collision_SpecialCondition"
+          description="Create new Link_Collision_SpecialCondition"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Following_LaneChanging"
+          description="Create new Link_Following_LaneChanging"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Action_Backward"
+          description="Create new Link_Action_Backward"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Action_Forward"
+          description="Create new Link_Action_Forward"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_Action_Turn"
+          description="Create new Link_Action_Turn"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Link_KnowledgeAndSkill_DriverPreference"
+          description="Create new Link_KnowledgeAndSkill_DriverPreference"/>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

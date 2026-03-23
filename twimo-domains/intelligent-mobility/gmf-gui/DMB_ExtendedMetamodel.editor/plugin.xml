@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated drivingBehaviourMetamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="intelligentMobility.presentation.IntelligentMobilityModelWizardID"
+            name="%_UI_IntelligentMobilityModelWizard_label"
+            class="intelligentMobility.presentation.IntelligentMobilityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/IntelligentMobilityModelFile.gif">
+         <description>%_UI_IntelligentMobilityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated drivingBehaviourMetamodel -->
+      <editor
+            id="intelligentMobility.presentation.IntelligentMobilityEditorID"
+            name="%_UI_IntelligentMobilityEditor_label"
+            icon="icons/full/obj16/IntelligentMobilityModelFile.gif"
+            extensions="intelligentmobility"
+            class="intelligentMobility.presentation.IntelligentMobilityEditor"
+            contributorClass="intelligentMobility.presentation.IntelligentMobilityActionBarContributor">
+      </editor>
+   </extension>
+</plugin>
